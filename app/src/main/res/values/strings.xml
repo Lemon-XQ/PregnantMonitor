@@ -3,10 +3,20 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
     <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
     <string name="_btn_send">发送</string>
+    <string name="Setting">设置</string>
+    <string name="TaskList">任务列表</string>
+    <string name="Analyze">统计</string>
+    <string name="About">关于</string>
+    <string name="TraningPlan">锻炼计划</string>
+    <string name="Target">每日目标</string>
+    <string name="Remind">提醒</string>
+    <string name="RemindTime">提醒时间</string>
+    <string name="Save">保存</string>
+    <string name="HistoryRecord">历史记录</string>
+    <string name="Desc"> </string>
+
 
     <string-array name="welcome_trips">
         <item>主人，奴婢在此等候多时了</item>

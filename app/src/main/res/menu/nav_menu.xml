@@ -4,20 +4,21 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_analyze"
+            android:layout_width="match_parent"
             android:icon="@drawable/icon_analyze"
-            android:title="Analyze" />
+            android:title="@string/Analyze" />
         <item
             android:id="@+id/nav_task"
             android:icon="@drawable/icon_task"
-            android:title="Task List" />
+            android:title="@string/Task_List" />
         <item
             android:id="@+id/nav_setting"
             android:icon="@drawable/icon_setting"
-            android:title="Setting" />
+            android:title="@string/Setting" />
         <item
             android:id="@+id/nav_info"
             android:icon="@drawable/icon_info"
-            android:title="About" />
+            android:title="@string/About" />
     </group>
 
 </menu>
