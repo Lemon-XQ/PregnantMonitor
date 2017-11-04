@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
+import android.widget.Switch;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -35,7 +35,7 @@ public class SetPlanActivity extends AppCompatActivity implements View.OnClickLi
     private ImageView iv_left;
     private ImageView iv_right;
     private EditText tv_step_number;
-    private CheckBox cb_remind;
+    private Switch cb_remind;
     private TextView tv_remind_time;
     private Button btn_save;
     private String walk_qty;
@@ -47,7 +47,7 @@ public class SetPlanActivity extends AppCompatActivity implements View.OnClickLi
         iv_left = (ImageView) findViewById(R.id.iv_left);
         iv_right = (ImageView) findViewById(R.id.iv_right);
         tv_step_number = (EditText) findViewById(R.id.tv_step_number);
-        cb_remind = (CheckBox) findViewById(R.id.cb_remind);
+        cb_remind = (Switch) findViewById(R.id.cb_remind);
         tv_remind_time = (TextView) findViewById(R.id.tv_remind_time);
         btn_save = (Button) findViewById(R.id.btn_save);
     }

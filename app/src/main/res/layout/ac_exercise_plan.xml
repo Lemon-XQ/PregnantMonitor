@@ -31,34 +31,17 @@
                     android:visibility="visible" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:background="#00000000"
-                    android:gravity="center_horizontal"
-                    android:paddingLeft="10px"
-                    android:paddingRight="10px"
-                    android:text="锻炼计划"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="@string/TraningPlan"
                     android:textColor="#ffffff"
                     android:textSize="20sp" />
 
-
-                <ImageView
-                    android:id="@+id/iv_right"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"
-                    android:layout_gravity="center"
-                    android:ellipsize="end"
-                    android:gravity="center"
-                    android:maxEms="4"
-                    android:maxWidth="80px"
-                    android:minEms="2"
-                    android:visibility="invisible"
-                    android:paddingLeft="40px"
-                    android:paddingRight="40px"
-                    android:singleLine="true"/>
 
             </LinearLayout>
 
@@ -71,7 +54,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30px"
+            android:layout_marginTop="30dp"
             android:background="#ffffff"
             android:gravity="center_vertical"
             android:orientation="vertical">
@@ -87,7 +70,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
-                    android:text="每日锻炼步数"
+                    android:text="@string/Target"
                     android:textColor="#000000"
                     android:textSize="18sp" />
 
@@ -97,7 +80,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="#ffffff"
-                    android:gravity="center_vertical|right"
+                    android:gravity="center_vertical|end"
                     android:text="7000"
                     android:textColor="#000000"
                     android:textSize="18sp" />
@@ -114,25 +97,13 @@
                 android:orientation="horizontal"
                 android:padding="15dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <Switch
+                    android:id="@+id/cb_remind"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:text="提醒"
-                    android:textColor="#000000"
+                    android:text="@string/Remind"
                     android:textSize="18sp" />
-
-                <CheckBox
-                    android:id="@+id/cb_remind"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/cb_plan_selector"
-                    android:button="@null"
-                    android:checked="true"
-                    android:gravity="center_vertical"
-                    android:textColor="#000000"
-                    android:textSize="50px" />
             </LinearLayout>
 
             <ImageView
@@ -147,11 +118,11 @@
                 android:padding="15dp">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
-                    android:text="提醒时间"
+                    android:text="@string/RemindTime"
                     android:textColor="#000000"
                     android:textSize="18sp" />
 
@@ -159,8 +130,8 @@
                     android:id="@+id/tv_remind_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical|right"
-                    android:minWidth="300px"
+                    android:gravity="center_vertical|end"
+                    android:minWidth="30dp"
                     android:text="21:00"
                     android:textColor="#000000"
                     android:textSize="18sp" />
@@ -174,16 +145,17 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="50dp"
             android:background="@mipmap/btn_submit_bg"
-            android:text="保存"
+            android:text="@string/Save"
             android:textColor="#ffffff"
-            android:textSize="18dp" />
+            android:textSize="18sp" />
 
         <WebView
             android:id="@+id/wv"
             android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100px">
+            android:layout_marginTop="100dp">
 
         </WebView>
-    </LinearLayout>
+
+</LinearLayout>

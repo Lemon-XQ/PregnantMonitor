@@ -18,16 +18,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="LemonXQ"
+        android:layout_alignParentStart="true"
+        android:text="laplace"
         android:textColor="#fff"
-        android:textSize="14sp"/>
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/mail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/username"
-        android:text="lemonxq1997@gmail.com"
+        android:text="laplacence@gmail.com"
         android:textColor="#fff"
         android:textSize="14sp"/>
 </RelativeLayout>
