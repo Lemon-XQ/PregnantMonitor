@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,19 +11,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true">
         <!--android:background="@mipmap/step_bg"-->
 
         <TextView
             android:id="@+id/tv_data"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
-            android:layout_marginRight="40dp"
+            android:layout_marginEnd="40dp"
             android:layout_marginTop="40dp"
-            android:drawableLeft="@mipmap/home_statistical"
+            android:drawableStart="@mipmap/home_statistical"
             android:drawablePadding="10dp"
             android:gravity="center_vertical"
             android:text="查看历史步数"
@@ -41,11 +42,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@+id/cc"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginLeft="40dp"
+            android:layout_alignParentEnd="true"
             android:layout_marginStart="40dp"
-            android:drawableLeft="@mipmap/home_question_mark"
+            android:layout_marginEnd="40dp"
+            android:drawableStart="@mipmap/home_question_mark"
             android:drawablePadding="10dp"
             android:gravity="center_vertical"
             android:text="设置锻炼计划"
