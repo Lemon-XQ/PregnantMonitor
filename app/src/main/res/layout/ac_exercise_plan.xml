@@ -36,29 +36,12 @@
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:background="#00000000"
-                    android:gravity="center_horizontal"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:text="@string/TraningPlan"
                     android:textColor="#ffffff"
                     android:textSize="20sp" />
 
-
-                <ImageView
-                    android:id="@+id/iv_right"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"
-                    android:layout_gravity="center"
-                    android:ellipsize="end"
-                    android:gravity="center"
-                    android:maxEms="4"
-                    android:maxWidth="80dp"
-                    android:minEms="2"
-                    android:visibility="invisible"
-                    android:paddingLeft="40dp"
-                    android:paddingRight="40dp"
-                    android:singleLine="true"/>
 
             </LinearLayout>
 
@@ -114,25 +97,13 @@
                 android:orientation="horizontal"
                 android:padding="15dp">
 
-                <TextView
+                <Switch
+                    android:id="@+id/cb_remind"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
                     android:text="@string/Remind"
-                    android:textColor="#000000"
                     android:textSize="18sp" />
-
-                <CheckBox
-                    android:id="@+id/cb_remind"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/cb_plan_selector"
-                    android:button="@null"
-                    android:checked="true"
-                    android:gravity="center_vertical"
-                    android:textColor="#000000"
-                    android:textSize="25sp" />
             </LinearLayout>
 
             <ImageView
@@ -186,4 +157,5 @@
             android:layout_marginTop="100dp">
 
         </WebView>
-    </LinearLayout>
+
+</LinearLayout>

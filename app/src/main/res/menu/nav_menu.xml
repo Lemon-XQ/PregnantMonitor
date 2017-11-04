@@ -10,7 +10,7 @@
         <item
             android:id="@+id/nav_task"
             android:icon="@drawable/icon_task"
-            android:title="@string/Task_List" />
+            android:title="@string/TaskList" />
         <item
             android:id="@+id/nav_setting"
             android:icon="@drawable/icon_setting"
