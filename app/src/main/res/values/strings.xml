@@ -16,7 +16,9 @@
     <string name="Save">保存</string>
     <string name="HistoryRecord">历史记录</string>
     <string name="Desc"> </string>
-
+    <string name="indroduce">indroduce</string>
+    <string name="title">标题</string>
+    <string name="summary">内容</string>
 
     <string-array name="welcome_trips">
         <item>主人，奴婢在此等候多时了</item>
