@@ -25,34 +25,16 @@
             android:visibility="visible" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
             android:background="#00000000"
-            android:gravity="center_horizontal"
-            android:paddingLeft="10px"
-            android:paddingRight="10px"
-            android:text="历史记录"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="@string/HistoryRecord"
             android:textColor="#ffffff"
             android:textSize="18sp" />
-
-
-        <ImageView
-            android:id="@+id/iv_right"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:layout_gravity="center"
-            android:ellipsize="end"
-            android:gravity="center"
-            android:maxEms="4"
-            android:maxWidth="80px"
-            android:minEms="2"
-            android:paddingLeft="40px"
-            android:paddingRight="40px"
-            android:singleLine="true"
-            android:visibility="invisible" />
 
     </LinearLayout>
 

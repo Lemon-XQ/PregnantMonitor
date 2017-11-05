@@ -13,37 +13,37 @@ import android.view.View;
 import com.lemonxq_laplace.pregnantmonitor.R;
 
 
-/**
+/*
  * Created by DylanAndroid on 2016/5/26.
  * 显示步数的圆弧
  */
 public class StepArcView extends View {
 
-    /**
+    /*
      * 圆弧的宽度
      */
     private float borderWidth = dipToPx(14);
-    /**
+    /*
      * 画步数的数值的字体大小
      */
     private float numberTextSize = 0;
-    /**
+    /*
      * 步数
      */
     private String stepNumber = "0";
-    /**
+    /*
      * 开始绘制圆弧的角度
      */
     private float startAngle = 135;
-    /**
+    /*
      * 终点对应的角度和起始点对应的角度的夹角
      */
     private float angleLength = 270;
-    /**
+    /*
      * 所要绘制的当前步数的红色圆弧终点到起点的夹角
      */
     private float currentAngleLength = 0;
-    /**
+    /*
      * 动画时长
      */
     private int animationLength = 3000;
@@ -66,22 +66,22 @@ public class StepArcView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        /**中心点的x坐标*/
+        /*中心点的x坐标*/
         float centerX = (getWidth()) / 2;
-        /**指定圆弧的外轮廓矩形区域*/
+        /*指定圆弧的外轮廓矩形区域*/
         RectF rectF = new RectF(0 + borderWidth, borderWidth, 2 * centerX - borderWidth, 2 * centerX - borderWidth);
 
-        /**【第一步】绘制整体的黄色圆弧*/
+        /*【第一步】绘制整体的黄色圆弧*/
         drawArcOut(canvas, rectF);
-        /**【第二步】绘制当前进度的红色圆弧*/
+        /*【第二步】绘制当前进度的红色圆弧*/
         drawArcIn(canvas, rectF);
-        /**【第三步】绘制当前进度的红色数字*/
+        /*【第三步】绘制当前进度的红色数字*/
         drawTextNumber(canvas, centerX);
-        /**【第四步】绘制"步数"的红色数字*/
+        /*【第四步】绘制"步数"的红色数字*/
         drawTextStepString(canvas, centerX);
     }
 
-    /**
+    /*
      * 1.绘制总步数的圆弧
      *
      * @param canvas 画笔
@@ -89,20 +89,20 @@ public class StepArcView extends View {
      */
     private void drawArcOut(Canvas canvas, RectF rectF) {
         Paint paint = new Paint();
-        /** 默认画笔颜色，黄色 */
+        /* 默认画笔颜色，黄色 */
         paint.setColor(getResources().getColor(R.color.grey));
-        /** 结合处为圆弧*/
+        /* 结合处为圆弧*/
         paint.setStrokeJoin(Paint.Join.ROUND);
-        /** 设置画笔的样式 Paint.Cap.Round ,Cap.SQUARE等分别为圆形、方形*/
+        /* 设置画笔的样式 Paint.Cap.Round ,Cap.SQUARE等分别为圆形、方形*/
         paint.setStrokeCap(Paint.Cap.ROUND);
-        /** 设置画笔的填充样式 Paint.Style.FILL  :填充内部;Paint.Style.FILL_AND_STROKE  ：填充内部和描边;  Paint.Style.STROKE  ：仅描边*/
+        /* 设置画笔的填充样式 Paint.Style.FILL  :填充内部;Paint.Style.FILL_AND_STROKE  ：填充内部和描边;  Paint.Style.STROKE  ：仅描边*/
         paint.setStyle(Paint.Style.STROKE);
-        /**抗锯齿功能*/
+        /*抗锯齿功能*/
         paint.setAntiAlias(true);
-        /**设置画笔宽度*/
+        /*设置画笔宽度*/
         paint.setStrokeWidth(borderWidth);
 
-        /**绘制圆弧的方法
+        /*绘制圆弧的方法
          * drawArc(RectF oval, float startAngle, float sweepAngle, boolean useCenter, Paint paint)//画弧，
          参数一是RectF对象，一个矩形区域椭圆形的界限用于定义在形状、大小、电弧，
          参数二是起始角(度)在电弧的开始，圆弧起始角度，单位为度。
@@ -114,7 +114,7 @@ public class StepArcView extends View {
 
     }
 
-    /**
+    /*
      * 2.绘制当前步数的圆弧
      */
     private void drawArcIn(Canvas canvas, RectF rectF) {
@@ -128,7 +128,7 @@ public class StepArcView extends View {
         canvas.drawArc(rectF, startAngle, currentAngleLength, false, paintCurrent);
     }
 
-    /**
+    /*
      * 3.圆环中心的步数
      */
     private void drawTextNumber(Canvas canvas, float centerX) {
@@ -145,7 +145,7 @@ public class StepArcView extends View {
 
     }
 
-    /**
+    /*
      * 4.圆环中心[步数]的文字
      */
     private void drawTextStepString(Canvas canvas, float centerX) {
@@ -160,7 +160,7 @@ public class StepArcView extends View {
         canvas.drawText(stepString, centerX, getHeight() / 2 + bounds.height() + getFontHeight(numberTextSize), vTextPaint);
     }
 
-    /**
+    /*
      * 获取当前步数的数字的高度
      *
      * @param fontSize 字体大小
@@ -174,7 +174,7 @@ public class StepArcView extends View {
         return bounds_Number.height();
     }
 
-    /**
+    /*
      * dip 转换成px
      *
      * @param dip
@@ -186,35 +186,35 @@ public class StepArcView extends View {
         return (int) (dip * density + 0.5f * (dip >= 0 ? 1 : -1));
     }
 
-    /**
+    /*
      * 所走的步数进度
      *
      * @param totalStepNum  设置的步数
      * @param currentCounts 所走步数
      */
     public void setCurrentCount(int totalStepNum, int currentCounts) {
-        /**如果当前走的步数超过总步数则圆弧还是270度，不能成为园*/
+        /*如果当前走的步数超过总步数则圆弧还是270度，不能成为园*/
         if (currentCounts > totalStepNum) {
             currentCounts = totalStepNum;
         }
 
-        /**上次所走步数占用总共步数的百分比*/
+        /*上次所走步数占用总共步数的百分比*/
         float scalePrevious = (float) Integer.valueOf(stepNumber) / totalStepNum;
-        /**换算成弧度最后要到达的角度的长度-->弧长*/
+        /*换算成弧度最后要到达的角度的长度-->弧长*/
         float previousAngleLength = scalePrevious * angleLength;
 
-        /**所走步数占用总共步数的百分比*/
+        /*所走步数占用总共步数的百分比*/
         float scale = (float) currentCounts / totalStepNum;
-        /**换算成弧度最后要到达的角度的长度-->弧长*/
+        /*换算成弧度最后要到达的角度的长度-->弧长*/
         float currentAngleLength = scale * angleLength;
-        /**开始执行动画*/
+        /*开始执行动画*/
         setAnimation(previousAngleLength, currentAngleLength, animationLength);
 
         stepNumber = String.valueOf(currentCounts);
         setTextSize(currentCounts);
     }
 
-    /**
+    /*
      * 为进度设置动画
      * ValueAnimator是整个属性动画机制当中最核心的一个类，属性动画的运行机制是通过不断地对值进行操作来实现的，
      * 而初始值和结束值之间的动画过渡就是由ValueAnimator这个类来负责计算的。
@@ -233,7 +233,7 @@ public class StepArcView extends View {
         progressAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
-                /**每次在初始值和结束值之间产生的一个平滑过渡的值，逐步去更新进度*/
+                /*每次在初始值和结束值之间产生的一个平滑过渡的值，逐步去更新进度*/
                 currentAngleLength = (float) animation.getAnimatedValue();
                 invalidate();
             }
@@ -241,7 +241,7 @@ public class StepArcView extends View {
         progressAnimator.start();
     }
 
-    /**
+    /*
      * 设置文本大小,防止步数特别大之后放不下，将字体大小动态设置
      *
      * @param num

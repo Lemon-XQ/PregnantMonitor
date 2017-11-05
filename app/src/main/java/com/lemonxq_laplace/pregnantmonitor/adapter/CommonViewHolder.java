@@ -5,16 +5,16 @@ import android.util.SparseArray;
 import android.view.View;
 
 /**
- * Created by yuandl on 2016-10-13.
+ * Created by Laplace on 2017-11-4.
  * 万能的ViewHolder
  *
- * @author
+ * @author Laplace
  */
 public class CommonViewHolder {
     /**
      * @param view 所有缓存View的根View
      * @param id   缓存View的唯一标识
-     * @return
+     * @return 1
      */
     public static <T extends View> T get(View view, int id) {
 
@@ -24,12 +24,12 @@ public class CommonViewHolder {
             viewHolder = new SparseArray<View>();
             view.setTag(viewHolder);//创建集合和根View关联
         }
-        View chidlView = viewHolder.get(id);//获取根View储存在集合中的孩纸
-        if (chidlView == null) {//如果没有改孩纸
-            //找到该孩纸
-            chidlView = view.findViewById(id);
-            viewHolder.put(id, chidlView);//保存到集合
+        View childView = viewHolder.get(id);//获取根View储存在集合中的孩子
+        if (childView == null) {//如果没有改孩子
+            //找到该孩子
+            childView = view.findViewById(id);
+            viewHolder.put(id, childView);//保存到集合
         }
-        return (T) chidlView;
+        return (T) childView;
     }
 }

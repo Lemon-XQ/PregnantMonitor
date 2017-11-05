@@ -15,15 +15,16 @@
         android:layout_height="70dp"
         android:layout_below="@id/tvtime"
         android:padding="10dp"
-        android:src="@drawable/robot" />
+        android:src="@drawable/robot"
+        android:contentDescription="@string/Desc" />
 
     <TextView
         android:id="@+id/tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/tvtime"
-        android:layout_marginRight="50dp"
-        android:layout_toRightOf="@id/iv"
+        android:layout_marginEnd="50dp"
+        android:layout_toEndOf="@id/iv"
         android:background="@drawable/aio_friend_bg_nor_11"
         android:gravity="center" />
 
