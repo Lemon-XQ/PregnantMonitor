@@ -32,9 +32,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-;
-
-
 
 public class StepService extends Service implements SensorEventListener {
     private String TAG = "StepService";
@@ -113,7 +110,6 @@ public class StepService extends Service implements SensorEventListener {
 
     /**
      * 获取当天日期
-     *
      * @return
      */
     private String getTodayDate() {
@@ -338,8 +334,8 @@ public class StepService extends Service implements SensorEventListener {
     }
 
     /**
-     * @获取默认的pendingIntent,为了防止2.3及以下版本报错
-     * @flags属性: 在顶部常驻:Notification.FLAG_ONGOING_EVENT
+     * @pendingIntent,为了防止2.3及以下版本报错
+     * @flags 属性: 在顶部常驻:Notification.FLAG_ONGOING_EVENT
      * 点击去除： Notification.FLAG_AUTO_CANCEL
      */
     public PendingIntent getDefalutIntent(int flags) {
@@ -359,7 +355,6 @@ public class StepService extends Service implements SensorEventListener {
 
         /**
          * 获取当前service对象
-         *
          * @return StepService
          */
         public StepService getService() {
@@ -369,7 +364,6 @@ public class StepService extends Service implements SensorEventListener {
 
     /**
      * 获取当前步数
-     *
      * @return
      */
     public int getStepCount() {

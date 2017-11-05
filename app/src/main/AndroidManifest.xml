@@ -2,13 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.lemonxq_laplace.pregnantmonitor"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="1.0">
 
     <uses-sdk
         android:minSdkVersion="14"
         android:targetSdkVersion="19" />
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
@@ -23,6 +23,11 @@
     <uses-feature
         android:name="android.hardware.sensor.stepdetector"
         android:required="true" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -41,21 +46,21 @@
         <activity android:name=".TwoFragment" />
         <activity android:name=".ToolBar" />
         <activity android:name=".MainActivity" />
-
-        <activity android:name="com.lemonxq_laplace.pregnantmonitor.activity.Main2Activity" />
+        <activity android:name=".activity.Main2Activity" />
         <activity
-            android:name="com.lemonxq_laplace.pregnantmonitor.activity.SetPlanActivity"
+            android:name=".activity.SetPlanActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name="com.lemonxq_laplace.pregnantmonitor.activity.HistoryActivity"
+            android:name=".activity.HistoryActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".Fstep"></activity>
+        <activity android:name=".Fstep" />
 
         <service
             android:name=".step.service.StepService"
             android:priority="1000">
             <intent-filter>
-                <!-- 系统启动完成后会调用-->
+
+                <!-- 系统启动完成后会调用 -->
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.DATE_CHANGED" />
                 <action android:name="android.intent.action.MEDIA_MOUNTED" />
@@ -70,7 +75,8 @@
             android:priority="1000"
             android:process="cn.bluemobi.dylan.step..pedometer.StepsDetectService">
             <intent-filter>
-                <!-- 系统启动完成后会调用-->
+
+                <!-- 系统启动完成后会调用 -->
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.DATE_CHANGED" />
                 <action android:name="android.intent.action.MEDIA_MOUNTED" />
@@ -80,6 +86,10 @@
                 <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
             </intent-filter>
         </service>
+
+        <activity android:name=".SettingActivity"></activity>
+        <activity android:name=".TaskActivity" />
+        <activity android:name=".AnalyzeActivity"/>
     </application>
 
 </manifest>

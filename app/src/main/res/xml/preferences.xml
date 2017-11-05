@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout="@layout/preference_item"
+    android:title="@string/Setting">
+
+    <PreferenceCategory
+        android:layout="@layout/preference_category_widget"
+        android:title="账户设置">
+        <Preference
+            android:key="avatar"
+            android:layout="@layout/preference_item"
+            android:title="我的头像"
+            android:icon="@drawable/icon_avatar"/>
+        <EditTextPreference
+            android:key="username"
+            android:layout="@layout/preference_item"
+            android:title="我的昵称"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:layout="@layout/preference_category_widget"
+        android:title="通用设置">
+        <CheckBoxPreference
+            android:key="messageNotify"
+            android:layout="@layout/preference_item"
+            android:summary="开启后您将收到新消息通知"
+            android:title="消息通知"
+            android:defaultValue="true"/>
+        <CheckBoxPreference
+            android:key="dailyPush"
+            android:layout="@layout/preference_item"
+            android:summary="开启后将每日为您推送精彩文章"
+            android:title="开启每日推送"
+            android:defaultValue="true"/>
+        <Preference
+            android:layout="@layout/preference_item"
+            android:summary="删除已缓存的文章内容及图片"
+            android:title="清空缓存" />
+        <Preference
+            android:layout="@layout/preference_item"
+            android:title="退出登录" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:layout="@layout/preference_category_widget"
+        android:title="其他说明">
+        <Preference
+            android:layout="@layout/preference_item"
+            android:summary="V 1.0"
+            android:title="当前版本" />
+        <Preference
+            android:layout="@layout/preference_item"
+            android:summary="LemonXQ &amp; Laplace"
+            android:title="作者" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

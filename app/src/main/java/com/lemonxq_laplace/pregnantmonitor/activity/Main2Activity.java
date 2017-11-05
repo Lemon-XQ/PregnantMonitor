@@ -7,6 +7,7 @@ import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -118,6 +119,7 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
                 startActivity(new Intent(this, SetPlanActivity.class));
                 break;
             case R.id.tv_data:
+                Log.d("HISTORY","HISTORY CLICK");
                 startActivity(new Intent(this, HistoryActivity.class));
                 break;
         }
