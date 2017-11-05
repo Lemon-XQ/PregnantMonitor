@@ -7,8 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * @author: Lemon-XQ
- * @date: 2017/11/5
+ * @author Lemon-XQ
+ * @date 2017.11.5
  */
 
 public class TaskFragment extends Fragment {

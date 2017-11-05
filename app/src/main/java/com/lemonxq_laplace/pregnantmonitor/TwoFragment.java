@@ -20,17 +20,10 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @author 官网：http://www.93sec.cc
- *
- *         郑传伟编写： 微博：http://weibo.com/93sec.cc
+ * @author Laplace
  *
  * @version V1.0正式版
  *
- * @process
- *
- * @Note
- *
- * @dateTime 2015-10-17下午5:02:26
  *
  */
 public class TwoFragment extends Fragment implements IHttpGetListener_robot,
@@ -144,7 +137,7 @@ public class TwoFragment extends Fragment implements IHttpGetListener_robot,
         // 更新界面
         adapter.notifyDataSetChanged();
         httpDataRobot = (HttpData_robot) new HttpData_robot(
-                "http://www.tuling123.com/openapi/api?key=b44db554abaa4ffca9df330b3706a879&info="
+                "http://www.test.com/openapi"
                         + droph, this).execute();
     }
 
@@ -161,7 +154,3 @@ public class TwoFragment extends Fragment implements IHttpGetListener_robot,
         }
     }
 }
-
-/**
- * A simple {@link Fragment} subclass.
- */

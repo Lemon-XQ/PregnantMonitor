@@ -7,15 +7,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author ydl
- * @version $Rev$
- * @time 2016/12/1 ${time}
- * @des ${TODO}
- * @updateAuthor $Author$
- * @updateDate $Date$
- * @updateDes ${TODO}
- */
 
 public class ToolBar {
 
@@ -40,7 +31,7 @@ public class ToolBar {
             //weight设置为1，才是真正的均分父容器宽度
             params.weight = 1;
 
-            /**点击textView，传递点击的位置给活动*/
+            /*点击textView，传递点击的位置给活动*/
             final int finalI = i;
             childView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -73,15 +64,14 @@ public class ToolBar {
 
     /***使用接口传递控件点击的位置*/
 
-    //1、定义接口和接口回调的方法
-    public interface  OnToolBarChangeListener{
+    //定义接口和接口回调的方法
+    public interface OnToolBarChangeListener{
         void onToolBarChange(int position);
     }
 
-    //2、创建接口变量，作为接口对象
+    //创建接口变量，作为接口对象
     OnToolBarChangeListener mOnToolBarChangeListener;
 
-    //4、暴露一个公共方法，或者构造方法。参数是接口变量（对象）
     public void setOnToolBarChangeListener(OnToolBarChangeListener onToolBarChangeListener) {
         mOnToolBarChangeListener = onToolBarChangeListener;
     }
