@@ -1,5 +1,6 @@
 package com.lemonxq_laplace.pregnantmonitor;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -17,6 +18,15 @@ import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 import java.util.List;
+
+//import android.app.Fragment;
+
+/**
+ * @author LemonXQ
+ * @version 1.0
+ * @time 2017/11/5
+ * @updateAuthor
+ */
 
 public class MainActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener{
 
@@ -80,18 +90,22 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         mNavView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                // TODO 处理任意菜单项点击
+                //处理任意菜单项点击
+                Intent intent;
                 switch(item.getItemId()){
                     case R.id.nav_analyze:
-                        
+                        intent = new Intent(MainActivity.this,AnalyzeActivity.class);
+                        startActivity(intent);
                         break;
 
                     case R.id.nav_task:
-
+                        intent = new Intent(MainActivity.this,TaskActivity.class);
+                        startActivity(intent);
                         break;
 
                     case R.id.nav_setting:
-
+                        intent = new Intent(MainActivity.this,SettingActivity.class);
+                        startActivity(intent);
                         break;
 
                     case R.id.nav_info:
@@ -105,6 +119,14 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         });
 
     }
+
+//    private void replaceFragment(Fragment fragment){
+//        FragmentManager fragmentManager = getSupportFragmentManager();
+//        FragmentTransaction transaction = fragmentManager.beginTransaction();
+//        transaction.replace(R.id.fragment_layout,fragment);
+//        transaction.addToBackStack(null);// 添加事务到返回栈中
+//        transaction.commit();
+//    }
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
