@@ -81,6 +81,24 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 // TODO 处理任意菜单项点击
+                switch(item.getItemId()){
+                    case R.id.nav_analyze:
+                        
+                        break;
+
+                    case R.id.nav_task:
+
+                        break;
+
+                    case R.id.nav_setting:
+
+                        break;
+
+                    case R.id.nav_info:
+
+                        break;
+                    default:
+                }
                 mDrawerLayout.closeDrawers();
                 return true;
             }
