@@ -6,8 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 /**
- * @author: Lemon-XQ
- * @date: 2017/11/5
+ * @author Lemon-XQ
  */
 
 public class TaskActivity extends AppCompatActivity {

@@ -4,8 +4,7 @@ import android.os.Bundle;
 import android.preference.PreferenceFragment;
 
 /**
- * @author: Lemon-XQ
- * @date: 2017/11/5
+ * @author Lemon-XQ
  */
 
 public class SettingFragment extends PreferenceFragment {

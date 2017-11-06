@@ -16,6 +16,14 @@
     <string name="Save">保存</string>
     <string name="HistoryRecord">历史记录</string>
     <string name="Desc"> </string>
+    <string name="introduce">说明</string>
+    <string name="title">标题</string>
+    <string name="summary">内容</string>
+    <string name="Password">密码</string>
+    <string name="Login">登录</string>
+    <string name="Signup">注册</string>
+    <string name="Guest">游客</string>
+    <string name="Account">账号</string>
 
 
     <string-array name="welcome_trips">

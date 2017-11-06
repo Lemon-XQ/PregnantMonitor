@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/PregnantMonitor.iml" filepath="$PROJECT_DIR$/PregnantMonitor.iml" />
+      <module fileurl="file://E:\work\Project\PregnantMonitor.iml" filepath="E:\work\Project\PregnantMonitor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Project.iml" filepath="$PROJECT_DIR$/Project.iml" />
       <module fileurl="file://F:\PregnantMonitor\Project.iml" filepath="F:\PregnantMonitor\Project.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://F:\PregnantMonitor\app\app.iml" filepath="F:\PregnantMonitor\app\app.iml" />
