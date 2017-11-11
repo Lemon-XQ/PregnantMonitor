@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <TextView
         android:layout_width="match_parent"
@@ -14,6 +14,17 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:text="@string/TaskList"
+        android:textColor="@color/black"
+        android:textSize="25sp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:background="#00000000"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="@string/Target"
         android:textColor="@color/black"
         android:textSize="25sp" />
 

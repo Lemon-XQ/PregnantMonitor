@@ -51,11 +51,11 @@
                     android:ellipsize="end"
                     android:gravity="center"
                     android:maxEms="4"
-                    android:maxWidth="80px"
+                    android:maxWidth="80dp"
                     android:minEms="2"
                     android:visibility="invisible"
-                    android:paddingLeft="40px"
-                    android:paddingRight="40px"
+                    android:paddingLeft="40dp"
+                    android:paddingRight="40dp"
                     android:singleLine="true"/>
 
 

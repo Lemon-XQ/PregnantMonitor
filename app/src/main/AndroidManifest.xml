@@ -42,9 +42,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".OneFragment" />
-        <activity android:name=".TwoFragment" />
-        <activity android:name=".ToolBar" />
         <activity android:name=".MainActivity" />
         <activity android:name=".activity.Main2Activity" />
         <activity
