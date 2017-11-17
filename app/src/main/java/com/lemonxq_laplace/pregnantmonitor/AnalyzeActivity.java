@@ -35,11 +35,11 @@ public class AnalyzeActivity extends AppCompatActivity {
 
     // 定义一个Handler用于接收黄色碎片给Activity发出来的指令
     @SuppressLint("HandlerLeak")
-    public Handler handler=new Handler(){
+    public Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            if(msg!=null){
+            if (msg != null) {
                 switch (msg.what) {
                     case 1:
                         Bundle bundle = msg.getData();
@@ -47,8 +47,8 @@ public class AnalyzeActivity extends AppCompatActivity {
                         weight = bundle.getFloat("weight");
                         height = bundle.getFloat("height");
                         ogtt = bundle.getFloat("OGTT");
-                        Log.d("Analyse","age:"+age+"height:"+height+"weight:"+weight+"ogtt:"+ogtt);
-                        AnalyseDIAB(age,height,weight,ogtt);
+                        Log.d("Analyse", "age:" + age + "height:" + height + "weight:" + weight + "ogtt:" + ogtt);
+                        AnalyseDIAB(age, height, weight, ogtt);
                         break;
 
                     default:
@@ -79,62 +79,62 @@ public class AnalyzeActivity extends AppCompatActivity {
     }
 
 
-    private void AnalyseDIAB(int age,float height,float weight,float ogtt){
+    private void AnalyseDIAB(int age, float height, float weight, float ogtt) {
         // 校验参数
-        if(checkDataValid(age,height,weight,ogtt)){
+        if (checkDataValid(age, height, weight, ogtt)) {
             // 构造POST参数列表
-            LinkedHashMap<String,String> params=new LinkedHashMap<>();
+            LinkedHashMap<String, String> params = new LinkedHashMap<>();
             // 填充参数
-            params.put("age",age+"");
-            params.put("height",height+"");
-            params.put("weight",weight+"");
-            params.put("OGTT",ogtt+"");
-            System.out.println("age:"+age+" height:"+height+" weight:"+weight+" ogtt:"+ogtt);
+            params.put("age", age + "");
+            params.put("height", height + "");
+            params.put("weight", weight + "");
+            params.put("OGTT", ogtt + "");
+            System.out.println("age:" + age + " height:" + height + " weight:" + weight + " ogtt:" + ogtt);
 
-            HttpUtil.sendPost(Consts.URL_Analyse,params,new okhttp3.Callback(){
+            HttpUtil.sendPost(Consts.URL_Analyse, params, new okhttp3.Callback() {
                 @Override
                 public void onResponse(Call call, Response response) throws IOException {
                     String resCode = response.body().string();
                     String resMsg = "";
-                    System.out.println("resCode:"+resCode);
+                    System.out.println("resCode:" + resCode);
 
-                    if(resCode.equals(Consts.ERRORCODE_NULL))
-                        resMsg = "年龄、身高、体重、OGTT"+Consts.ERRORMSG_NULL;
-                    else if(resCode.equals(Consts.SUCCESSCODE_DIAB))
+                    if (resCode.equals(Consts.ERRORCODE_NULL))
+                        resMsg = "年龄、身高、体重、OGTT" + Consts.ERRORMSG_NULL;
+                    else if (resCode.equals(Consts.SUCCESSCODE_DIAB))
                         resMsg = Consts.SUCCESSMSG_DIAB;
-                    else if(resCode.equals(Consts.SUCCESSCODE_NOTDIAB))
+                    else if (resCode.equals(Consts.SUCCESSCODE_NOTDIAB))
                         resMsg = Consts.SUCCESSMSG_NOTDIAB;
 
                     showResponse(resMsg);
                 }
 
                 @Override
-                public void onFailure(Call call, IOException e){
+                public void onFailure(Call call, IOException e) {
                     e.printStackTrace();
                 }
             });
-        }else{
-            Toast.makeText(AnalyzeActivity.this,Consts.ERROR_FORMAT,Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(AnalyzeActivity.this, Consts.ERROR_FORMAT, Toast.LENGTH_SHORT).show();
         }
     }
 
-    private boolean checkDataValid(int age,float height,float weight,float ogtt){
-        if(age <= 0 || age >= 150)
+    private boolean checkDataValid(int age, float height, float weight, float ogtt) {
+        if (age <= 0 || age >= 150)
             return false;
-        if(height <= 0 || height >= 3)
+        if (height <= 0 || height >= 3)
             return false;
-        if(weight <= 0 || weight >= 300 )
+        if (weight <= 0 || weight >= 300)
             return false;
-        if(ogtt <= 0)
+        if (ogtt <= 0)
             return false;
         return true;
     }
 
-    private void showResponse(final String msg){
+    private void showResponse(final String msg) {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                Toast.makeText(AnalyzeActivity.this,msg,Toast.LENGTH_SHORT).show();
+                Toast.makeText(AnalyzeActivity.this, msg, Toast.LENGTH_SHORT).show();
             }
         });
     }

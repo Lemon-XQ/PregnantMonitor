@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <!--年龄-->
     <LinearLayout
@@ -24,7 +23,7 @@
             android:textSize="18sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@+id/age"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/age"
@@ -35,7 +34,7 @@
             android:textSize="18sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/ageText"
             app:layout_constraintLeft_toRightOf="@+id/ageText"
-            app:layout_constraintRight_toRightOf="parent"/>
+            app:layout_constraintRight_toRightOf="parent" />
     </LinearLayout>
 
     <!--分割线-->
@@ -73,7 +72,7 @@
             android:textSize="18sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/heightText"
             app:layout_constraintLeft_toRightOf="@+id/heightText"
-            app:layout_constraintRight_toRightOf="parent"/>
+            app:layout_constraintRight_toRightOf="parent" />
     </LinearLayout>
 
     <!--分割线-->
@@ -100,7 +99,7 @@
             android:textSize="18sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@+id/weight"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/weight"
@@ -111,7 +110,7 @@
             android:textSize="18sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/weightText"
             app:layout_constraintLeft_toRightOf="@+id/weightText"
-            app:layout_constraintRight_toRightOf="parent"/>
+            app:layout_constraintRight_toRightOf="parent" />
     </LinearLayout>
 
     <!--分割线-->
@@ -138,7 +137,7 @@
             android:textSize="18sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@+id/ogtt"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/ogtt"
@@ -149,7 +148,7 @@
             android:textSize="18sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/ogttText"
             app:layout_constraintLeft_toRightOf="@+id/ogttText"
-            app:layout_constraintRight_toRightOf="parent"/>
+            app:layout_constraintRight_toRightOf="parent" />
     </LinearLayout>
 
     <!--分割线-->

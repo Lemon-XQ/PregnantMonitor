@@ -84,9 +84,9 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".SettingActivity"/>
+        <activity android:name=".SettingActivity" />
         <activity android:name=".TaskActivity" />
-        <activity android:name=".AnalyzeActivity"/>
+        <activity android:name=".AnalyzeActivity" />
     </application>
 
 </manifest>

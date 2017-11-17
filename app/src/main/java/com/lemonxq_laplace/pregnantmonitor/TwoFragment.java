@@ -21,36 +21,27 @@ import java.util.List;
 
 /**
  * @author Laplace
- *
  * @version V1.0正式版
- *
- *
  */
 public class TwoFragment extends Fragment implements IHttpGetListener_robot,
         OnClickListener {
     private HttpData_robot httpDataRobot;
-
     private List<ListData_robot> lists;
-
     private ListView lv;
-
     private String str;
     private EditText gettext;
     private Button btn_send;
-
     private TextAdapter_robot adapter;
-
     private double currentTime;
     private double oldTime = 0;
-
     String welcome_array[];
 
     @Override
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                          Bundle savedInstanceState) {
+                             Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.activity_main_robot,null);
+        View view = inflater.inflate(R.layout.activity_main_robot, null);
         lv = (ListView) view.findViewById(R.id.lv);
         gettext = (EditText) view.findViewById(R.id.sendText);
         btn_send = (Button) view.findViewById(R.id.btn_send);
@@ -78,7 +69,10 @@ public class TwoFragment extends Fragment implements IHttpGetListener_robot,
         listDataRobot = new ListData_robot(getRandomWelcomTips(), ListData_robot.RECEIVER,
                 getTime());
         lists.add(listDataRobot);
-    };
+    }
+
+    ;
+
     // 这是实现接口中的方法
     public void getDataUrl(String data) {
         // TODO Auto-generated method stub

@@ -65,7 +65,7 @@ public class ToolBar {
     /***使用接口传递控件点击的位置*/
 
     //定义接口和接口回调的方法
-    public interface OnToolBarChangeListener{
+    public interface OnToolBarChangeListener {
         void onToolBarChange(int position);
     }
 

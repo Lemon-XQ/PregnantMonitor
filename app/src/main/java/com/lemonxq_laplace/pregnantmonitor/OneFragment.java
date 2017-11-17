@@ -27,12 +27,12 @@ public class OneFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_one,null);
-        Button fsstep = (Button)view.findViewById(R.id.fstep);
-        fsstep.setOnClickListener(new View.OnClickListener(){
+        View view = inflater.inflate(R.layout.fragment_one, null);
+        Button fsstep = (Button) view.findViewById(R.id.fstep);
+        fsstep.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
-                Intent intent = new Intent(getActivity(),Main2Activity.class);
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), Main2Activity.class);
                 startActivity(intent);
             }
         });

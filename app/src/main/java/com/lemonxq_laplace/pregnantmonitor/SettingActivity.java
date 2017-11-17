@@ -8,6 +8,7 @@ import android.widget.ImageView;
 public class SettingActivity extends AppCompatActivity {
 
     private ImageView back;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
