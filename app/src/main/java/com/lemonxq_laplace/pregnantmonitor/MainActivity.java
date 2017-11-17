@@ -28,7 +28,7 @@ import java.util.List;
  * @updateAuthor
  */
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
 
     List<Fragment> mFragments = new ArrayList<Fragment>();
     private ViewPager mMViewPager;
@@ -38,9 +38,9 @@ public class MainActivity extends AppCompatActivity{
     private ToolBar mMToolBar;
     private Toolbar mTitleBar;
 
-    String[] bottomTitleArr = {"实时监控","智能护士","医孕平台"} ;
+    String[] bottomTitleArr = {"实时监控", "智能护士", "医孕平台"};
     // 在这里修改tap中的文字
-    int[] bottomPic = {R.drawable.icon_message,R.drawable.icon_nurse,R.drawable.icon_selfinfo};
+    int[] bottomPic = {R.drawable.icon_message, R.drawable.icon_nurse, R.drawable.icon_selfinfo};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity{
         mMViewPager.setAdapter(new MyFragmentAdapter(getSupportFragmentManager()));
         mMToolBar = new ToolBar();
         // 给底部tab添加新的控件
-        mMToolBar.addBottomTab(mMLinearLayout,bottomTitleArr,bottomPic);
+        mMToolBar.addBottomTab(mMLinearLayout, bottomTitleArr, bottomPic);
         // 设置默认第一个tab颜色为选中状态
         mMToolBar.changeColor(0);
         // viewpage监听器
@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity{
         // 顶部导航条设置
         setSupportActionBar(mTitleBar);
         ActionBar actionBar = getSupportActionBar();
-        if(actionBar != null){
+        if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);// 显示导航按钮
             actionBar.setHomeAsUpIndicator(R.drawable.icon_menu2);// 设置导航按钮图标
         }
@@ -110,19 +110,19 @@ public class MainActivity extends AppCompatActivity{
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 //处理任意菜单项点击
                 Intent intent;
-                switch(item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.nav_analyze:
-                        intent = new Intent(MainActivity.this,AnalyzeActivity.class);
+                        intent = new Intent(MainActivity.this, AnalyzeActivity.class);
                         startActivity(intent);
                         break;
 
                     case R.id.nav_task:
-                        intent = new Intent(MainActivity.this,TaskActivity.class);
+                        intent = new Intent(MainActivity.this, TaskActivity.class);
                         startActivity(intent);
                         break;
 
                     case R.id.nav_setting:
-                        intent = new Intent(MainActivity.this,SettingActivity.class);
+                        intent = new Intent(MainActivity.this, SettingActivity.class);
                         startActivity(intent);
                         break;
 
@@ -147,8 +147,8 @@ public class MainActivity extends AppCompatActivity{
 //    }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item){
-        switch(item.getItemId()){
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
             // 导航按钮
             case android.R.id.home:
                 mDrawerLayout.openDrawer(GravityCompat.START);
@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity{
         return true;
     }
 
-    class MyFragmentAdapter extends FragmentPagerAdapter{
+    class MyFragmentAdapter extends FragmentPagerAdapter {
 
         public MyFragmentAdapter(FragmentManager fm) {
             super(fm);

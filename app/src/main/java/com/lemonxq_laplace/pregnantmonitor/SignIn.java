@@ -29,11 +29,11 @@ public class SignIn extends AppCompatActivity {
     private Button visitorBtn;
     private EditText accountText;
     private EditText passwordText;
-    private String account="";
-    private String password="";
+    private String account = "";
+    private String password = "";
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signin);
         loginBtn = findViewById(R.id.login);
@@ -42,9 +42,9 @@ public class SignIn extends AppCompatActivity {
         accountText = findViewById(R.id.account);
         passwordText = findViewById(R.id.password);
 
-        loginBtn.setOnClickListener(new OnClickListener(){
+        loginBtn.setOnClickListener(new OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 Login();
             }
         });
@@ -56,10 +56,10 @@ public class SignIn extends AppCompatActivity {
             }
         });
 
-        visitorBtn.setOnClickListener(new OnClickListener(){
+        visitorBtn.setOnClickListener(new OnClickListener() {
             @Override
-            public void onClick(View v){
-                Intent intent = new Intent(SignIn.this,MainActivity.class);
+            public void onClick(View v) {
+                Intent intent = new Intent(SignIn.this, MainActivity.class);
                 startActivity(intent);
             }
         });
@@ -68,19 +68,19 @@ public class SignIn extends AppCompatActivity {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 account = accountText.getText().toString();
-                System.out.println("before:"+account);
+                System.out.println("before:" + account);
             }
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 account = accountText.getText().toString();
-                System.out.println("on:"+account);
+                System.out.println("on:" + account);
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
                 account = accountText.getText().toString();
-                System.out.println("after:"+account);
+                System.out.println("after:" + account);
             }
         });
 
@@ -88,53 +88,53 @@ public class SignIn extends AppCompatActivity {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 password = passwordText.getText().toString();
-                System.out.println("before:"+password);
+                System.out.println("before:" + password);
             }
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 password = passwordText.getText().toString();
-                System.out.println("on:"+password);
+                System.out.println("on:" + password);
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
                 password = passwordText.getText().toString();
-                System.out.println("after:"+password);
+                System.out.println("after:" + password);
             }
         });
     }
 
-    private void Login(){
+    private void Login() {
         // 构造GET参数列表
-        LinkedHashMap<String,String> params=new LinkedHashMap<>();
+        LinkedHashMap<String, String> params = new LinkedHashMap<>();
         params.clear();
         // 前端参数校验，防SQL注入
         account = Util.StringHandle(account);
         password = Util.StringHandle(password);
         // 填充参数
-        params.put("account",account);
-        params.put("pwd",password);
-        System.out.println("account:"+account+" pwd:"+password);
+        params.put("account", account);
+        params.put("pwd", password);
+        System.out.println("account:" + account + " pwd:" + password);
 
         // 带参数GET请求
-        HttpUtil.sendRequest(Consts.URL_Login,params,new okhttp3.Callback(){
+        HttpUtil.sendRequest(Consts.URL_Login, params, new okhttp3.Callback() {
             @Override
-            public void onResponse(Call call, Response response) throws IOException{
+            public void onResponse(Call call, Response response) throws IOException {
                 String resCode = response.body().string();
                 String resMsg = "";
-                System.out.println("resCode:"+resCode);
+                System.out.println("resCode:" + resCode);
 
-                if(resCode.equals(Consts.ERRORCODE_NULL))
+                if (resCode.equals(Consts.ERRORCODE_NULL))
                     resMsg = "账号或密码" + Consts.ERRORMSG_NULL;
-                else if(resCode.equals(Consts.ERRORCODE_ACCOUNTNOTEXIST))
+                else if (resCode.equals(Consts.ERRORCODE_ACCOUNTNOTEXIST))
                     resMsg = Consts.ERRORMSG_ACCOUNTNOTEXIST;
-                else if(resCode.equals(Consts.ERRORCODE_PWD))
+                else if (resCode.equals(Consts.ERRORCODE_PWD))
                     resMsg = Consts.ERRORMSG_PWD;
-                else if(resCode.equals(Consts.SUCCESSCODE_LOGIN)){
+                else if (resCode.equals(Consts.SUCCESSCODE_LOGIN)) {
                     resMsg = Consts.SUCCESSMSG_LOGIN;
                     showResponse(resMsg);
-                    Intent intent = new Intent(SignIn.this,MainActivity.class);
+                    Intent intent = new Intent(SignIn.this, MainActivity.class);
                     startActivity(intent);
                 }
 
@@ -142,55 +142,55 @@ public class SignIn extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call call, IOException e){
+            public void onFailure(Call call, IOException e) {
                 e.printStackTrace();
             }
         });
     }
 
-    private void Register(){
+    private void Register() {
         // 构造POST参数列表
-        LinkedHashMap<String,String> params=new LinkedHashMap<>();
+        LinkedHashMap<String, String> params = new LinkedHashMap<>();
         params.clear();
         // 前端参数校验，防SQL注入
         account = Util.StringHandle(account);
         password = Util.StringHandle(password);
         // 填充参数
-        params.put("account",account);
-        params.put("pwd",password);
-        System.out.println("account:"+account+" pwd:"+password);
+        params.put("account", account);
+        params.put("pwd", password);
+        System.out.println("account:" + account + " pwd:" + password);
 
-        HttpUtil.sendPost(Consts.URL_Register,params,new okhttp3.Callback(){
+        HttpUtil.sendPost(Consts.URL_Register, params, new okhttp3.Callback() {
             @Override
-            public void onResponse(Call call, Response response) throws IOException{
+            public void onResponse(Call call, Response response) throws IOException {
                 String resCode = response.body().string();
                 String resMsg = "";
-                System.out.println("resCode:"+resCode);
+                System.out.println("resCode:" + resCode);
 
-                if(resCode.equals(Consts.ERRORCODE_NULL))
-                    resMsg=Consts.ERRORMSG_NULL;
-                else if(resCode.equals(Consts.ERRORCODE_ACCOUNTEXIST))
+                if (resCode.equals(Consts.ERRORCODE_NULL))
+                    resMsg = Consts.ERRORMSG_NULL;
+                else if (resCode.equals(Consts.ERRORCODE_ACCOUNTEXIST))
                     resMsg = Consts.ERRORMSG_ACCOUNTEXIST;
-                else if(resCode.equals(Consts.ERRORCODE_INSERT))
+                else if (resCode.equals(Consts.ERRORCODE_INSERT))
                     resMsg = Consts.ERRORMSG_INSERT;
-                else if(resCode.equals(Consts.SUCCESSCODE_REGISTER))
+                else if (resCode.equals(Consts.SUCCESSCODE_REGISTER))
                     resMsg = Consts.SUCCESSMSG_REGISTER;
 
                 showResponse(resMsg);
             }
 
             @Override
-            public void onFailure(Call call, IOException e){
+            public void onFailure(Call call, IOException e) {
                 e.printStackTrace();
             }
         });
     }
 
-    private void showResponse(final String msg){
+    private void showResponse(final String msg) {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                Toast.makeText(SignIn.this,msg,Toast.LENGTH_SHORT).show();
+                Toast.makeText(SignIn.this, msg, Toast.LENGTH_SHORT).show();
             }
         });
     }

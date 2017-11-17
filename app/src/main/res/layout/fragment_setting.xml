@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <!--标题栏-->
     <LinearLayout
@@ -13,6 +12,7 @@
         android:background="@color/colorPrimary"
         android:fitsSystemWindows="true"
         android:orientation="horizontal">
+
         <ImageView
             android:id="@+id/back"
             android:layout_width="wrap_content"
@@ -24,6 +24,7 @@
             android:paddingRight="18dp"
             android:src="@mipmap/arrow_back_white"
             android:visibility="visible" />
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"

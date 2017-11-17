@@ -12,6 +12,7 @@ import android.widget.ImageView;
 public class TaskActivity extends AppCompatActivity {
 
     private ImageView back;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

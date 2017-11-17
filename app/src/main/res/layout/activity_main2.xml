@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,9 +9,9 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true">
+        android:layout_alignParentTop="true">
         <!--android:background="@mipmap/step_bg"-->
 
         <TextView
@@ -23,8 +22,8 @@
             android:layout_alignParentTop="true"
             android:layout_marginEnd="40dp"
             android:layout_marginTop="40dp"
-            android:drawableStart="@mipmap/home_statistical"
             android:drawablePadding="10dp"
+            android:drawableStart="@mipmap/home_statistical"
             android:gravity="center_vertical"
             android:text="查看历史步数"
             android:textColor="#333333" />
@@ -55,8 +54,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/cc"
-            android:layout_marginTop="30dp"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
             android:text="该设备支持计步"
             android:textColor="#333333" />
 

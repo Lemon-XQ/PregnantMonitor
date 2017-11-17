@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg" >
+    android:background="@drawable/bg">
 
     <EditText
         android:id="@+id/password"
@@ -12,16 +12,28 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPassword"
+        android:labelFor="@+id/password"
         android:textAlignment="textStart"
+        app:layout_constraintBaseline_toBaselineOf="@+id/passwordText"
         app:layout_constraintLeft_toRightOf="@+id/passwordText"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:layout_editor_absoluteY="195dp" />
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <EditText
+        android:id="@+id/account"
+        android:layout_width="215dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:labelFor="@+id/account"
+        app:layout_constraintBaseline_toBaselineOf="@+id/accountText"
+        app:layout_constraintLeft_toRightOf="@+id/accountText"
+        app:layout_constraintRight_toRightOf="parent" />
 
     <TextView
         android:id="@+id/passwordText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="88dp"
         android:text="@string/Password"
         android:textAlignment="textStart"
         android:textSize="18sp"
@@ -63,20 +75,12 @@
         android:id="@+id/accountText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="148dp"
+        android:layout_marginTop="144dp"
         android:text="@string/Account"
         android:textSize="18sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/account"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/account"
-        android:layout_width="215dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBaseline_toBaselineOf="@+id/accountText"
-        app:layout_constraintLeft_toRightOf="@+id/accountText"
-        app:layout_constraintRight_toRightOf="parent" />
+
 </android.support.constraint.ConstraintLayout>
