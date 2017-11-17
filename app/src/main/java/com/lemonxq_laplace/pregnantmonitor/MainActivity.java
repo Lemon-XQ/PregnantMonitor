@@ -28,7 +28,7 @@ import java.util.List;
  * @updateAuthor
  */
 
-public class MainActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener{
+public class MainActivity extends AppCompatActivity{
 
     List<Fragment> mFragments = new ArrayList<Fragment>();
     private ViewPager mMViewPager;
@@ -68,7 +68,25 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         // 设置默认第一个tab颜色为选中状态
         mMToolBar.changeColor(0);
         // viewpage监听器
-        mMViewPager.setOnPageChangeListener(this);
+        mMViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                // 某项ViewPage选中的时候调用。在这里顺便改变底部Tab的颜色
+                mMToolBar.changeColor(position);
+                // 同时修改对应fragment的标题
+                mTitleBar.setTitle(bottomTitleArr[position]);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
         // 接口回调的方式，点击底部Tab，切换不同的页面
         mMToolBar.setOnToolBarChangeListener(new ToolBar.OnToolBarChangeListener() {
             @Override
@@ -83,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         ActionBar actionBar = getSupportActionBar();
         if(actionBar != null){
             actionBar.setDisplayHomeAsUpEnabled(true);// 显示导航按钮
-            actionBar.setHomeAsUpIndicator(R.drawable.icon_menu);// 设置导航按钮图标
+            actionBar.setHomeAsUpIndicator(R.drawable.icon_menu2);// 设置导航按钮图标
         }
 
         // 左拉菜单栏设置
@@ -127,24 +145,6 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 //        transaction.addToBackStack(null);// 添加事务到返回栈中
 //        transaction.commit();
 //    }
-
-    @Override
-    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-    }
-
-    @Override
-    public void onPageSelected(int position) {
-        // 某项ViewPage选中的时候调用。在这里顺便改变底部Tab的颜色
-        mMToolBar.changeColor(position);
-        // 同时修改对应fragment的标题
-        mTitleBar.setTitle(bottomTitleArr[position]);
-    }
-
-    @Override
-    public void onPageScrollStateChanged(int state) {
-
-    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
