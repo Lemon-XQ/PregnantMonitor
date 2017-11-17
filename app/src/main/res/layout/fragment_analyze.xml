@@ -1,20 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <!--年龄-->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="1"
-        android:background="#00000000"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:text="@string/Analyze"
-        android:textColor="@color/black"
-        android:textSize="25sp" />
+        android:layout_height="75dp"
+        android:orientation="horizontal"
+        android:padding="15dp">
 
+        <TextView
+            android:id="@+id/ageText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/Age"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/age"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <EditText
+            android:id="@+id/age"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|end"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/ageText"
+            app:layout_constraintLeft_toRightOf="@+id/ageText"
+            app:layout_constraintRight_toRightOf="parent"/>
     </LinearLayout>
+
+    <!--分割线-->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#999999" />
+
+    <!--身高-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/heightText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/Height"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/height"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/height"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|end"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/heightText"
+            app:layout_constraintLeft_toRightOf="@+id/heightText"
+            app:layout_constraintRight_toRightOf="parent"/>
+    </LinearLayout>
+
+    <!--分割线-->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#999999" />
+
+    <!--体重-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/weightText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/Weight"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/weight"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <EditText
+            android:id="@+id/weight"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|end"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/weightText"
+            app:layout_constraintLeft_toRightOf="@+id/weightText"
+            app:layout_constraintRight_toRightOf="parent"/>
+    </LinearLayout>
+
+    <!--分割线-->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#999999" />
+
+    <!--OGTT-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/ogttText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/OGTT"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/ogtt"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <EditText
+            android:id="@+id/ogtt"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|end"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/ogttText"
+            app:layout_constraintLeft_toRightOf="@+id/ogttText"
+            app:layout_constraintRight_toRightOf="parent"/>
+    </LinearLayout>
+
+    <!--分割线-->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#999999" />
+
+    <!--分析按钮-->
+    <Button
+        android:id="@+id/btn_analyse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:background="@mipmap/btn_bg_short"
+        android:text="@string/ConfirmAnalyse"
+        android:textColor="#ffffff"
+        android:textSize="18sp" />
+
+</LinearLayout>
