@@ -24,6 +24,11 @@
     <string name="Signup">注册</string>
     <string name="Guest">游客</string>
     <string name="Account">账号</string>
+    <string name="Age">年龄</string>
+    <string name="Height">身高(m)</string>
+    <string name="Weight">体重(kg)</string>
+    <string name="OGTT">OGTT</string>
+    <string name="ConfirmAnalyse">开始分析</string>
 
 
     <string-array name="welcome_trips">

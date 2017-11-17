@@ -126,7 +126,7 @@ public class SignIn extends AppCompatActivity {
                 System.out.println("resCode:"+resCode);
 
                 if(resCode.equals(Consts.ERRORCODE_NULL))
-                    resMsg=Consts.ERRORMSG_NULL;
+                    resMsg = "账号或密码" + Consts.ERRORMSG_NULL;
                 else if(resCode.equals(Consts.ERRORCODE_ACCOUNTNOTEXIST))
                     resMsg = Consts.ERRORMSG_ACCOUNTNOTEXIST;
                 else if(resCode.equals(Consts.ERRORCODE_PWD))
