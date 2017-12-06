@@ -36,7 +36,7 @@
     <string name="normal">正常</string>
     <string name="GDM">妊娠期糖尿病</string>
     <string name="accuracy">准确度</string>
-
+    <string name="UserName">用户名</string>
 
     <string-array name="welcome_trips">
         <item>主人，奴婢在此等候多时了</item>

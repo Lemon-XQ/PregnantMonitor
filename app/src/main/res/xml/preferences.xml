@@ -52,7 +52,7 @@
             android:title="当前版本" />
         <Preference
             android:layout="@layout/preference_item"
-            android:summary="LemonXQ &amp; Laplace"
+            android:summary="LemonXQ Laplace"
             android:title="作者" />
     </PreferenceCategory>
 
