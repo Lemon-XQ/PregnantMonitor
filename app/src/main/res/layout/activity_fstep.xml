@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.lemonxq_laplace.pregnantmonitor.Fstep">
+    tools:context="com.lemonxq_laplace.pregnantmonitor.activity.Fstep">
 
     <TextView
         android:id="@+id/textView"

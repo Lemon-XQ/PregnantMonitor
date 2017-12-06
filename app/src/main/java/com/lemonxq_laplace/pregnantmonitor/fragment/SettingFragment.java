@@ -1,7 +1,9 @@
-package com.lemonxq_laplace.pregnantmonitor;
+package com.lemonxq_laplace.pregnantmonitor.fragment;
 
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
+
+import com.lemonxq_laplace.pregnantmonitor.R;
 
 /**
  * @author Lemon-XQ

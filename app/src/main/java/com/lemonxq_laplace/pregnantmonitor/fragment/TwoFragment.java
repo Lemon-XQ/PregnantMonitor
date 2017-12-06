@@ -1,4 +1,4 @@
-package com.lemonxq_laplace.pregnantmonitor;
+package com.lemonxq_laplace.pregnantmonitor.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,6 +10,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+
+import com.lemonxq_laplace.pregnantmonitor.HttpData_robot;
+import com.lemonxq_laplace.pregnantmonitor.IHttpGetListener_robot;
+import com.lemonxq_laplace.pregnantmonitor.ListData_robot;
+import com.lemonxq_laplace.pregnantmonitor.R;
+import com.lemonxq_laplace.pregnantmonitor.TextAdapter_robot;
 
 import org.json.JSONException;
 import org.json.JSONObject;

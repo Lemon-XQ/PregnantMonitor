@@ -10,6 +10,8 @@
     <string name="Analyze">统计</string>
     <string name="About">关于</string>
     <string name="TraningPlan">锻炼计划</string>
+    <string name="Step">步数</string>
+    <string name="Time">时间</string>
     <string name="Target">每日目标</string>
     <string name="Remind">提醒</string>
     <string name="RemindTime">提醒时间</string>
@@ -24,13 +26,16 @@
     <string name="Signup">注册</string>
     <string name="Guest">游客</string>
     <string name="Account">账号</string>
-    <string name="Age">年龄</string>
+    <string name="Age">年龄(岁)</string>
     <string name="Height">身高(m)</string>
     <string name="Weight">体重(kg)</string>
-    <string name="OGTT">OGTT</string>
-    <string name="Step">步数</string>
-    <string name="Time">时间</string>
+    <string name="OGTT">空腹血糖(mmol/L)</string>
+    <string name="RecordHint">记录您现在的指数</string>
     <string name="ConfirmAnalyse">开始分析</string>
+    <string name="ShowAnalyseResult">经人工智能运算，您的情况如下</string>>
+    <string name="normal">正常</string>
+    <string name="GDM">妊娠期糖尿病</string>
+    <string name="accuracy">准确度</string>
 
 
     <string-array name="welcome_trips">

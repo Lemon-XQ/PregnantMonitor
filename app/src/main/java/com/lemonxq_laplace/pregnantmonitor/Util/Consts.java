@@ -26,7 +26,7 @@ public class Consts {
 
     public static String SUCCESSCODE_LOGIN = "100";
     public static String SUCCESSCODE_REGISTER = "101";
-    public static String SUCCESSCODE_DIAB = "102";
+    public static String SUCCESSCODE_GDMANALYSE = "102";// GDM分析完成
     public static String SUCCESSCODE_NOTDIAB = "103";
 
     // 代码对应信息
@@ -46,5 +46,5 @@ public class Consts {
     public static String AGE_INVALID = "请输入合法年龄值（1-100）";
     public static String HEIGHT_INVALID = "请输入合法身高（1.0-2.0）";
     public static String WEIGHT_INVALID = "请输入合法体重（>0）";
-    public static String OGTT_INVALID = "请输入合法OGTT值（>0）";
+    public static String OGTT_INVALID = "请输入合法空腹血糖值（>0）";
 }

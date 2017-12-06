@@ -1,10 +1,12 @@
-package com.lemonxq_laplace.pregnantmonitor;
+package com.lemonxq_laplace.pregnantmonitor.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.lemonxq_laplace.pregnantmonitor.R;
 
 /**
  * @author Lemon-XQ
