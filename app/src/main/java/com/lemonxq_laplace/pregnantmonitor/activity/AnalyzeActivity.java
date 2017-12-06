@@ -1,20 +1,28 @@
-package com.lemonxq_laplace.pregnantmonitor;
+package com.lemonxq_laplace.pregnantmonitor.activity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.lemonxq_laplace.pregnantmonitor.R;
+import com.lemonxq_laplace.pregnantmonitor.Util.CommonRequest;
+import com.lemonxq_laplace.pregnantmonitor.Util.CommonResponse;
 import com.lemonxq_laplace.pregnantmonitor.Util.Consts;
 import com.lemonxq_laplace.pregnantmonitor.Util.HttpUtil;
+import com.lemonxq_laplace.pregnantmonitor.fragment.AnalyzeFragment;
+import com.lemonxq_laplace.pregnantmonitor.fragment.GDMResultFragment;
 
 import java.io.IOException;
-import java.util.LinkedHashMap;
+import java.util.HashMap;
 
 import okhttp3.Call;
 import okhttp3.Response;
@@ -64,48 +72,57 @@ public class AnalyzeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_analyze);
 
         // 动态添加碎片
+        final AnalyzeFragment fragment = new AnalyzeFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.analyzeContainer,
-                new AnalyzeFragment()).commit();
+                fragment).commit();
 
         // 设置返回键监听
         back = findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                // fragment返回栈不为空则弹出fragment，否则结束activity
+                if(getSupportFragmentManager().getBackStackEntryCount() <= 0){
+                    finish();
+                }else {
+                    getSupportFragmentManager().popBackStack();
+                }
             }
         });
 
     }
 
-
     private void AnalyseDIAB(int age, float height, float weight, float ogtt) {
         // 校验参数
         if (checkDataValid(age, height, weight, ogtt)) {
-            // 构造POST参数列表
-            LinkedHashMap<String, String> params = new LinkedHashMap<>();
-            // 填充参数
-            params.put("age", age + "");
-            params.put("height", height + "");
-            params.put("weight", weight + "");
-            params.put("OGTT", ogtt + "");
-            System.out.println("age:" + age + " height:" + height + " weight:" + weight + " ogtt:" + ogtt);
+            //TODO 进度条
+            // 创建请求体对象
+            CommonRequest request = new CommonRequest();
 
-            HttpUtil.sendPost(Consts.URL_Analyse, params, new okhttp3.Callback() {
+            // 填充参数
+            request.addRequestParam("age",age + "");
+            request.addRequestParam("height",height + "");
+            request.addRequestParam("weight",weight + "");
+            request.addRequestParam("OGTT",ogtt + "");
+
+            // 发送请求
+            HttpUtil.sendPost(Consts.URL_Analyse, request.getJsonStr(), new okhttp3.Callback() {
                 @Override
                 public void onResponse(Call call, Response response) throws IOException {
-                    String resCode = response.body().string();
-                    String resMsg = "";
-                    System.out.println("resCode:" + resCode);
+                    CommonResponse res = new CommonResponse(response.body().string());
+                    String resCode = res.getResCode();
+                    String resMsg = res.getResMsg();
+                    HashMap<String,String> property = res.getPropertyMap();
+                    float GDM_Prob = Float.parseFloat(property.get("GDMProb"));
+                    Log.d("GDM_Prob",GDM_Prob+"");
 
-                    if (resCode.equals(Consts.ERRORCODE_NULL))
-                        resMsg = "年龄、身高、体重、OGTT" + Consts.ERRORMSG_NULL;
-                    else if (resCode.equals(Consts.SUCCESSCODE_DIAB))
-                        resMsg = Consts.SUCCESSMSG_DIAB;
-                    else if (resCode.equals(Consts.SUCCESSCODE_NOTDIAB))
-                        resMsg = Consts.SUCCESSMSG_NOTDIAB;
-
-                    showResponse(resMsg);
+                    if(resCode.equals(Consts.SUCCESSCODE_GDMANALYSE)){
+                        // 分析完成，启动分析结果界面
+                        replaceFragment(new GDMResultFragment(),R.id.analyzeContainer,
+                                        "GDMProb",GDM_Prob);
+                    }else{
+                        showResponse(resMsg);
+                    }
                 }
 
                 @Override
@@ -134,8 +151,32 @@ public class AnalyzeActivity extends AppCompatActivity {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                Toast.makeText(AnalyzeActivity.this, msg, Toast.LENGTH_SHORT).show();
+            Toast.makeText(AnalyzeActivity.this, msg, Toast.LENGTH_SHORT).show();
             }
         });
     }
+
+    // 带参数启动Fragment
+    private void replaceFragment(Fragment fragment, int layoutID, String tag, float value){
+        // 参数传递
+        Bundle bundle = new Bundle();
+        bundle.putFloat(tag, value);
+        fragment.setArguments(bundle);
+        // 开始Fragment事务
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(layoutID,fragment);
+        transaction.addToBackStack(null);// 添加事务到返回栈中
+        transaction.commit();
+    }
+
+    // 不带参数启动Fragment
+    private void replaceFragment(Fragment fragment, int layoutID){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(layoutID,fragment);
+        transaction.addToBackStack(null);// 添加事务到返回栈中
+        transaction.commit();
+    }
+
 }

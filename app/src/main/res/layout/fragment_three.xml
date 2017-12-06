@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.lemonxq_laplace.pregnantmonitor.ThreeFragment">
+    tools:context="com.lemonxq_laplace.pregnantmonitor.fragment.ThreeFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <ImageView

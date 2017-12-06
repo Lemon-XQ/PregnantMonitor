@@ -26,7 +26,7 @@ public class Consts {
 
     public static String SUCCESSCODE_LOGIN = "100";
     public static String SUCCESSCODE_REGISTER = "101";
-    public static String SUCCESSCODE_DIAB = "102";
+    public static String SUCCESSCODE_GDMANALYSE = "102";// GDM分析完成
     public static String SUCCESSCODE_NOTDIAB = "103";
 
     // 代码对应信息

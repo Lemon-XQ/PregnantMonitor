@@ -1,4 +1,4 @@
-package com.lemonxq_laplace.pregnantmonitor;
+package com.lemonxq_laplace.pregnantmonitor.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.lemonxq_laplace.pregnantmonitor.R;
 import com.lemonxq_laplace.pregnantmonitor.activity.Main2Activity;
 
 

@@ -1,4 +1,4 @@
-package com.lemonxq_laplace.pregnantmonitor;
+package com.lemonxq_laplace.pregnantmonitor.fragment;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -12,9 +12,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.lemonxq_laplace.pregnantmonitor.R;
 import com.lemonxq_laplace.pregnantmonitor.Util.Consts;
+import com.lemonxq_laplace.pregnantmonitor.activity.AnalyzeActivity;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  * @author: Lemon-XQ
@@ -28,6 +35,7 @@ public class AnalyzeFragment extends Fragment {
     private EditText heightText;
     private EditText weightText;
     private EditText ogttText;
+    private TextView timeText;
     private View view;
     private int age;
     private float height;
@@ -50,8 +58,15 @@ public class AnalyzeFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_analyze, container, false);
         InitComponent();
         SetListeners();
+        updateTime();
         Log.e("Analyse", "create view");
         return view;
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        updateTime();
     }
 
     private void InitComponent() {
@@ -61,6 +76,7 @@ public class AnalyzeFragment extends Fragment {
         weightText = view.findViewById(R.id.weight);
         heightText = view.findViewById(R.id.height);
         ogttText = view.findViewById(R.id.ogtt);
+        timeText = view.findViewById(R.id.currentTime);
     }
 
     private void SetListeners() {
@@ -172,6 +188,13 @@ public class AnalyzeFragment extends Fragment {
 
             }
         });
+    }
+
+    private void updateTime(){
+        long time = System.currentTimeMillis();
+        Date date = new Date(time);
+        SimpleDateFormat format = new SimpleDateFormat("yyyy年MM月dd日 HH时mm分 E", Locale.CHINA);
+        timeText.setText(format.format(date));
     }
 
 }

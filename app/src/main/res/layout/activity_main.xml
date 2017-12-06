@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context="com.lemonxq_laplace.pregnantmonitor.ThreeFragment">
+        tools:context="com.lemonxq_laplace.pregnantmonitor.fragment.ThreeFragment">
 
         <!--标题栏-->
         <android.support.v7.widget.Toolbar

@@ -11,4 +11,7 @@
     <color name="color_two">#FCD2A1</color>
     <color name="color_three">#EF8273</color>
     <color name="transparent">#00ffffff</color>>
+    <color name="green">#04af1d</color>
+    <color name="lightGreen">#98e98e</color>
+    <color name="white">#fff</color>
 </resources>

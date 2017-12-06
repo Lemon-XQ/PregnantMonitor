@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 
 import okhttp3.FormBody;
+import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -15,20 +16,29 @@ import okhttp3.RequestBody;
 
 public class HttpUtil {
 
-    // GET请求（不带参数）
-    public static void sendRequest(String address, okhttp3.Callback callback){
+    public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+    private static OkHttpClient client = new OkHttpClient();
 
-        OkHttpClient client = new OkHttpClient();
+    /**
+     * GET请求（不带参数）
+     * @param address
+     * @param callback
+     */
+    public static void sendRequest(String address, okhttp3.Callback callback){
         Request request = new Request.Builder()
                 .url(address)
                 .build();
         client.newCall(request).enqueue(callback);
     }
 
-    // GET请求（带参数）
+    /**
+     * GET请求（参数为字符串map）
+     * @param address
+     * @param params
+     * @param callback
+     */
     public static void sendRequest(String address, LinkedHashMap<String,String>params, okhttp3.Callback callback){
         // 执行GET请求，将请求结果回调到okhttp3.Callback中
-        OkHttpClient client = new OkHttpClient();
         address = attachHttpGetParams(address,params);
         Request request = new Request.Builder()
                 .url(address)
@@ -36,12 +46,14 @@ public class HttpUtil {
         client.newCall(request).enqueue(callback);
     }
 
-    // POST请求（带参数）
+    /**
+     * POST请求（参数为字符串map）
+     * @param address
+     * @param params
+     * @param callback
+     */
     public static void sendPost(String address,LinkedHashMap<String,String> params, okhttp3.Callback callback){
-
-        OkHttpClient client = new OkHttpClient();
         FormBody.Builder builder = new FormBody.Builder();
-
         // builder填充参数，构造请求体
         Iterator<String> keys = params.keySet().iterator();
         Iterator<String> values = params.values().iterator();
@@ -51,6 +63,23 @@ public class HttpUtil {
         }
         RequestBody requestBody = builder.build();
 
+        Request request = new Request.Builder()
+                .url(address)
+                .post(requestBody)
+                .build();
+        client.newCall(request).enqueue(callback);
+    }
+
+    /**
+     * POST请求（参数为JSON格式）
+     * @param address
+     * @param json
+     * @param callback
+     */
+    public static void sendPost(String address, String json, okhttp3.Callback callback) {
+        //创建一个RequestBody(参数1：数据类型 参数2传递的json串)
+        RequestBody requestBody = RequestBody.create(JSON, json);
+        //创建一个请求对象
         Request request = new Request.Builder()
                 .url(address)
                 .post(requestBody)

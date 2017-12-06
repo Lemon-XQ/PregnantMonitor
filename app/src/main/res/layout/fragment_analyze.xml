@@ -5,6 +5,29 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <!--头-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/RecordHint"
+        android:textSize="22sp"
+        android:textColor="@color/black"
+        android:padding="10dp"
+        android:background="@color/lightGreen"/>
+    <TextView
+        android:id="@+id/currentTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="2017年12月4日 0:40 周一"
+        android:textSize="17sp"
+        android:padding="10dp"/>
+
+    <!--分割线-->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/green" />
+
     <!--年龄-->
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,20 +37,20 @@
 
         <TextView
             android:id="@+id/ageText"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_vertical"
             android:text="@string/Age"
-            android:textColor="#000000"
-            android:textSize="18sp"
+            android:textColor="@color/green"
+            android:textSize="20sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@+id/age"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/age"
-            android:layout_width="200dp"
+            android:layout_width="150dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical|end"
             android:textColor="#000000"
@@ -40,8 +63,8 @@
     <!--分割线-->
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="#999999" />
+        android:layout_height="1dp"
+        android:background="@color/green" />
 
     <!--身高-->
     <LinearLayout
@@ -52,20 +75,20 @@
 
         <TextView
             android:id="@+id/heightText"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_vertical"
             android:text="@string/Height"
-            android:textColor="#000000"
-            android:textSize="18sp"
+            android:textColor="@color/green"
+            android:textSize="20sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@+id/height"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/height"
-            android:layout_width="200dp"
+            android:layout_width="150dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical|end"
             android:textColor="#000000"
@@ -78,8 +101,8 @@
     <!--分割线-->
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="#999999" />
+        android:layout_height="1dp"
+        android:background="@color/green" />
 
     <!--体重-->
     <LinearLayout
@@ -90,20 +113,20 @@
 
         <TextView
             android:id="@+id/weightText"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_vertical"
             android:text="@string/Weight"
-            android:textColor="#000000"
-            android:textSize="18sp"
+            android:textColor="@color/green"
+            android:textSize="20sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@+id/weight"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/weight"
-            android:layout_width="200dp"
+            android:layout_width="150dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical|end"
             android:textColor="#000000"
@@ -116,8 +139,8 @@
     <!--分割线-->
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="#999999" />
+        android:layout_height="1dp"
+        android:background="@color/green" />
 
     <!--OGTT-->
     <LinearLayout
@@ -128,20 +151,21 @@
 
         <TextView
             android:id="@+id/ogttText"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_vertical"
             android:text="@string/OGTT"
-            android:textColor="#000000"
-            android:textSize="18sp"
+            android:textColor="@color/green"
+            android:textSize="20sp"
+            android:maxLines="1"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@+id/ogtt"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/ogtt"
-            android:layout_width="200dp"
+            android:layout_width="150dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical|end"
             android:textColor="#000000"
@@ -154,19 +178,19 @@
     <!--分割线-->
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="#999999" />
+        android:layout_height="1dp"
+        android:background="@color/green" />
 
     <!--分析按钮-->
     <Button
         android:id="@+id/btn_analyse"
-        android:layout_width="wrap_content"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="50dp"
-        android:background="@mipmap/btn_bg_short"
+        android:background="@drawable/button_shape"
         android:text="@string/ConfirmAnalyse"
-        android:textColor="#ffffff"
+        android:textColor="@color/green"
         android:textSize="18sp" />
 
 </LinearLayout>

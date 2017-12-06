@@ -35,14 +35,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SignIn">
+        <activity android:name=".activity.SignIn">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.Main2Activity" />
         <activity
             android:name=".activity.SetPlanActivity"
@@ -50,7 +50,7 @@
         <activity
             android:name=".activity.HistoryActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".Fstep" />
+        <activity android:name=".activity.Fstep" />
 
         <service
             android:name=".step.service.StepService"
@@ -84,9 +84,9 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".SettingActivity" />
-        <activity android:name=".TaskActivity" />
-        <activity android:name=".AnalyzeActivity" />
+        <activity android:name=".activity.SettingActivity" />
+        <activity android:name=".activity.TaskActivity" />
+        <activity android:name=".activity.AnalyzeActivity" />
     </application>
 
 </manifest>
