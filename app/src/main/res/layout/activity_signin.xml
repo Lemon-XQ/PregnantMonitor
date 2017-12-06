@@ -6,18 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg">
 
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="215dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:labelFor="@+id/password"
-        android:textAlignment="textStart"
-        app:layout_constraintBaseline_toBaselineOf="@+id/passwordText"
-        app:layout_constraintLeft_toRightOf="@+id/passwordText"
-        app:layout_constraintRight_toRightOf="parent" />
-
+    <!--账号-->
     <EditText
         android:id="@+id/account"
         android:layout_width="215dp"
@@ -30,10 +19,34 @@
         app:layout_constraintRight_toRightOf="parent" />
 
     <TextView
+        android:id="@+id/accountText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:text="@string/Account"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/account"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--密码-->
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="215dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:labelFor="@+id/password"
+        android:textAlignment="textStart"
+        app:layout_constraintBaseline_toBaselineOf="@+id/passwordText"
+        app:layout_constraintLeft_toRightOf="@+id/passwordText"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
         android:id="@+id/passwordText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="50dp"
         android:text="@string/Password"
         android:textAlignment="textStart"
         android:textSize="18sp"
@@ -41,21 +54,22 @@
         app:layout_constraintRight_toLeftOf="@+id/password"
         app:layout_constraintTop_toBottomOf="@+id/accountText" />
 
+    <!--按钮-->
     <Button
         android:id="@+id/login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="50dp"
         android:text="@string/Login"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/signup"
-        app:layout_constraintTop_toBottomOf="@+id/passwordText" />
+        app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <Button
         android:id="@+id/signup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="50dp"
         android:text="@string/Signup"
         app:layout_constraintLeft_toRightOf="@+id/login"
         app:layout_constraintRight_toLeftOf="@+id/visitor"
@@ -65,22 +79,13 @@
         android:id="@+id/visitor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="50dp"
         android:text="@string/Guest"
         app:layout_constraintLeft_toRightOf="@+id/signup"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password" />
 
-    <TextView
-        android:id="@+id/accountText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="144dp"
-        android:text="@string/Account"
-        android:textSize="18sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/account"
-        app:layout_constraintTop_toTopOf="parent" />
+
 
 
 </android.support.constraint.ConstraintLayout>

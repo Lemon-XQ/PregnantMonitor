@@ -46,5 +46,5 @@ public class Consts {
     public static String AGE_INVALID = "请输入合法年龄值（1-100）";
     public static String HEIGHT_INVALID = "请输入合法身高（1.0-2.0）";
     public static String WEIGHT_INVALID = "请输入合法体重（>0）";
-    public static String OGTT_INVALID = "请输入合法OGTT值（>0）";
+    public static String OGTT_INVALID = "请输入合法空腹血糖值（>0）";
 }

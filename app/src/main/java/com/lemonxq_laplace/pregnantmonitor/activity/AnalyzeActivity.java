@@ -113,11 +113,11 @@ public class AnalyzeActivity extends AppCompatActivity {
                     String resCode = res.getResCode();
                     String resMsg = res.getResMsg();
                     HashMap<String,String> property = res.getPropertyMap();
-                    float GDM_Prob = Float.parseFloat(property.get("GDMProb"));
-                    Log.d("GDM_Prob",GDM_Prob+"");
 
                     if(resCode.equals(Consts.SUCCESSCODE_GDMANALYSE)){
                         // 分析完成，启动分析结果界面
+                        float GDM_Prob = Float.parseFloat(property.get("GDMProb"));
+                        Log.d("GDM_Prob",GDM_Prob+"");
                         replaceFragment(new GDMResultFragment(),R.id.analyzeContainer,
                                         "GDMProb",GDM_Prob);
                     }else{
@@ -131,19 +131,21 @@ public class AnalyzeActivity extends AppCompatActivity {
                 }
             });
         } else {
-            Toast.makeText(AnalyzeActivity.this, Consts.ERROR_FORMAT, Toast.LENGTH_SHORT).show();
+            showResponse("年龄、身高、体重、空腹血糖不能为空");
         }
     }
 
     private boolean checkDataValid(int age, float height, float weight, float ogtt) {
-        if (age <= 0 || age >= 150)
+        if(age == 0 || height == 0 || weight == 0 || ogtt == 0)
             return false;
-        if (height <= 0 || height >= 3)
-            return false;
-        if (weight <= 0 || weight >= 300)
-            return false;
-        if (ogtt <= 0)
-            return false;
+//        if (age <= 0 || age >= 150)
+//            return false;
+//        if (height <= 0 || height >= 3)
+//            return false;
+//        if (weight <= 0 || weight >= 300)
+//            return false;
+//        if (ogtt <= 0)
+//            return false;
         return true;
     }
 
