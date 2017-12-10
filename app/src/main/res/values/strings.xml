@@ -27,13 +27,16 @@
     <string name="Guest">游客</string>
     <string name="Account">账号</string>
     <string name="Age">年龄(岁)</string>
-    <string name="Height">身高(m)</string>
+    <string name="Height">身高(cm)</string>
     <string name="Weight">体重(kg)</string>
     <string name="OGTT">空腹血糖(mmol/L)</string>
+    <string name="input_hint">点击输入</string>
     <string name="RecordHint">记录您现在的指数</string>
     <string name="ConfirmAnalyse">开始分析</string>
-    <string name="ShowAnalyseResult">经人工智能运算，您的情况如下</string>>
+    <string name="ShowAnalyseResult">检测结果</string>
+    <string name="normal_msg">您患病的几率较小，建议按实际情况及时检查血糖水平变化，如有情况改变去医院做进一步检查</string>
     <string name="normal">正常</string>
+    <string name="GDM_msg">您患病的几率较大，建议去医院做进一步检查以确定</string>
     <string name="GDM">妊娠期糖尿病</string>
     <string name="accuracy">准确度</string>
 

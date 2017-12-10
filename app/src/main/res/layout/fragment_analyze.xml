@@ -10,10 +10,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/RecordHint"
-        android:textSize="22sp"
+        android:textSize="20sp"
         android:textColor="@color/black"
         android:padding="10dp"
-        android:background="@color/lightGreen"/>
+        />
     <TextView
         android:id="@+id/currentTime"
         android:layout_width="match_parent"
@@ -26,7 +26,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/green" />
+        android:background="@color/grey" />
 
     <!--年龄-->
     <LinearLayout
@@ -48,23 +48,32 @@
             app:layout_constraintRight_toLeftOf="@+id/age"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/age"
+        <Button
+            android:id="@+id/ageBtn"
             android:layout_width="150dp"
             android:layout_height="match_parent"
-            android:gravity="center_vertical|end"
-            android:textColor="#000000"
+            android:text="@string/input_hint"
             android:textSize="18sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/ageText"
-            app:layout_constraintLeft_toRightOf="@+id/ageText"
-            app:layout_constraintRight_toRightOf="parent" />
+            android:textColor="@color/grey"
+            android:gravity="center_vertical|end"
+            android:background="@color/transparent"/>
+        <!--<EditText-->
+            <!--android:id="@+id/age"-->
+            <!--android:layout_width="150dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:gravity="center_vertical|end"-->
+            <!--android:textColor="#000000"-->
+            <!--android:textSize="18sp"-->
+            <!--app:layout_constraintBaseline_toBaselineOf="@+id/ageText"-->
+            <!--app:layout_constraintLeft_toRightOf="@+id/ageText"-->
+            <!--app:layout_constraintRight_toRightOf="parent" />-->
     </LinearLayout>
 
     <!--分割线-->
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/green" />
+        android:background="@color/grey" />
 
     <!--身高-->
     <LinearLayout
@@ -86,23 +95,32 @@
             app:layout_constraintRight_toLeftOf="@+id/height"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/height"
+        <Button
+            android:id="@+id/heightBtn"
             android:layout_width="150dp"
             android:layout_height="match_parent"
-            android:gravity="center_vertical|end"
-            android:textColor="#000000"
+            android:text="@string/input_hint"
             android:textSize="18sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/heightText"
-            app:layout_constraintLeft_toRightOf="@+id/heightText"
-            app:layout_constraintRight_toRightOf="parent" />
+            android:textColor="@color/grey"
+            android:gravity="center_vertical|end"
+            android:background="@color/transparent"/>
+        <!--<EditText-->
+            <!--android:id="@+id/height"-->
+            <!--android:layout_width="150dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:gravity="center_vertical|end"-->
+            <!--android:textColor="#000000"-->
+            <!--android:textSize="18sp"-->
+            <!--app:layout_constraintBaseline_toBaselineOf="@+id/heightText"-->
+            <!--app:layout_constraintLeft_toRightOf="@+id/heightText"-->
+            <!--app:layout_constraintRight_toRightOf="parent" />-->
     </LinearLayout>
 
     <!--分割线-->
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/green" />
+        android:background="@color/grey" />
 
     <!--体重-->
     <LinearLayout
@@ -124,23 +142,32 @@
             app:layout_constraintRight_toLeftOf="@+id/weight"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/weight"
+        <Button
+            android:id="@+id/weightBtn"
             android:layout_width="150dp"
             android:layout_height="match_parent"
-            android:gravity="center_vertical|end"
-            android:textColor="#000000"
+            android:text="@string/input_hint"
             android:textSize="18sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/weightText"
-            app:layout_constraintLeft_toRightOf="@+id/weightText"
-            app:layout_constraintRight_toRightOf="parent" />
+            android:textColor="@color/grey"
+            android:gravity="center_vertical|end"
+            android:background="@color/transparent"/>
+        <!--<EditText-->
+            <!--android:id="@+id/weight"-->
+            <!--android:layout_width="150dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:gravity="center_vertical|end"-->
+            <!--android:textColor="#000000"-->
+            <!--android:textSize="18sp"-->
+            <!--app:layout_constraintBaseline_toBaselineOf="@+id/weightText"-->
+            <!--app:layout_constraintLeft_toRightOf="@+id/weightText"-->
+            <!--app:layout_constraintRight_toRightOf="parent" />-->
     </LinearLayout>
 
     <!--分割线-->
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/green" />
+        android:background="@color/grey" />
 
     <!--OGTT-->
     <LinearLayout
@@ -163,23 +190,32 @@
             app:layout_constraintRight_toLeftOf="@+id/ogtt"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/ogtt"
+        <Button
+            android:id="@+id/ogttBtn"
             android:layout_width="150dp"
             android:layout_height="match_parent"
-            android:gravity="center_vertical|end"
-            android:textColor="#000000"
+            android:text="@string/input_hint"
             android:textSize="18sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/ogttText"
-            app:layout_constraintLeft_toRightOf="@+id/ogttText"
-            app:layout_constraintRight_toRightOf="parent" />
+            android:textColor="@color/grey"
+            android:gravity="center_vertical|end"
+            android:background="@color/transparent"/>
+        <!--<EditText-->
+            <!--android:id="@+id/ogtt"-->
+            <!--android:layout_width="150dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:gravity="center_vertical|end"-->
+            <!--android:textColor="#000000"-->
+            <!--android:textSize="18sp"-->
+            <!--app:layout_constraintBaseline_toBaselineOf="@+id/ogttText"-->
+            <!--app:layout_constraintLeft_toRightOf="@+id/ogttText"-->
+            <!--app:layout_constraintRight_toRightOf="parent" />-->
     </LinearLayout>
 
     <!--分割线-->
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/green" />
+        android:background="@color/grey" />
 
     <!--分析按钮-->
     <Button
