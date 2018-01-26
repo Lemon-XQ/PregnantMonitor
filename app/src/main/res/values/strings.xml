@@ -1,0 +1,115 @@
+<resources>
+    <string name="app_name_cn">安心孕</string>
+    <string name="app_name">Care-2-you</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="_btn_send">发送</string>
+    <string name="Desc"> </string>
+
+    <string name="Monitor_cn">实时监测</string>
+    <string name="Tool_cn">工具箱</string>
+    <string name="Setting_cn">设置</string>
+    <string name="TaskList_cn">任务列表</string>
+    <string name="Analyze_cn">统计分析</string>
+    <string name="FootstepCounter_cn">计步器</string>
+    <string name="FoodIdentifyer_cn">食物识别</string>
+    <string name="About_cn">关于</string>
+    <string name="TraningPlan_cn">锻炼计划</string>
+    <string name="Step_cn">步数</string>
+    <string name="Time_cn">时间</string>
+    <string name="Target_cn">每日目标</string>
+    <string name="Remind_cn">提醒</string>
+    <string name="RemindTime_cn">提醒时间</string>
+    <string name="Save_cn">保存</string>
+    <string name="HistoryRecord_cn">历史记录</string>
+    <string name="introduce_cn">说明</string>
+    <string name="title_cn">标题</string>
+    <string name="summary_cn">内容</string>
+    <string name="Password_cn">密码</string>
+    <string name="Login_cn">登录</string>
+    <string name="Signup_cn">注册</string>
+    <string name="Guest_cn">游客</string>
+    <string name="Account_cn">账号</string>
+    <string name="month_cn">个月</string>
+    <string name="week_cn">周</string>
+    <string name="day_cn">天</string>
+    <string name="Age_cn">年龄(岁)</string>
+    <string name="Height_cn">身高(cm)</string>
+    <string name="Weight_cn">体重(kg)</string>
+    <string name="OGTT_cn">空腹血糖(mmol/L)</string>
+    <string name="input_hint_cn">点击输入</string>
+    <string name="RecordHint_cn">记录您现在的指数</string>
+    <string name="ConfirmAnalyse_cn">开始分析</string>
+    <string name="ShowAnalyseResult_cn">检测结果</string>
+    <string name="normal_msg_cn">您患病的几率较小，建议按实际情况及时检查血糖水平变化，如有情况改变去医院做进一步检查</string>
+    <string name="normal_cn">正常</string>
+    <string name="GDM_msg_cn">您患病的几率较大，建议去医院做进一步检查以确定</string>
+    <string name="GDM_cn">妊娠期糖尿病</string>
+    <string name="accuracy_cn">准确度</string>
+    <string name="InvalidInput_cn">年龄、身高、体重、空腹血糖不能为空</string>
+    <string name="thinking_cn">人工智能正在思考中...</string>
+    <string name="confirm_cn">确定</string>
+    <string name="cancel_cn">取消</string>
+    <string name="historySteps_cn">查看历史步数</string>
+    <string name="setTrainingPlan_cn">设置锻炼计划</string>
+    <string name="deviceSupport_cn">该设备支持计步</string>
+
+    <string name="Monitor_en">Real-time Monitor</string>
+    <string name="Tool_en">Tools</string>
+    <string name="Setting_en">Setting</string>
+    <string name="TaskList_en">Task</string>
+    <string name="Analyze_en">Analyze</string>
+    <string name="FootstepCounter_en">Footstep Counter</string>
+    <string name="FoodIdentifyer_en">Food Identifyer</string>
+    <string name="About_en">About</string>
+    <string name="TraningPlan_en">Training Plan</string>
+    <string name="Step_en">Steps</string>
+    <string name="Time_en">Time</string>
+    <string name="Target_en">Daily Target</string>
+    <string name="Remind_en">Remind</string>
+    <string name="RemindTime_en">Remind Time</string>
+    <string name="Save_en">Save</string>
+    <string name="HistoryRecord_en">History</string>
+    <string name="introduce_en">Introduction</string>
+    <string name="title_en">Title</string>
+    <string name="summary_en">Summary</string>
+    <string name="Password_en">Password</string>
+    <string name="Login_en">Login</string>
+    <string name="Signup_en">Register</string>
+    <string name="Guest_en">Visitor</string>
+    <string name="Account_en">Account</string>
+    <string name="month_en">Months</string>
+    <string name="week_en">Weeks</string>
+    <string name="day_en">Days</string>
+    <string name="Age_en">Ages(years old)</string>
+    <string name="Height_en">Height(cm)</string>
+    <string name="Weight_en">Weight(kg)</string>
+    <string name="OGTT_en">Fasting blood glucose level(mmol/L)</string>
+    <string name="input_hint_en">CLICK TO ENTER</string>
+    <string name="RecordHint_en">Record your current data</string>
+    <string name="ConfirmAnalyse_en">Start analysis</string>
+    <string name="ShowAnalyseResult_en">Result</string>
+    <string name="normal_msg_en">Chance of getting Gestational Diabetes Mellitus: Low.
+        It is suggested to have blood glucose test regularly and monitor the change in blood glucose level. Go to the hospital immediately if there is a great change in blood glucose level.</string>
+    <string name="normal_en">Normal</string>
+    <string name="GDM_msg_en">Chance of getting Gestational Diabetes Mellitus: High.
+It is suggested that to have a further examination in hospital to confirm.</string>
+    <string name="GDM_en">Gestational Diabetes Mellitus</string>
+    <string name="accuracy_en">Accuracy</string>
+    <string name="InvalidInput_en">Age、Height、Weight、Fasting blood glucose level CANNOT BE NULL</string>
+    <string name="thinking_en">AI IS THINKING...</string>
+    <string name="confirm_en">CONFIRM</string>
+    <string name="cancel_en">CANCEL</string>
+    <string name="historySteps_en">View Steps</string>
+    <string name="setTrainingPlan_en">Set Training Plan</string>
+    <string name="deviceSupport_en">This device supports steps counting.</string>
+
+    <string-array name="welcome_trips">
+        <item>主人，奴婢在此等候多时了</item>
+        <item>主人，近来一切可好</item>
+        <item>亲爱的，我想死你了。</item>
+        <item>欢迎归来，我亲爱的主人。</item>
+        <item>我是萌小芽，很高兴为您服务</item>
+    </string-array>
+</resources>
