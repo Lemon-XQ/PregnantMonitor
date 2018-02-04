@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout="@layout/preference_item"
-    android:title="@string/Setting_cn">
+    android:title="@string/Setting">
 
     <PreferenceCategory
         android:layout="@layout/preference_category_widget"

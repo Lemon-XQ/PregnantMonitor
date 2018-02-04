@@ -27,7 +27,7 @@ public class GDMResultFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_gdmresult_en, container, false);
+        view = inflater.inflate(R.layout.fragment_gdmresult, container, false);
         GDM_Prob = this.getArguments().getFloat("GDMProb");
         Init();
         return view;
@@ -46,22 +46,22 @@ public class GDMResultFragment extends Fragment {
         // 患病（大于等于0.5）
         if(Float.compare(GDM_Prob, 0.5f) >= 0){
             // 设置检测结果文本、字体颜色
-            msgText.setText(resources.getString(R.string.GDM_msg_en));
+            msgText.setText(resources.getString(R.string.GDM_msg));
             msgText.setTextColor(resources.getColor(R.color.red));
             // 设置结果方框样式[文本、红色字体，红色框]
             resultText.setTextColor(resources.getColor(R.color.red));
-            resultText.setText(resources.getString(R.string.GDM_en));
+            resultText.setText(resources.getString(R.string.GDM));
             Drawable drawable = resources.getDrawable(R.drawable.redoutlinerect);
             resultText.setBackground(drawable);
         }
         // 不患病
         else {
             // 设置检测结果文本、字体颜色
-            msgText.setText(resources.getString(R.string.normal_msg_en));
+            msgText.setText(resources.getString(R.string.normal_msg));
             msgText.setTextColor(resources.getColor(R.color.green));
             // 设置结果方框样式[文本、绿色字体，绿色框]
             resultText.setTextColor(resources.getColor(R.color.green));
-            resultText.setText(resources.getString(R.string.normal_en));
+            resultText.setText(resources.getString(R.string.normal));
             Drawable drawable = resources.getDrawable(R.drawable.greenoutlinerect);
             resultText.setBackground(drawable);
         }

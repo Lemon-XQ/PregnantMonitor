@@ -1,0 +1,56 @@
+<resources>
+    <string name="app_name">Care-2-you</string>
+    <string name="btn_send">Send</string>
+
+    <string name="Monitor">Real-time Monitor</string>
+    <string name="Tool">Tools</string>
+    <string name="Setting">Setting</string>
+    <string name="TaskList">Task</string>
+    <string name="Analyze">Analyze</string>
+    <string name="FootstepCounter">Footstep Counter</string>
+    <string name="FoodIdentifyer">Food Identifyer</string>
+    <string name="About">About</string>
+    <string name="TrainingPlan">Training Plan</string>
+    <string name="Step">Steps</string>
+    <string name="Time">Time</string>
+    <string name="Target">Daily Target</string>
+    <string name="Remind">Remind</string>
+    <string name="RemindTime">Remind Time</string>
+    <string name="Save">Save</string>
+    <string name="HistoryRecord">History</string>
+    <string name="introduce">Introduction</string>
+    <string name="title">Title</string>
+    <string name="summary">Summary</string>
+    <string name="Password">Password</string>
+    <string name="Login">Login</string>
+    <string name="Signup">Register</string>
+    <string name="Guest">Visitor</string>
+    <string name="Account">Account</string>
+    <string name="month">Months</string>
+    <string name="week">Weeks</string>
+    <string name="day">Days</string>
+    <string name="Age">Ages(years old)</string>
+    <string name="Height">Height(cm)</string>
+    <string name="Weight">Weight(kg)</string>
+    <string name="OGTT">Fasting blood glucose level(mmol/L)</string>
+    <string name="input_hint">CLICK TO ENTER</string>
+    <string name="RecordHint">Record your current data</string>
+    <string name="ConfirmAnalyse">Start analysis</string>
+    <string name="ShowAnalyseResult">Result</string>
+    <string name="normal_msg">Chance of getting Gestational Diabetes Mellitus: Low.
+        It is suggested to have blood glucose test regularly and monitor the change in blood glucose level. Go to the hospital immediately if there is a great change in blood glucose level.</string>
+    <string name="normal">Normal</string>
+    <string name="GDM_msg">Chance of getting Gestational Diabetes Mellitus: High.
+It is suggested that to have a further examination in hospital to confirm.</string>
+    <string name="GDM">Gestational Diabetes Mellitus</string>
+    <string name="accuracy">Accuracy</string>
+    <string name="InvalidInput">Age、Height、Weight、Fasting blood glucose level CANNOT BE NULL</string>
+    <string name="thinking">AI IS THINKING...</string>
+    <string name="confirm">CONFIRM</string>
+    <string name="cancel">CANCEL</string>
+    <string name="historySteps">View Steps</string>
+    <string name="setTrainingPlan">Set Training Plan</string>
+    <string name="deviceSupport">This device supports steps counting.</string>
+    <string name="counting">Counting Steps...</string>
+
+</resources>

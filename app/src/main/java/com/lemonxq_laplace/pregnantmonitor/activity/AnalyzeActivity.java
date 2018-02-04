@@ -61,7 +61,7 @@ public class AnalyzeActivity extends AppCompatActivity {
                             LoadProgressBar(1500);
                         }
                         else {
-                            showResponse(getResources().getString(R.string.InvalidInput_en));
+                            showResponse(getResources().getString(R.string.InvalidInput));
                         }
                         break;
 
@@ -167,7 +167,7 @@ public class AnalyzeActivity extends AppCompatActivity {
     void LoadProgressBar(final long time){
         final ProgressDialog progressDialog = new ProgressDialog
                 (AnalyzeActivity.this);
-        progressDialog.setMessage(getResources().getString(R.string.thinking_en));
+        progressDialog.setMessage(getResources().getString(R.string.thinking));
         progressDialog.setCancelable(false);
         progressDialog.show();
         new Thread(new Runnable() {

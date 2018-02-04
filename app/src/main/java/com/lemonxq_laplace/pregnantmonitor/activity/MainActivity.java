@@ -51,8 +51,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        bottomTitleArr[0] = getResources().getString(R.string.Monitor_en);
-        bottomTitleArr[1] = getResources().getString(R.string.Tool_en);
+        bottomTitleArr[0] = getResources().getString(R.string.Monitor);
+        bottomTitleArr[1] = getResources().getString(R.string.Tool);
 
         //数据源添加Fragment
         mFragments.add(new MonitorFragment());

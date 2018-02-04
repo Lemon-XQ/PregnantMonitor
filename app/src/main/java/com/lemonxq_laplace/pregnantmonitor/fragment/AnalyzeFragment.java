@@ -71,7 +71,7 @@ public class AnalyzeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_analyze_en, container, false);
+        view = inflater.inflate(R.layout.fragment_analyze, container, false);
         InitComponent();
         SetListeners();
         updateTime();
@@ -364,7 +364,7 @@ public class AnalyzeFragment extends Fragment {
 
         new AlertDialog.Builder(this.getActivity())
                 .setView(outerView)
-                .setPositiveButton(getResources().getString(R.string.confirm_en),
+                .setPositiveButton(getResources().getString(R.string.confirm),
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
@@ -372,7 +372,7 @@ public class AnalyzeFragment extends Fragment {
                                 infoBtn.setTextColor(green);
                             }
                         })
-                .setNegativeButton(getResources().getString(R.string.cancel_en),null)
+                .setNegativeButton(getResources().getString(R.string.cancel),null)
                 .show();
     }
 
@@ -408,7 +408,7 @@ public class AnalyzeFragment extends Fragment {
 
         new AlertDialog.Builder(this.getActivity())
                 .setView(outerView)
-                .setPositiveButton(getResources().getString(R.string.confirm_en),
+                .setPositiveButton(getResources().getString(R.string.confirm),
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
@@ -417,7 +417,7 @@ public class AnalyzeFragment extends Fragment {
                                 infoBtn.setTextColor(green);
                             }
                         })
-                .setNegativeButton(getResources().getString(R.string.cancel_en),null)
+                .setNegativeButton(getResources().getString(R.string.cancel),null)
                 .show();
     }
 }

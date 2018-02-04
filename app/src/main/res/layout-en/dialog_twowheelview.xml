@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.lemonxq_laplace.pregnantmonitor.view.WheelView
+        android:id="@+id/wheel_view1"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"/>
+
+    <TextView
+        android:layout_width="10dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="."
+        android:textColor="@color/colorPrimary"
+        android:textSize="25sp"/>
+
+    <com.lemonxq_laplace.pregnantmonitor.view.WheelView
+        android:id="@+id/wheel_view2"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        />
+
+</LinearLayout>

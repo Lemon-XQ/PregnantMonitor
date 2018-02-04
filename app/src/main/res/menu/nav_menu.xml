@@ -6,19 +6,19 @@
             android:id="@+id/nav_analyze"
             android:layout_width="match_parent"
             android:icon="@drawable/icon_analyze"
-            android:title="@string/Analyze_en" />
+            android:title="@string/Analyze" />
         <item
             android:id="@+id/nav_task"
             android:icon="@drawable/icon_task"
-            android:title="@string/TaskList_en" />
+            android:title="@string/TaskList" />
         <item
             android:id="@+id/nav_setting"
             android:icon="@drawable/icon_setting"
-            android:title="@string/Setting_en" />
+            android:title="@string/Setting" />
         <item
             android:id="@+id/nav_info"
             android:icon="@drawable/icon_info"
-            android:title="@string/About_en" />
+            android:title="@string/About" />
     </group>
 
 </menu>
