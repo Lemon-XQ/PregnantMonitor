@@ -35,4 +35,10 @@ dependencies {
     compile 'com.android.support:design:26.1.0'
     compile 'de.hdodenhof:circleimageview:2.1.0'
     compile 'com.squareup.okhttp3:okhttp:3.7.0'
+    implementation files('libs/litepal-1.6.1-src.jar')
+//    implementation files('libs/material-calendarview-1.4.3-sources.jar')
+//    compile 'com.white:progressview:1.0.1'
+    implementation 'am.widget:circleprogressbar:1.0.3'
+    compile 'com.haibin:calendarview:3.2.0'
+    implementation 'com.jaredrummler:material-spinner:1.2.4@aar'
 }

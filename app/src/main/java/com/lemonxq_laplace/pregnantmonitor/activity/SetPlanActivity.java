@@ -2,13 +2,12 @@ package com.lemonxq_laplace.pregnantmonitor.activity;
 
 import android.app.TimePickerDialog;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Switch;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
@@ -27,7 +26,7 @@ import java.util.Locale;
  * Created by yuandl on 2016-10-18.
  */
 
-public class SetPlanActivity extends AppCompatActivity implements View.OnClickListener {
+public class SetPlanActivity extends BaseActivity implements View.OnClickListener {
 
     private SharedPreferencesUtils sp;
 
@@ -55,7 +54,7 @@ public class SetPlanActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.ac_exercise_plan);
+        setContentView(R.layout.activity_exercise_plan);
         assignViews();
         initData();
         addListener();

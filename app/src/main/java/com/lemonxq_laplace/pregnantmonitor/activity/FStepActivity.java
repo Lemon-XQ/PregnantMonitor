@@ -6,9 +6,9 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.lemonxq_laplace.pregnantmonitor.R;
@@ -20,24 +20,26 @@ import com.lemonxq_laplace.pregnantmonitor.view.StepArcView;
 /**
  * 记步主页
  */
-public class FStepActivity extends AppCompatActivity implements View.OnClickListener {
+public class FStepActivity extends BaseActivity implements View.OnClickListener {
     private TextView tv_data;
     private StepArcView cc;
     private TextView tv_set;
     private TextView tv_isSupport;
     private SharedPreferencesUtils sp;
+    private ImageView back;
 
     private void assignViews() {
         tv_data = (TextView) findViewById(R.id.tv_data);
         cc = (StepArcView) findViewById(R.id.cc);
         tv_set = (TextView) findViewById(R.id.tv_set);
         tv_isSupport = (TextView) findViewById(R.id.tv_isSupport);
+        back = findViewById(R.id.back);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_footcounter);
         assignViews();
         initData();
         addListener();
@@ -47,6 +49,12 @@ public class FStepActivity extends AppCompatActivity implements View.OnClickList
     private void addListener() {
         tv_set.setOnClickListener(this);
         tv_data.setOnClickListener(this);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
     private void initData() {

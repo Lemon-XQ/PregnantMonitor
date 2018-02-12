@@ -2,13 +2,11 @@ package com.lemonxq_laplace.pregnantmonitor.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -22,17 +20,18 @@ import java.util.List;
 
 
 /**
- * Created by yuandl on 2016-10-18.
+ * @author: Lemon-XQ
+ * @date: 2018/2/8
  */
 
-public class HistoryActivity extends AppCompatActivity {
-    private LinearLayout layout_titlebar;
+public class HistoryActivity extends BaseActivity {
+//    private LinearLayout layout_titlebar;
     private ImageView iv_left;
     private ImageView iv_right;
     private ListView lv;
 
     private void assignViews() {
-        layout_titlebar = (LinearLayout) findViewById(R.id.layout_titlebar);
+//        layout_titlebar = (LinearLayout) findViewById(R.id.layout_titlebar);
         iv_left = (ImageView) findViewById(R.id.iv_left);
         iv_right = (ImageView) findViewById(R.id.iv_right);
         lv = (ListView) findViewById(R.id.lv);
@@ -41,7 +40,7 @@ public class HistoryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.ac_history);
+        setContentView(R.layout.activity_history);
         assignViews();
         iv_left.setOnClickListener(new View.OnClickListener() {
             @Override

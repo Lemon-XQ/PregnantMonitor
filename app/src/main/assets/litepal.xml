@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+    <dbname value="PregnantMonitor" />
+    <version value="2" />
+    <list>
+        <mapping class="com.lemonxq_laplace.pregnantmonitor.Data.User"/>
+        <mapping class="com.lemonxq_laplace.pregnantmonitor.Data.Record"/>
+    </list>
+</litepal>

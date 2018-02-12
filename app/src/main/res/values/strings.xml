@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">安心孕</string>
-    <string name="btn_send">发送</string>
+    <string name="slogan">贴心孕程，伴你全程</string>
 
+    <string name="btn_send">发送</string>
     <string name="Monitor">实时监测</string>
     <string name="Tool">工具箱</string>
     <string name="Setting">设置</string>
@@ -23,9 +24,15 @@
     <string name="summary">内容</string>
     <string name="Password">密码</string>
     <string name="Login">登录</string>
-    <string name="Signup">注册</string>
+    <string name="Register">注册</string>
     <string name="Guest">游客</string>
     <string name="Account">账号</string>
+    <string name="AccountHint">用户名/手机号/邮箱</string>
+    <string name="ConfirmPwd">确认密码</string>
+    <string name="RememberPwd">记住密码</string>
+    <string name="ModifyPwd">修改密码</string>
+    <string name="AutoLogIn">自动登录</string>
+    <string name="VisitorHint">还不想登录或注册？点此以游客身份进入</string>
     <string name="month">个月</string>
     <string name="week">周</string>
     <string name="day">天</string>
@@ -43,13 +50,18 @@
     <string name="GDM">妊娠期糖尿病</string>
     <string name="accuracy">准确度</string>
     <string name="InvalidInput">年龄、身高、体重、空腹血糖不能为空</string>
-    <string name="thinking">人工智能正在思考中...</string>
+    <string name="thinking">大数据分析中...</string>
     <string name="confirm">确定</string>
     <string name="cancel">取消</string>
     <string name="historySteps">查看历史步数</string>
     <string name="setTrainingPlan">设置锻炼计划</string>
     <string name="deviceSupport">该设备支持计步</string>
     <string name="counting">计步中...</string>
+
+    <string name="null_hint">账号或密码不能为空</string>
+    <string name="not_equal_hint">两次输入的密码需保持一致</string>
+    <string name="account_invalid_hint">用户名不是有效的手机号或邮箱</string>
+    <string name="no_record">无记录</string>
 
     <string-array name="welcome_trips">
         <item>主人，奴婢在此等候多时了</item>

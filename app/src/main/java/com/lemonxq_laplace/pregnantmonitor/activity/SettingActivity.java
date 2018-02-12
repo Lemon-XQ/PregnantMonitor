@@ -1,14 +1,13 @@
 package com.lemonxq_laplace.pregnantmonitor.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.lemonxq_laplace.pregnantmonitor.R;
 import com.lemonxq_laplace.pregnantmonitor.fragment.SettingFragment;
 
-public class SettingActivity extends AppCompatActivity {
+public class SettingActivity extends BaseActivity {
 
     private ImageView back;
 

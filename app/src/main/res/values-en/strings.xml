@@ -23,9 +23,15 @@
     <string name="summary">Summary</string>
     <string name="Password">Password</string>
     <string name="Login">Login</string>
-    <string name="Signup">Register</string>
+    <string name="Register">Register</string>
     <string name="Guest">Visitor</string>
     <string name="Account">Account</string>
+    <string name="AccountHint">UserName/Phone/Email</string>
+    <string name="ConfirmPwd">Confirm Password</string>
+    <string name="RememberPwd">Remember Password</string>
+    <string name="ModifyPwd">Modify Password</string>
+    <string name="AutoLogIn">Auto Login</string>
+    <string name="VisitorHint">Click here to enter as a visitor</string>
     <string name="month">Months</string>
     <string name="week">Weeks</string>
     <string name="day">Days</string>

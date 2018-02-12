@@ -8,21 +8,24 @@ import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.lemonxq_laplace.pregnantmonitor.Data.Record;
 import com.lemonxq_laplace.pregnantmonitor.R;
 import com.lemonxq_laplace.pregnantmonitor.Util.CommonRequest;
 import com.lemonxq_laplace.pregnantmonitor.Util.CommonResponse;
 import com.lemonxq_laplace.pregnantmonitor.Util.Consts;
+import com.lemonxq_laplace.pregnantmonitor.Util.Database;
 import com.lemonxq_laplace.pregnantmonitor.Util.HttpUtil;
+import com.lemonxq_laplace.pregnantmonitor.Util.UserManager;
 import com.lemonxq_laplace.pregnantmonitor.fragment.AnalyzeFragment;
 import com.lemonxq_laplace.pregnantmonitor.fragment.GDMResultFragment;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.HashMap;
 
 import okhttp3.Call;
@@ -33,16 +36,17 @@ import okhttp3.Response;
  * @date: 2017/11/5
  */
 
-public class AnalyzeActivity extends AppCompatActivity {
+public class AnalyzeActivity extends BaseActivity {
 
     private ImageView back;
     private int age;
     private float height;
     private float weight;
     private float ogtt;
+    private boolean isHealthy;
 
 
-    // 定义一个Handler用于接收黄色碎片给Activity发出来的指令
+    // 定义一个Handler用于接收碎片给Activity发出来的指令
     @SuppressLint("HandlerLeak")
     public Handler handler = new Handler() {
         @Override
@@ -56,7 +60,7 @@ public class AnalyzeActivity extends AppCompatActivity {
                         weight = bundle.getFloat("weight");
                         height = bundle.getFloat("height");
                         ogtt = bundle.getFloat("OGTT");
-                        Log.d("Analyse", "age:" + age + "height:" + height + "weight:" + weight + "ogtt:" + ogtt);
+                        Log.d("Analyse", "age:" + age + " height:" + height + " weight:" + weight + " ogtt:" + ogtt);
                         if(checkDataValid(age,height,weight,ogtt)){
                             LoadProgressBar(1500);
                         }
@@ -98,7 +102,6 @@ public class AnalyzeActivity extends AppCompatActivity {
     }
 
     private void AnalyseDIAB(int age, float height, float weight, float ogtt) {
-
         // 创建请求体对象
         CommonRequest request = new CommonRequest();
 
@@ -120,6 +123,8 @@ public class AnalyzeActivity extends AppCompatActivity {
                 if(resCode.equals(Consts.SUCCESSCODE_GDMANALYSE)){
                     // 分析完成，启动分析结果界面
                     float GDM_Prob = Float.parseFloat(property.get("GDMProb"));
+                    isHealthy = Float.compare(GDM_Prob,0.5f) < 0;
+                    storeAnalyzeData();// 存储分析结果入数据库
                     Log.d("GDM_Prob",GDM_Prob+"");
                     replaceFragment(new GDMResultFragment(),R.id.analyzeContainer,
                             "GDMProb",GDM_Prob);
@@ -189,4 +194,19 @@ public class AnalyzeActivity extends AppCompatActivity {
         }).start();
     }
 
+    void storeAnalyzeData(){
+        Record record = Database.findRecord(String.valueOf(new Date().getTime()),
+                                            UserManager.getCurrentUser());
+        if(record == null){
+            record = new Record();
+            record.setUser(UserManager.getCurrentUser());
+        }
+        record.setAge(age);
+        record.setDate(new Date());
+        record.setHeight(height);
+        record.setWeight(weight);
+        record.setOgtt(ogtt);
+        record.setHealthy(isHealthy);
+        record.save();
+    }
 }

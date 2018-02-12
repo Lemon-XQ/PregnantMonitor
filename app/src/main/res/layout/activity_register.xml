@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <!--标题栏-->
+    <LinearLayout
+        android:id="@+id/layout_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/colorPrimary"
+        android:fitsSystemWindows="true"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingLeft="18dp"
+            android:paddingRight="18dp"
+            android:src="@mipmap/arrow_back_white"
+            android:visibility="visible" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="#00000000"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="@string/Register"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+
+        <EditText
+            android:id="@+id/register_account"
+            android:drawableStart="@android:drawable/ic_menu_myplaces"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:hint="@string/AccountHint"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="40dp"
+            android:layout_alignEnd="@+id/register_pwd_confirm" />
+
+        <EditText
+            android:id="@+id/register_pwd"
+            android:drawableStart="@android:drawable/ic_lock_idle_lock"
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:hint="@string/Password"
+            android:layout_below="@+id/register_account"
+            android:layout_alignEnd="@+id/register_account"
+            android:layout_alignStart="@+id/register_account" />
+
+        <EditText
+            android:id="@+id/register_pwd_confirm"
+            android:drawableStart="@android:drawable/ic_lock_idle_lock"
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:layout_below="@+id/register_pwd"
+            android:layout_centerHorizontal="true"
+            android:hint="@string/ConfirmPwd" />
+
+        <!--注册、取消按钮-->
+        <Button
+            android:id="@+id/register_confirm"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/register_pwd_confirm"
+            android:layout_alignStart="@+id/register_pwd_confirm"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="30dp"
+            android:text="@string/Register"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:background="#1896f7" />
+
+        <Button
+            android:id="@+id/register_cancel"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:background="#0ff8a7"
+            android:layout_below="@+id/register_pwd_confirm"
+            android:layout_alignEnd="@+id/register_pwd_confirm"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="30dp"/>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

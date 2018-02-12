@@ -407,7 +407,7 @@ public class StepService extends Service implements SensorEventListener {
      * 当激活的时候依然会上报步数。该sensor适合在长时间的计步需求。
      * <p>
      * 2.TYPE_STEP_DETECTOR翻译过来就是走路检测，
-     * API文档也确实是这样说的，该sensor只用来监监测走步，每次返回数字1.0。
+     * API文档也确实是这样说的，该sensor只用来监测走步，每次返回数字1.0。
      * 如果需要长事件的计步请使用TYPE_STEP_COUNTER。
      */
     private void addCountStepListener() {
@@ -436,7 +436,7 @@ public class StepService extends Service implements SensorEventListener {
      * 当激活的时候依然会上报步数。该sensor适合在长时间的计步需求。
      * <p>
      * 2.TYPE_STEP_DETECTOR翻译过来就是走路检测，
-     * API文档也确实是这样说的，该sensor只用来监监测走步，每次返回数字1.0。
+     * API文档也确实是这样说的，该sensor只用来监测走步，每次返回数字1.0。
      * 如果需要长事件的计步请使用TYPE_STEP_COUNTER。
      *
      * @param event

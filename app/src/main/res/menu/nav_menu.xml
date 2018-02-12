@@ -3,14 +3,14 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_analyze"
+            android:id="@+id/nav_center"
             android:layout_width="match_parent"
-            android:icon="@drawable/icon_analyze"
-            android:title="@string/Analyze" />
+            android:icon="@drawable/icon_customer"
+            android:title="@string/Center" />
         <item
             android:id="@+id/nav_task"
             android:icon="@drawable/icon_task"
-            android:title="@string/TaskList" />
+            android:title="@string/Target" />
         <item
             android:id="@+id/nav_setting"
             android:icon="@drawable/icon_setting"

@@ -63,13 +63,13 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/sport" />
+        android:scaleType="center"
+        android:src="@drawable/sport" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="0dp"
         android:background="#ffffff"
         android:gravity="center_vertical"
         android:orientation="vertical">
@@ -79,10 +79,6 @@
             android:layout_height="1px"
             android:background="#999999" />
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="#999999" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -163,7 +159,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:background="@mipmap/btn_submit_bg"
         android:text="@string/Save"
         android:textColor="#ffffff"

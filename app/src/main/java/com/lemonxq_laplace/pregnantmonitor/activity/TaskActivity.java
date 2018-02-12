@@ -1,7 +1,6 @@
 package com.lemonxq_laplace.pregnantmonitor.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -12,7 +11,7 @@ import com.lemonxq_laplace.pregnantmonitor.fragment.TaskFragment;
  * @author Lemon-XQ
  */
 
-public class TaskActivity extends AppCompatActivity {
+public class TaskActivity extends BaseActivity {
 
     private ImageView back;
 

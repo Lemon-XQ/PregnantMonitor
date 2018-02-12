@@ -11,11 +11,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.lemonxq_laplace.pregnantmonitor.Data.User;
 import com.lemonxq_laplace.pregnantmonitor.R;
+import com.lemonxq_laplace.pregnantmonitor.Util.UserManager;
+import com.lemonxq_laplace.pregnantmonitor.Util.Util;
 import com.lemonxq_laplace.pregnantmonitor.activity.AnalyzeActivity;
 import com.lemonxq_laplace.pregnantmonitor.view.WheelView;
 
@@ -37,7 +39,6 @@ public class AnalyzeFragment extends Fragment {
     private Button heightBtn;
     private Button weightBtn;
     private Button ogttBtn;
-    private EditText ogttText;
     private TextView timeText;
     private View view;
     private int age;
@@ -72,8 +73,10 @@ public class AnalyzeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_analyze, container, false);
-        InitComponent();
-        SetListeners();
+        initData();
+        initView();
+        autoFill();
+        setListeners();
         updateTime();
         return view;
     }
@@ -86,16 +89,35 @@ public class AnalyzeFragment extends Fragment {
         weight = 0;
         height = 0;
         ogtt = 0;
+        autoFill();
     }
 
-    private void InitComponent() {
+    private void initView() {
         analyseBtn = view.findViewById(R.id.btn_analyse);
         ageBtn = view.findViewById(R.id.ageBtn);
         weightBtn = view.findViewById(R.id.weightBtn);
         heightBtn = view.findViewById(R.id.heightBtn);
         ogttBtn = view.findViewById(R.id.ogttBtn);
         timeText = view.findViewById(R.id.currentTime);
+    }
 
+    void autoFill(){
+        // 自动填充处理（年龄和身高）
+        User user = UserManager.getCurrentUser();
+        if(user.getBirthDate() != null){
+            age = Util.getAgeFromDate(user.getBirthDate());
+            ageBtn.setTextColor(green);
+            ageBtn.setText(String.valueOf(age));
+        }
+        if(user.getHeight() != 0){
+            height = user.getHeight();
+            heightBtn.setTextColor(green);
+            heightBtn.setText(String.valueOf(height));
+        }
+
+    }
+
+    private void initData(){
         // 填充列表
         ageList.clear();
         heightList.clear();
@@ -122,17 +144,11 @@ public class AnalyzeFragment extends Fragment {
         green = getActivity().getApplicationContext().getResources().getColor(R.color.green);
     }
 
-    private void SetListeners() {
+    private void setListeners() {
         // 设置分析按钮监听
         analyseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            // 发送指令给Activity
-            Log.d("Age", age+"");
-            Log.d("Height", height+"");
-            Log.d("Weight", weight+"");
-            Log.d("OGTT", ogtt+"");
-
             Message msg = new Message();
             Bundle bundle = new Bundle();
             bundle.putInt("age", age);
@@ -144,96 +160,6 @@ public class AnalyzeFragment extends Fragment {
             handler.sendMessage(msg);
             }
         });
-
-        // 输入框文本内容监听
-//        ageText.addTextChangedListener(new TextWatcher() {
-//            @Override
-//            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//
-//            }
-//
-//            @Override
-//            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//
-//            }
-//
-//            @Override
-//            public void afterTextChanged(Editable editable) {
-//                try {
-//                    age = Integer.parseInt(ageText.getText().toString());
-//                } catch (NumberFormatException e) {
-//                    Toast.makeText(getActivity(), Consts.AGE_INVALID, Toast.LENGTH_SHORT).show();
-//                    age = 0;
-//                }
-//
-//            }
-//        });
-//        weightText.addTextChangedListener(new TextWatcher() {
-//            @Override
-//            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//
-//            }
-//
-//            @Override
-//            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//
-//            }
-//
-//            @Override
-//            public void afterTextChanged(Editable editable) {
-//                try {
-//                    weight = Float.parseFloat(weightText.getText().toString());
-//                } catch (NumberFormatException e) {
-//                    Toast.makeText(getActivity(), Consts.WEIGHT_INVALID, Toast.LENGTH_SHORT).show();
-//                    weight = 0;
-//                }
-//
-//            }
-//        });
-//        heightText.addTextChangedListener(new TextWatcher() {
-//            @Override
-//            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//
-//            }
-//
-//            @Override
-//            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//
-//            }
-//
-//            @Override
-//            public void afterTextChanged(Editable editable) {
-//                try {
-//                    height = Float.parseFloat(heightText.getText().toString());
-//                } catch (NumberFormatException e) {
-//                    Toast.makeText(getActivity(), Consts.HEIGHT_INVALID, Toast.LENGTH_SHORT).show();
-//                    height = 0;
-//                }
-//
-//            }
-//        });
-//        ogttText.addTextChangedListener(new TextWatcher() {
-//            @Override
-//            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//
-//            }
-//
-//            @Override
-//            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//
-//            }
-//
-//            @Override
-//            public void afterTextChanged(Editable editable) {
-//                try {
-//                    ogtt = Float.parseFloat(ogttText.getText().toString());
-//                } catch (NumberFormatException e) {
-////                    Toast.makeText(getActivity(), Consts.OGTT_INVALID, Toast.LENGTH_SHORT).show();
-//                    ogtt = 0;
-//                }
-//
-//            }
-//        });
 
         // 输入按钮监听
         ageBtn.setOnClickListener(new View.OnClickListener() {
@@ -290,21 +216,7 @@ public class AnalyzeFragment extends Fragment {
                 );
             }
         });
-        // 单栏显示版
-//        ogttBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                showChoiceDialog(R.id.wheel_view,ogttList,ogttBtn,
-//                        new WheelView.OnWheelViewListener(){
-//                            @Override
-//                            public void onSelected(int selectedIndex, String item) {
-//                                selectText = item;
-//                                ogtt = Float.parseFloat(item);
-//                                Log.d("WheelView", "[Dialog]selectedIndex: " + selectedIndex + ", item: " + item);
-//                            }
-//                        });
-//            }
-//        });
+
         // 双栏显示版
         ogttBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -341,7 +253,7 @@ public class AnalyzeFragment extends Fragment {
         long time = System.currentTimeMillis();
         Date date = new Date(time);
 //        SimpleDateFormat format = new SimpleDateFormat("yyyy年MM月dd日 HH时mm分 E", Locale.CHINA);
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm E", Locale.ENGLISH);
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm E", Locale.CHINA);
         timeText.setText(format.format(date));
     }
 

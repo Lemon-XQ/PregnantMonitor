@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <!--标题栏-->
+    <LinearLayout
+        android:id="@+id/layout_titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/colorPrimary"
+        android:fitsSystemWindows="true"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:gravity="center"
+            android:onClick="onBackward"
+            android:paddingLeft="18dp"
+            android:paddingRight="18dp"
+            android:src="@mipmap/arrow_back_white"
+            android:visibility="visible" />
+
+        <!--<TextView-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="#00000000"-->
+            <!--android:paddingLeft="10dp"-->
+            <!--android:paddingRight="10dp"-->
+            <!--android:text="@string/HistoryRecord"-->
+            <!--android:textColor="#ffffff"-->
+            <!--android:textSize="18sp" />-->
+        <com.jaredrummler.materialspinner.MaterialSpinner
+            android:id="@+id/dateSpinner"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="85dp"
+            app:ms_background_color="@color/colorPrimary"
+            app:ms_background_selector="@color/colorPrimary"
+            app:ms_arrow_tint="@color/white"
+            app:ms_dropdown_height="250dp"
+            app:ms_hint_color="@color/black"
+            app:ms_text_color="@color/white"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <com.haibin.calendarview.CalendarView
+        android:id="@+id/history_calendarView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:background="@color/colorPrimary"
+        app:month_view="com.lemonxq_laplace.pregnantmonitor.view.CustomMonthView"
+        app:week_bar_view="com.lemonxq_laplace.pregnantmonitor.view.EnglishWeekbar"
+        app:week_line_background="@color/white"
+        app:calendar_height="37dp"
+        app:current_day_text_color="#d94373"
+        app:selected_theme_color="@color/white"
+        app:lunar_text_size="0sp"
+        app:min_year="2018"
+        app:max_year="2050"
+        app:month_view_show_mode="mode_all"
+        app:other_month_text_color="#82ffffff"
+         />
+
+    <!--分割线-->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey" />
+
+    <!--年龄-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/ageText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/Age"
+            android:textColor="@color/green"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/age"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/history_age"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:text="0"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:gravity="center_vertical|end"
+            android:background="@color/transparent"/>
+    </LinearLayout>
+
+    <!--分割线-->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey" />
+
+    <!--身高-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/heightText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/Height"
+            android:textColor="@color/green"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/height"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/history_height"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:text="0"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:gravity="center_vertical|end"
+            android:background="@color/transparent"/>
+    </LinearLayout>
+
+    <!--分割线-->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey" />
+
+    <!--体重-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/weightText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/Weight"
+            android:textColor="@color/green"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/weight"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/history_weight"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:text="0"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:gravity="center_vertical|end"
+            android:background="@color/transparent"/>
+    </LinearLayout>
+
+    <!--分割线-->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey" />
+
+    <!--OGTT-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/ogttText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/OGTT"
+            android:textColor="@color/green"
+            android:textSize="18sp"
+            android:maxLines="2"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/ogtt"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/history_ogtt"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:text="0"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:gravity="center_vertical|end"
+            android:background="@color/transparent"/>
+    </LinearLayout>
+
+    <!--分割线-->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey" />
+
+    <!--检测结果-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/resultText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/ShowAnalyseResult"
+            android:textColor="@color/green"
+            android:textSize="18sp"
+            android:maxLines="2"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/ogtt"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/history_result"
+            android:layout_width="180dp"
+            android:layout_height="match_parent"
+            android:text=""
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:gravity="center_vertical|end"
+            android:background="@color/transparent"/>
+    </LinearLayout>
+
+</LinearLayout>

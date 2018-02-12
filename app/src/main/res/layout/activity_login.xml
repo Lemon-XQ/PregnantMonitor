@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    >
+
+    <RelativeLayout
+        android:id="@+id/login_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:padding="10dp">
+
+        <!--Logo-->
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignWithParentIfMissing="false"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/ic_launcher" />
+
+        <!--APP_Name-->
+        <TextView
+            android:id="@+id/appName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/logo"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+
+        <!--Slogan-->
+        <TextView
+            android:id="@+id/slogan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/appName"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="@string/slogan"
+            android:textColor="@color/white"
+            android:textSize="21sp"
+            />
+
+        <!--账号-->
+        <EditText
+            android:id="@+id/account"
+            android:layout_width="400dp"
+            android:layout_height="60dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/slogan"
+            android:layout_marginTop="70dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:drawableStart="@android:drawable/ic_menu_myplaces"
+            android:hint="@string/AccountHint"
+            android:inputType="textPersonName" />
+
+        <!--密码-->
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="400dp"
+            android:layout_height="60dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/account"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:drawableStart="@android:drawable/ic_lock_idle_lock"
+            android:ems="10"
+            android:hint="@string/Password"
+            android:inputType="textPassword" />
+
+        <!--记住密码-->
+        <CheckBox
+            android:id="@+id/login_remember"
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:layout_alignStart="@+id/password"
+            android:layout_below="@+id/password"
+            android:layout_marginTop="10dp"
+            android:checked="false"
+            android:text="@string/RememberPwd"
+            android:textSize="15sp" />
+
+        <!--自动登录-->
+        <CheckBox
+            android:id="@+id/login_auto"
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:layout_above="@+id/login"
+            android:layout_toEndOf="@+id/login"
+            android:checked="false"
+            android:text="@string/AutoLogIn"
+            android:textSize="15sp" />
+
+        <!--登录注册按钮-->
+        <Button
+            android:id="@+id/register"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_alignEnd="@+id/password"
+            android:layout_alignTop="@+id/login"
+            android:layout_marginEnd="30dp"
+            android:background="#19ee92"
+            android:gravity="center"
+            android:text="@string/Register"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/login_remember"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="25dp"
+            android:background="#9ca1f1"
+            android:gravity="center"
+            android:text="@string/Login"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/visitor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/login"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:textColor="@color/green1"
+            android:text="@string/VisitorHint"
+            android:textSize="15sp"/>
+
+        <!--<TextView-->
+            <!--android:id="@+id/login_text_change_pwd"-->
+            <!--android:layout_width="60dp"-->
+            <!--android:layout_height="20dp"-->
+            <!--android:layout_alignEnd="@+id/password"-->
+            <!--android:layout_below="@+id/password"-->
+            <!--android:text="@string/ModifyPwd"-->
+            <!--android:textSize="15sp" />-->
+
+    </RelativeLayout>
+
+</RelativeLayout>
