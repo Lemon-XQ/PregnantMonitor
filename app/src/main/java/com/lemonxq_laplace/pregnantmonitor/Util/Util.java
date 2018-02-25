@@ -2,6 +2,7 @@ package com.lemonxq_laplace.pregnantmonitor.Util;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.os.Environment;
 import android.widget.Toast;
 
 import java.util.Calendar;
@@ -126,10 +127,20 @@ public class Util {
         return calendar.getTime();
     }
 
+    /**
+     * 获取诊断结果字符串
+     * @param res
+     * @return
+     */
     public static String getResultStr(Boolean res){
         return res?"正常":"有妊娠期糖尿病风险";
     }
 
+    /**
+     * 将date转换为calendar
+     * @param date
+     * @return
+     */
     public static com.haibin.calendarview.Calendar dateToCalendar(Date date){
         com.haibin.calendarview.Calendar calendar = new com.haibin.calendarview.Calendar();
         calendar.setDay(getDay(date));
@@ -138,6 +149,19 @@ public class Util {
         calendar.setSchemeColor(Color.WHITE);//如果单独标记颜色、则会使用这个颜色
         calendar.setScheme("");
         return calendar;
+    }
+
+    /**
+     * 判断sd卡是否存在
+     * @return
+     */
+    public static boolean isSdcardExisting() {
+        final String state = Environment.getExternalStorageState();
+        if (state.equals(Environment.MEDIA_MOUNTED)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }

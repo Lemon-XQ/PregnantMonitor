@@ -80,9 +80,6 @@ public class MonitorHistoryActivity extends BaseActivity {
                 Log.d("MonitorHistory","month:"+Util.dateToCalendar(record.getDate()).getMonth());
                 Log.d("MonitorHistory","day:"+Util.dateToCalendar(record.getDate()).getDay());
                 recordDateList.add(Util.dateToCalendar(record.getDate()));
-//                Date date = record.getDate();
-//                recordDateList.add(getSchemeCalendar(Util.getYear(date),Util.getMonth(date),
-//                        Util.getDay(date), Color.WHITE,"检"));
             }
             calendarView.setSchemeDate(recordDateList);
         }
@@ -104,7 +101,7 @@ public class MonitorHistoryActivity extends BaseActivity {
         calendarView.setOnDateSelectedListener(new CalendarView.OnDateSelectedListener() {
             @Override
             public void onDateSelected(Calendar calendar, boolean isClick) {
-                Util.makeToast(MonitorHistoryActivity.this,calendar.toString());
+//                Util.makeToast(MonitorHistoryActivity.this,calendar.toString());
 
                 // 找当前日期当前用户的记录
                 Record cur_record = Database.findRecord(String.valueOf(Util.formDate(calendar).getTime()),
@@ -112,7 +109,7 @@ public class MonitorHistoryActivity extends BaseActivity {
                 if(cur_record != null){
                     ageText.setText(String.valueOf(cur_record.getAge()));
                     weightText.setText(String.valueOf(cur_record.getWeight()));
-                    heightText.setText(String.valueOf(cur_record.getHeight()));
+                    heightText.setText(String.valueOf(cur_record.getHeight()*100));
                     ogttText.setText(String.valueOf(cur_record.getOgtt()));
                     resText.setText(Util.getResultStr(cur_record.isHealthy()));
                 }else {

@@ -1,5 +1,6 @@
 package com.lemonxq_laplace.pregnantmonitor.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
@@ -23,5 +24,9 @@ public class BaseActivity extends AppCompatActivity {
         ActivityController.removeActivity(this);
     }
 
+    void autoStartActivity(Class T){
+        Intent intent = new Intent(this,T);
+        startActivity(intent);
+    }
 
 }

@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.lemonxq_laplace.pregnantmonitor.Data.User;
@@ -33,7 +32,6 @@ import java.util.Locale;
 
 public class AnalyzeFragment extends Fragment {
 
-    private ProgressBar progressBar;
     private Button analyseBtn;
     private Button ageBtn;
     private Button heightBtn;
@@ -112,7 +110,7 @@ public class AnalyzeFragment extends Fragment {
         if(user.getHeight() != 0){
             height = user.getHeight();
             heightBtn.setTextColor(green);
-            heightBtn.setText(String.valueOf(height));
+            heightBtn.setText(String.valueOf(height*100));
         }
 
     }

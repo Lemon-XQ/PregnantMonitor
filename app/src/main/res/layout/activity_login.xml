@@ -6,6 +6,14 @@
     android:background="@drawable/bg"
     >
 
+    <ProgressBar
+        android:id="@+id/progressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="invisible"
+        />
+
     <RelativeLayout
         android:id="@+id/login_view"
         android:layout_width="match_parent"
@@ -64,6 +72,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:drawableStart="@android:drawable/ic_menu_myplaces"
+            android:drawableTint="@color/colorPrimary"
             android:hint="@string/AccountHint"
             android:inputType="textPersonName" />
 
@@ -77,6 +86,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:drawableStart="@android:drawable/ic_lock_idle_lock"
+            android:drawableTint="@color/colorPrimary"
             android:ems="10"
             android:hint="@string/Password"
             android:inputType="textPassword" />
@@ -89,7 +99,9 @@
             android:layout_alignStart="@+id/password"
             android:layout_below="@+id/password"
             android:layout_marginTop="10dp"
+            android:backgroundTint="@color/colorPrimary"
             android:checked="false"
+            android:textColor="@color/black"
             android:text="@string/RememberPwd"
             android:textSize="15sp" />
 
@@ -100,6 +112,7 @@
             android:layout_height="20dp"
             android:layout_above="@+id/login"
             android:layout_toEndOf="@+id/login"
+            android:backgroundTint="@color/colorPrimary"
             android:checked="false"
             android:text="@string/AutoLogIn"
             android:textSize="15sp" />

@@ -18,7 +18,7 @@ public class TaskActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_task);
+        setContentView(R.layout.activity_center);
 
         // 动态添加碎片
         getSupportFragmentManager().beginTransaction().replace(R.id.taskContainer,

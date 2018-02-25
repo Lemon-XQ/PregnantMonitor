@@ -62,6 +62,21 @@
     <string name="not_equal_hint">两次输入的密码需保持一致</string>
     <string name="account_invalid_hint">用户名不是有效的手机号或邮箱</string>
     <string name="no_record">无记录</string>
+    <string name="Center">个人中心</string>
+    <string name="Username">用户名</string>
+    <string name="Logout">注销</string>
+    <string name="Exit">退出</string>
+    <string name="modify_hint">点击修改</string>
+    <string name="checkHistory">我的历史检测记录</string>
+    <string name="Nickname">昵称</string>
+    <string name="Birth">生日</string>
+    <string name="old_pwd_hint">请输入原密码</string>
+    <string name="new_pwd_hint">请输入新密码</string>
+    <string name="modify_not_null">原密码、新密码、确认密码均不能为空</string>
+    <string name="modify_not_equal">确认密码需与新密码保持一致</string>
+    <string name="modify_not_right">原密码错误</string>
+    <string name="modify_success">修改成功</string>
+    <string name="stepHint">适当锻炼对宝宝有好处哦~</string>
 
     <string-array name="welcome_trips">
         <item>主人，奴婢在此等候多时了</item>

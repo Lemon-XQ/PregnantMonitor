@@ -5,19 +5,19 @@
     android:layout="@layout/preference_item"
     android:title="@string/Setting">
 
-    <PreferenceCategory
-        android:layout="@layout/preference_category_widget"
-        android:title="账户设置">
-        <Preference
-            android:icon="@drawable/icon_avatar"
-            android:key="avatar"
-            android:layout="@layout/preference_item"
-            android:title="我的头像" />
-        <EditTextPreference
-            android:key="username"
-            android:layout="@layout/preference_item"
-            android:title="我的昵称" />
-    </PreferenceCategory>
+    <!--<PreferenceCategory-->
+        <!--android:layout="@layout/preference_category_widget"-->
+        <!--android:title="账户设置">-->
+        <!--<Preference-->
+            <!--android:icon="@drawable/icon_avatar"-->
+            <!--android:key="avatar"-->
+            <!--android:layout="@layout/preference_item"-->
+            <!--android:title="我的头像" />-->
+        <!--<EditTextPreference-->
+            <!--android:key="username"-->
+            <!--android:layout="@layout/preference_item"-->
+            <!--android:title="我的昵称" />-->
+    <!--</PreferenceCategory>-->
 
     <PreferenceCategory
         android:layout="@layout/preference_category_widget"
@@ -35,12 +35,13 @@
             android:summary="开启后将每日为您推送精彩文章"
             android:title="开启每日推送" />
         <Preference
+            android:key="clearCache"
             android:layout="@layout/preference_item"
             android:summary="删除已缓存的文章内容及图片"
             android:title="清空缓存" />
-        <Preference
-            android:layout="@layout/preference_item"
-            android:title="退出登录" />
+        <!--<Preference-->
+            <!--android:layout="@layout/preference_item"-->
+            <!--android:title="退出登录" />-->
     </PreferenceCategory>
 
     <PreferenceCategory

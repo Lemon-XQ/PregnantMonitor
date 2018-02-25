@@ -15,6 +15,30 @@ public class User extends DataSupport{
     private int id;
     private String account;
     private String password;
+    private String nickname;
+    private boolean isVisitor;
+    private Date birthDate;
+    private Date pregnantDate;
+    private float weight;
+    private float height;
+    private byte[] avatarImage;
+    private List<Record> recordList = new ArrayList<Record>();// 一个用户对应多条检测记录
+
+    public byte[] getAvatarImage() {
+        return avatarImage;
+    }
+
+    public void setAvatarImage(byte[] avatarImage) {
+        this.avatarImage = avatarImage;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
 
     public String getPassword() {
         return password;
@@ -23,14 +47,6 @@ public class User extends DataSupport{
     public void setPassword(String password) {
         this.password = password;
     }
-
-    private boolean isVisitor;
-    private Date birthDate;
-    private Date pregnantDate;
-    private float weight;
-    private float height;
-
-    private List<Record> recordList = new ArrayList<Record>();// 一个用户对应多条检测记录
 
     public int getId() {
         return id;

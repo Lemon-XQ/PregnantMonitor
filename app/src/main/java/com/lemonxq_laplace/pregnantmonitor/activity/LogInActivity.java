@@ -34,6 +34,7 @@ import okhttp3.Response;
 
 public class LogInActivity extends BaseActivity {
 
+    private ProgressBar progressBar;
     private Button loginBtn;
     private Button registerBtn;
     private TextView visitorText;
@@ -80,6 +81,7 @@ public class LogInActivity extends BaseActivity {
         passwordText = findViewById(R.id.password);
         isRememberPwd = findViewById(R.id.login_remember);
         isAutoLogin = findViewById(R.id.login_auto);
+        progressBar = findViewById(R.id.progressbar);
 
         LitePal.getDatabase();// 建立数据库
         UserManager.clear();
@@ -139,20 +141,20 @@ public class LogInActivity extends BaseActivity {
             return;
         }
 
+        progressBar.setVisibility(View.VISIBLE);
         OptionHandle();// 处理自动登录及记住密码
 
         // 填充参数
         request.addRequestParam("account",account);
         request.addRequestParam("pwd",password);
 
-        final ProgressBar progressBar = new ProgressBar(LogInActivity.this);
-        progressBar.setVisibility(View.VISIBLE);
+//        final ProgressBar progressBar = new ProgressBar(LogInActivity.this);
+//        progressBar.setVisibility(View.VISIBLE);
 
         // POST请求
         HttpUtil.sendPost(Consts.URL_Login, request.getJsonStr(), new okhttp3.Callback() {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                progressBar.setVisibility(View.GONE);
                 CommonResponse res = new CommonResponse(response.body().string());
                 String resCode = res.getResCode();
                 String resMsg = res.getResMsg();
@@ -169,8 +171,7 @@ public class LogInActivity extends BaseActivity {
                     }
                     UserManager.setCurrentUser(user);// 设置当前用户
 
-                    Intent intent = new Intent(LogInActivity.this, MainActivity.class);
-                    startActivity(intent);
+                    autoStartActivity(MainActivity.class);
                 }
                 showResponse(resMsg);
             }
@@ -178,7 +179,7 @@ public class LogInActivity extends BaseActivity {
             public void onFailure(Call call, IOException e) {
                 e.printStackTrace();
                 showResponse("Network ERROR");
-                progressBar.setVisibility(View.GONE);
+//                progressBar.setVisibility(View.GONE);
             }
         });
     }
@@ -187,6 +188,7 @@ public class LogInActivity extends BaseActivity {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
+                progressBar.setVisibility(View.GONE);
                 Toast.makeText(LogInActivity.this, msg, Toast.LENGTH_SHORT).show();
             }
         });

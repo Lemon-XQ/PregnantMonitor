@@ -124,12 +124,13 @@ public class StepService extends Service implements SensorEventListener {
     private void initNotification() {
         mBuilder = new NotificationCompat.Builder(this);
         mBuilder.setContentTitle(getResources().getString(R.string.app_name))
+                .setSmallIcon(R.drawable.ic_launcher)// 通知图标
                 .setContentText("今日步数" + CURRENT_STEP + " 步")
                 .setContentIntent(getDefalutIntent(Notification.FLAG_ONGOING_EVENT))
                 .setWhen(System.currentTimeMillis())//通知产生的时间，会在通知信息里显示
                 .setPriority(Notification.PRIORITY_DEFAULT)//设置该通知优先级
                 .setAutoCancel(false)//设置这个标志当用户单击面板就可以让通知将自动取消
-                .setOngoing(true)//ture，设置他为一个正在进行的通知。他们通常是用来表示一个后台任务,用户积极参与(如播放音乐)或以某种方式正在等待,因此占用设备(如一个文件下载,同步操作,主动网络连接)
+                .setOngoing(true)//true，设置他为一个正在进行的通知。他们通常是用来表示一个后台任务,用户积极参与(如播放音乐)或以某种方式正在等待,因此占用设备(如一个文件下载,同步操作,主动网络连接)
                 .setSmallIcon(R.mipmap.logo);
         Notification notification = mBuilder.build();
         mNotificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
@@ -319,6 +320,7 @@ public class StepService extends Service implements SensorEventListener {
         String plan = this.getSharedPreferences("share_date", Context.MODE_MULTI_PROCESS).getString("planWalk_QTY", "7000");
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
         mBuilder.setContentTitle("今日步数" + CURRENT_STEP + " 步")
+                .setSmallIcon(R.drawable.ic_launcher)
                 .setContentText("距离目标还差" + (Integer.valueOf(plan) - CURRENT_STEP) + "步，加油！")
                 .setContentIntent(hangPendingIntent)
                 .setTicker(getResources().getString(R.string.app_name) + "提醒您开始锻炼了")//通知首次出现在通知栏，带上升动画效果的

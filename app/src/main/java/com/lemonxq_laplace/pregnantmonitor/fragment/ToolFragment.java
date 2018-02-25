@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.lemonxq_laplace.pregnantmonitor.R;
+import com.lemonxq_laplace.pregnantmonitor.Util.Util;
 import com.lemonxq_laplace.pregnantmonitor.activity.AnalyzeActivity;
 import com.lemonxq_laplace.pregnantmonitor.activity.FStepActivity;
 
@@ -49,7 +50,7 @@ public class ToolFragment extends Fragment {
         foodIdentifyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Util.makeToast(getActivity(),"此功能开发中，敬请期待");
             }
         });
 

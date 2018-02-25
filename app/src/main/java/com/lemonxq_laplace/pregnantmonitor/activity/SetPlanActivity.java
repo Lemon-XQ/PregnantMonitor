@@ -44,7 +44,7 @@ public class SetPlanActivity extends BaseActivity implements View.OnClickListene
     private void assignViews() {
         layout_titlebar = (LinearLayout) findViewById(R.id.layout_titlebar);
         iv_left = (ImageView) findViewById(R.id.iv_left);
-        iv_right = (ImageView) findViewById(R.id.iv_right);
+//        iv_right = (ImageView) findViewById(R.id.iv_right);
         tv_step_number = (EditText) findViewById(R.id.tv_step_number);
         cb_remind = (Switch) findViewById(R.id.cb_remind);
         tv_remind_time = (TextView) findViewById(R.id.tv_remind_time);
@@ -89,7 +89,7 @@ public class SetPlanActivity extends BaseActivity implements View.OnClickListene
 
     public void addListener() {
         iv_left.setOnClickListener(this);
-        iv_right.setOnClickListener(this);
+//        iv_right.setOnClickListener(this);
         btn_save.setOnClickListener(this);
         tv_remind_time.setOnClickListener(this);
     }

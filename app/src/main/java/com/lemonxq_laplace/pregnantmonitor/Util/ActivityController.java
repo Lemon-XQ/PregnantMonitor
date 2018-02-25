@@ -69,4 +69,11 @@ public class ActivityController {
         return null;
     }
 
+    public static void clearAcache(){
+        for(Activity activity:activitys){
+            ACache acache = ACache.get(activity);
+            acache.clear();
+        }
+    }
+
 }

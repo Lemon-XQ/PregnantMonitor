@@ -14,12 +14,14 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.lemonxq_laplace.pregnantmonitor.Data.Record;
+import com.lemonxq_laplace.pregnantmonitor.Data.User;
 import com.lemonxq_laplace.pregnantmonitor.R;
 import com.lemonxq_laplace.pregnantmonitor.Util.CommonRequest;
 import com.lemonxq_laplace.pregnantmonitor.Util.CommonResponse;
 import com.lemonxq_laplace.pregnantmonitor.Util.Consts;
 import com.lemonxq_laplace.pregnantmonitor.Util.Database;
 import com.lemonxq_laplace.pregnantmonitor.Util.HttpUtil;
+import com.lemonxq_laplace.pregnantmonitor.Util.Server;
 import com.lemonxq_laplace.pregnantmonitor.Util.UserManager;
 import com.lemonxq_laplace.pregnantmonitor.fragment.AnalyzeFragment;
 import com.lemonxq_laplace.pregnantmonitor.fragment.GDMResultFragment;
@@ -44,7 +46,7 @@ public class AnalyzeActivity extends BaseActivity {
     private float weight;
     private float ogtt;
     private boolean isHealthy;
-
+    private Server server = new Server(this);
 
     // 定义一个Handler用于接收碎片给Activity发出来的指令
     @SuppressLint("HandlerLeak")
@@ -60,7 +62,7 @@ public class AnalyzeActivity extends BaseActivity {
                         weight = bundle.getFloat("weight");
                         height = bundle.getFloat("height");
                         ogtt = bundle.getFloat("OGTT");
-                        Log.d("Analyse", "age:" + age + " height:" + height + " weight:" + weight + " ogtt:" + ogtt);
+                        Log.d("Analyze", "age:" + age + " height:" + height + " weight:" + weight + " ogtt:" + ogtt);
                         if(checkDataValid(age,height,weight,ogtt)){
                             LoadProgressBar(1500);
                         }
@@ -199,7 +201,6 @@ public class AnalyzeActivity extends BaseActivity {
                                             UserManager.getCurrentUser());
         if(record == null){
             record = new Record();
-            record.setUser(UserManager.getCurrentUser());
         }
         record.setAge(age);
         record.setDate(new Date());
@@ -208,5 +209,11 @@ public class AnalyzeActivity extends BaseActivity {
         record.setOgtt(ogtt);
         record.setHealthy(isHealthy);
         record.save();
+        User user = UserManager.getCurrentUser();
+        user.setHeight(height);// 更新用户身高
+        user.getRecordList().add(record);
+        user.save();
+        if(!user.isVisitor())
+            server.setRecord(record);
     }
 }

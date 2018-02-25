@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.lemonxq_laplace.pregnantmonitor"
-    android:versionCode="1"
-    android:versionName="1.0">
+    package="com.lemonxq_laplace.pregnantmonitor">
 
     <uses-sdk
         android:minSdkVersion="17"
@@ -45,12 +43,8 @@
         </activity>
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.FStepActivity" />
-        <activity
-            android:name=".activity.SetPlanActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity
-            android:name=".activity.HistoryActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".activity.SetPlanActivity"/>
+        <activity android:name=".activity.HistoryActivity"/>
 
         <service
             android:name=".step.service.StepService"
@@ -89,6 +83,9 @@
         <activity android:name=".activity.AnalyzeActivity" />
         <activity android:name=".activity.RegisterActivity"/>
         <activity android:name=".activity.MonitorHistoryActivity"/>
+        <activity android:name=".activity.CenterActivity"/>
+        <activity android:name=".activity.ModifyPwdActivity"/>
+        <activity android:name=".activity.AboutActivity"/>
     </application>
 
 </manifest>

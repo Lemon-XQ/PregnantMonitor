@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <!--标题栏-->
     <LinearLayout
         android:id="@+id/layout_titlebar"
         android:layout_width="match_parent"

@@ -11,10 +11,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.haibin.calendarview.CalendarView;
+import com.lemonxq_laplace.pregnantmonitor.Data.User;
 import com.lemonxq_laplace.pregnantmonitor.R;
+import com.lemonxq_laplace.pregnantmonitor.Util.Server;
 import com.lemonxq_laplace.pregnantmonitor.Util.SharedPreferencesUtil;
+import com.lemonxq_laplace.pregnantmonitor.Util.UserManager;
 import com.lemonxq_laplace.pregnantmonitor.Util.Util;
 
 import java.util.Calendar;
@@ -30,12 +33,12 @@ public class DateDialogFragment extends DialogFragment{
     public Date birthDate;
     public Date pregnantDate;
     private Button nextBtn;
-    private CalendarView dateCalendarView;
     private DatePicker datePicker;
     private TextView title;
     private View mView;
     private static int COUNTER = 0;
     private SharedPreferencesUtil spu;
+    private Server server;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -48,26 +51,16 @@ public class DateDialogFragment extends DialogFragment{
         return builder.create();
     }
 
-//    private List<Calendar> markedCalendars = new ArrayList<Calendar>();
     private void init() {
+        server = new Server(getActivity());
         spu = new SharedPreferencesUtil(getActivity());
         title = mView.findViewById(R.id.title);
         nextBtn = mView.findViewById(R.id.btn_next);
         datePicker = mView.findViewById(R.id.datePicker);
         Date date = new Date();
         datePicker.setMaxDate(date.getTime());
-//        dateCalendarView = mView.findViewById(R.id.birth_calendarView);
-//        markedCalendars.add(getSchemeCalendar(2018,2,9, Color.RED,"_"));
-//        dateCalendarView.setSchemeDate(markedCalendars);
-
         title.setText("请选择您的出生日期");
         nextBtn.setText("下一步");
-//        dateCalendarView.setOnDateSelectedListener(new CalendarView.OnDateSelectedListener() {
-//            @Override
-//            public void onDateSelected(Calendar calendar, boolean isClick) {
-//                Toast.makeText(getActivity(),calendar.toString(),Toast.LENGTH_SHORT).show();
-//            }
-//        });
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -79,7 +72,8 @@ public class DateDialogFragment extends DialogFragment{
                                   datePicker.getMonth(),
                                   datePicker.getDayOfMonth());
                     birthDate = birthCalendar.getTime();
-                    spu.setParam("birthDate",birthDate); // 保存生日
+//                    spu.setParam("birthDate",birthDate); // 保存生日
+
                     title.setText("请选择您的怀孕日期");
                     nextBtn.setText("完成设置");
                     // 设置怀孕日期初始值为今天
@@ -94,7 +88,8 @@ public class DateDialogFragment extends DialogFragment{
                                         datePicker.getMonth(),
                                         datePicker.getDayOfMonth());
                     pregnantDate = pregnantCalendar.getTime();
-                    spu.setParam("pregnantDate",pregnantDate); // 保存怀孕日
+                    saveDate(birthDate,pregnantDate);
+//                    spu.setParam("pregnantDate",pregnantDate); // 保存怀孕日
                     dismiss();
                 }
             }
@@ -109,13 +104,29 @@ public class DateDialogFragment extends DialogFragment{
         }
     }
 
-//    private Calendar getSchemeCalendar(int year, int month, int day, int color, String text) {
-//        Calendar calendar = new Calendar();
-//        calendar.setYear(year);
-//        calendar.setMonth(month);
-//        calendar.setDay(day);
-//        calendar.setSchemeColor(color);//如果单独标记颜色、则会使用这个颜色
-//        calendar.setScheme(text);
-//        return calendar;
-//    }
+    private void saveDate(Date birthDate,Date pregnantDate){
+        // 本地保存
+//        spu.setParam("birthDate",birthDate);
+//        spu.setParam("pregnantDate",pregnantDate); // 保存怀孕日
+        // 保存至本地数据库中
+        User user = UserManager.getCurrentUser();
+        user.setBirthDate(birthDate);
+        user.setPregnantDate(pregnantDate);
+        user.save();
+        // 保存至服务器
+        if(!user.isVisitor()){
+            server.setBirthDate(birthDate);
+            server.setPregnantDate(pregnantDate);
+        }
+    }
+
+    private void showResponse(final String msg) {
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
 }
