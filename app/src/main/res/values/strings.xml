@@ -77,12 +77,13 @@
     <string name="modify_not_right">原密码错误</string>
     <string name="modify_success">修改成功</string>
     <string name="stepHint">适当锻炼对宝宝有好处哦~</string>
+    <string name="pregnantDate_hint">请选择您最近一次月经时间</string>
+    <string name="birthDate_hint">请选择您的出生日期</string>
+    <string name="next">下一步</string>
+    <string name="finish">完成设置</string>
+    <string name="uploadAvatar">上传头像</string>
+    <string name="takePhoto">拍照</string>
+    <string name="chooseFromGallery">从相册选择</string>
+    <string name="exit_hint">再按一次退出程序</string>
 
-    <string-array name="welcome_trips">
-        <item>主人，奴婢在此等候多时了</item>
-        <item>主人，近来一切可好</item>
-        <item>亲爱的，我想死你了。</item>
-        <item>欢迎归来，我亲爱的主人。</item>
-        <item>我是萌小芽，很高兴为您服务</item>
-    </string-array>
 </resources>

@@ -91,7 +91,7 @@ public class MonitorHistoryActivity extends BaseActivity {
             @Override
             public void onItemSelected(MaterialSpinner view, int position, long id, String item) {
                 String[] dateStr = item.split("-");
-                int year =Integer.parseInt(dateStr[0]);
+                int year = Integer.parseInt(dateStr[0]);
                 int month = Integer.parseInt(dateStr[1]);
                 calendarView.scrollToCalendar(year,month,1);
             }

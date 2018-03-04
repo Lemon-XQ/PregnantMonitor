@@ -22,7 +22,17 @@ public class User extends DataSupport{
     private float weight;
     private float height;
     private byte[] avatarImage;
+
+//    public boolean isRecentLogin() {
+//        return recentLogin;
+//    }
+//
+//    public void setRecentLogin(boolean recentLogin) {
+//        this.recentLogin = recentLogin;
+//    }
+
     private List<Record> recordList = new ArrayList<Record>();// 一个用户对应多条检测记录
+//    private boolean recentLogin;
 
     public byte[] getAvatarImage() {
         return avatarImage;

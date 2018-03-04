@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Care-2-you</string>
     <string name="btn_send">Send</string>
+    <string name="slogan">贴心孕程，伴你全程</string>
 
     <string name="Monitor">Real-time Monitor</string>
     <string name="Tool">Tools</string>
@@ -28,7 +29,7 @@
     <string name="Account">Account</string>
     <string name="AccountHint">UserName/Phone/Email</string>
     <string name="ConfirmPwd">Confirm Password</string>
-    <string name="RememberPwd">Remember Password</string>
+    <string name="RememberPwd">Remember Me</string>
     <string name="ModifyPwd">Modify Password</string>
     <string name="AutoLogIn">Auto Login</string>
     <string name="VisitorHint">Click here to enter as a visitor</string>
@@ -51,12 +52,40 @@ It is suggested that to have a further examination in hospital to confirm.</stri
     <string name="GDM">Gestational Diabetes Mellitus</string>
     <string name="accuracy">Accuracy</string>
     <string name="InvalidInput">Age、Height、Weight、Fasting blood glucose level CANNOT BE NULL</string>
-    <string name="thinking">AI IS THINKING...</string>
+    <string name="thinking">Start analyzing with big data...</string>
     <string name="confirm">CONFIRM</string>
     <string name="cancel">CANCEL</string>
     <string name="historySteps">View Steps</string>
     <string name="setTrainingPlan">Set Training Plan</string>
     <string name="deviceSupport">This device supports steps counting.</string>
     <string name="counting">Counting Steps...</string>
+
+    <string name="null_hint">Account and Password can not be empty</string>
+    <string name="not_equal_hint">The password entered twice must be the same</string>
+    <string name="account_invalid_hint">Username is not a valid phone number or email address</string>
+    <string name="no_record">No Record</string>
+    <string name="Center">Personal center</string>
+    <string name="Username">Username</string>
+    <string name="Logout">Logout</string>
+    <string name="Exit">Exit</string>
+    <string name="modify_hint">Click to modify</string>
+    <string name="checkHistory">My historical analysis</string>
+    <string name="Nickname">Nickname</string>
+    <string name="Birth">BirthDay</string>
+    <string name="old_pwd_hint">Input old password</string>
+    <string name="new_pwd_hint">Input new password</string>
+    <string name="modify_not_null">The old password, new password, confirm password can not be empty</string>
+    <string name="modify_not_equal">Confirm password must be consistent with the new password</string>
+    <string name="modify_not_right">The old password is wrong</string>
+    <string name="modify_success">Modify Success</string>
+    <string name="stepHint">Proper exercise is good for your baby~</string>
+    <string name="pregnantDate_hint">Your most recent menstrual period</string>
+    <string name="birthDate_hint">Your birthDate</string>
+    <string name="next">Next</string>
+    <string name="finish">Finish</string>
+    <string name="uploadAvatar">Upload Avatar</string>
+    <string name="takePhoto">Take Photo</string>
+    <string name="chooseFromGallery">Choose from albums</string>
+    <string name="exit_hint">Press again to exit the program</string>
 
 </resources>

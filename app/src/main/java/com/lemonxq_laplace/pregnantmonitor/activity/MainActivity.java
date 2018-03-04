@@ -87,8 +87,6 @@ public class MainActivity extends BaseActivity  implements DialogInterface.OnDis
 
     String[] bottomTitleArr = new String[2];
     int[] bottomPic = {R.drawable.icon_message,R.drawable.icon_selfinfo};
-    private File imageFile;
-    private Uri tempUri;
     private ACache aCache;
 
     @SuppressLint("HandlerLeak")
@@ -413,24 +411,38 @@ public class MainActivity extends BaseActivity  implements DialogInterface.OnDis
     }
 
     private void showDateDialog(){
-        // 若本地和服务端尚未初始化日期
         User user = UserManager.getCurrentUser();
         if(user.isVisitor()){
-            if(Database.findDateByUsername(UserManager.getCurrentUser().getAccount()) != null)
-                return;
+            if(Database.findDateByUsername(UserManager.getCurrentUser().getAccount()) == null){
+                // 本地无日期信息，则弹日期填写框
+                dateDialog.setCancelable(false);
+                dateDialog.show(getFragmentManager(),"date");
+            }
         }else{
-            if(Database.findDateByUsername(UserManager.getCurrentUser().getAccount()) != null
-                    || server.getPregnantDate() != null)
-                return;
+            if(Database.findDateByUsername(UserManager.getCurrentUser().getAccount()) == null){
+                Date birthDate = new Date();
+                Date pregnantDate = new Date();
+                if((birthDate = server.getBirthDate()) != null &&
+                        (pregnantDate = server.getPregnantDate()) != null){
+                    // 同步服务端信息至本地数据库
+                    user.setBirthDate(birthDate);
+                    user.setPregnantDate(pregnantDate);
+                    user.save();
+                }else {
+                    // 本地和服务端均无日期信息，则弹日期填写框
+                    dateDialog.setCancelable(false);
+                    dateDialog.show(getFragmentManager(),"date");
+                }
+//                Util.makeToast(this,"birthDate:"+birthDate);
+//                Util.makeToast(this,"pregnantDate:"+pregnantDate);
+            }
         }
-        dateDialog.setCancelable(false);
-        dateDialog.show(getFragmentManager(),"date");
     }
 
     void showPhotoDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-        builder.setTitle("上传头像");
-        final String[] choices = {"拍照", "从相册选择"};
+        builder.setTitle(getResources().getString(R.string.uploadAvatar));
+        final String[] choices = {getResources().getString(R.string.takePhoto), getResources().getString(R.string.chooseFromGallery)};
         // 设置一个下拉的列表选择项
         builder.setItems(choices, new DialogInterface.OnClickListener()
         {
@@ -504,7 +516,7 @@ public class MainActivity extends BaseActivity  implements DialogInterface.OnDis
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             //与上次点击返回键时刻作差,大于2000ms是误操作
             if ((System.currentTimeMillis() - mExitTime) > 2000) {
-                Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getResources().getString(R.string.exit_hint), Toast.LENGTH_SHORT).show();
                 mExitTime = System.currentTimeMillis();// 记录本次点击“返回键”的时刻
             } else {
                 //小于2000ms退出程序

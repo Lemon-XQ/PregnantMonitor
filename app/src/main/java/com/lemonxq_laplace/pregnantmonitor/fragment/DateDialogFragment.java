@@ -59,8 +59,8 @@ public class DateDialogFragment extends DialogFragment{
         datePicker = mView.findViewById(R.id.datePicker);
         Date date = new Date();
         datePicker.setMaxDate(date.getTime());
-        title.setText("请选择您的出生日期");
-        nextBtn.setText("下一步");
+        title.setText(getResources().getString(R.string.birthDate_hint));
+        nextBtn.setText(getResources().getString(R.string.next));
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -74,8 +74,8 @@ public class DateDialogFragment extends DialogFragment{
                     birthDate = birthCalendar.getTime();
 //                    spu.setParam("birthDate",birthDate); // 保存生日
 
-                    title.setText("请选择您的怀孕日期");
-                    nextBtn.setText("完成设置");
+                    title.setText(getResources().getString(R.string.pregnantDate_hint));
+                    nextBtn.setText(getResources().getString(R.string.finish));
                     // 设置怀孕日期初始值为今天
                     Date date = new Date();
                     datePicker.init(Util.getYear(date),Util.getMonth(date),Util.getDay(date),null);

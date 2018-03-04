@@ -14,7 +14,7 @@ import java.util.HashMap;
 
 public class CommonRequest {
     /**
-     * 请求码，类似于接口号（用Servlet做服务器时暂时用不到）
+     * 请求码，类似于接口号（可用于区分一类请求下的不同请求，如获取不同信息等）
      */
     private String requestCode;
     /**

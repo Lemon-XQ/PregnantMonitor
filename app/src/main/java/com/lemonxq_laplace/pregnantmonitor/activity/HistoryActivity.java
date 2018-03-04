@@ -27,13 +27,13 @@ import java.util.List;
 public class HistoryActivity extends BaseActivity {
 //    private LinearLayout layout_titlebar;
     private ImageView iv_left;
-    private ImageView iv_right;
+//    private ImageView iv_right;
     private ListView lv;
 
     private void assignViews() {
 //        layout_titlebar = (LinearLayout) findViewById(R.id.layout_titlebar);
         iv_left = (ImageView) findViewById(R.id.iv_left);
-        iv_right = (ImageView) findViewById(R.id.iv_right);
+//        iv_right = (ImageView) findViewById(R.id.iv_right);
         lv = (ListView) findViewById(R.id.lv);
     }
 

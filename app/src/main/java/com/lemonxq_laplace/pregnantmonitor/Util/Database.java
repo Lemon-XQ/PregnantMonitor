@@ -24,7 +24,7 @@ public class Database {
      * @param name
      * @return
      */
-    public static User findUserByName(String name){
+    public static User findUserByName(String name){DataSupport.delete(User.class,1);
         return DataSupport.where("account=?",name)
                                 .findFirst(User.class);
     }

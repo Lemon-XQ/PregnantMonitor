@@ -58,19 +58,31 @@ public class LogInActivity extends BaseActivity {
         SharedPreferencesUtil spu = new SharedPreferencesUtil(this);
         Boolean isRemember = (Boolean) spu.getParam("isRememberPwd",false);
         Boolean isAutoLogin = (Boolean) spu.getParam("isAutoLogin",false);
-        // 数据库获取用户，存在则填充账号密码
-        User user = DataSupport.where("isVisitor = ?","0")
-                               .findFirst(User.class);
-        if(user != null){
-            UserManager.setCurrentUser(user);
+        // SharedPreference获取用户账号密码，存在则填充
+        String account = (String) spu.getParam("account","");
+        String pwd = (String)spu.getParam("pwd","");
+        if(!account.equals("") && !pwd.equals("")){
             if(isRemember){
-                accountText.setText(user.getAccount());
-                passwordText.setText(user.getPassword());
+                accountText.setText(account);
+                passwordText.setText(pwd);
                 isRememberPwd.setChecked(true);
             }
             if(isAutoLogin)
                 Login();
         }
+        // 数据库获取用户(上一个登录的账号，非游客)，存在则填充账号密码
+//        User user = DataSupport.where("isVisitor = ? and recentLogin = ?","0","1")
+//                               .findFirst(User.class);
+//        if(user != null){
+//            UserManager.setCurrentUser(user);
+//            if(isRemember){
+//                accountText.setText(user.getAccount());
+//                passwordText.setText(user.getPassword());
+//                isRememberPwd.setChecked(true);
+//            }
+//            if(isAutoLogin)
+//                Login();
+//        }
     }
 
     void initComponents(){
@@ -117,8 +129,7 @@ public class LogInActivity extends BaseActivity {
                     visitor.save();
                 }
                 UserManager.setCurrentUser(visitor);
-                Intent intent = new Intent(LogInActivity.this, MainActivity.class);
-                startActivity(intent);
+                autoStartActivity(MainActivity.class);
             }
         });
     }
@@ -142,14 +153,11 @@ public class LogInActivity extends BaseActivity {
         }
 
         progressBar.setVisibility(View.VISIBLE);
-        OptionHandle();// 处理自动登录及记住密码
+        OptionHandle(account,password);// 处理自动登录及记住密码
 
         // 填充参数
         request.addRequestParam("account",account);
         request.addRequestParam("pwd",password);
-
-//        final ProgressBar progressBar = new ProgressBar(LogInActivity.this);
-//        progressBar.setVisibility(View.VISIBLE);
 
         // POST请求
         HttpUtil.sendPost(Consts.URL_Login, request.getJsonStr(), new okhttp3.Callback() {
@@ -179,7 +187,6 @@ public class LogInActivity extends BaseActivity {
             public void onFailure(Call call, IOException e) {
                 e.printStackTrace();
                 showResponse("Network ERROR");
-//                progressBar.setVisibility(View.GONE);
             }
         });
     }
@@ -202,10 +209,14 @@ public class LogInActivity extends BaseActivity {
         return "";
     }
 
-    void OptionHandle(){
+    void OptionHandle(String account,String pwd){
         SharedPreferences.Editor editor = getSharedPreferences("UserData",MODE_PRIVATE).edit();
+        SharedPreferencesUtil spu = new SharedPreferencesUtil(this);
         if(isRememberPwd.isChecked()){
             editor.putBoolean("isRememberPwd",true);
+            // 保存账号密码
+            spu.setParam("account",account);
+            spu.setParam("pwd",pwd);
         }else{
             editor.putBoolean("isRememberPwd",false);
         }

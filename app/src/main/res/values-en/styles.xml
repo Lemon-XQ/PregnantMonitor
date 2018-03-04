@@ -22,4 +22,13 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <!--<style name="CustomCheckBox" parent="@android:style/Widget.Material.CompoundButton.CheckBox">-->
+    <!--<item name="android:colorControlActivated">@color/colorAccent</item>-->
+    <!--<item name="android:colorControlNormal">@color/colorPrimary</item>-->
+    <!--</style>-->
+
 </resources>

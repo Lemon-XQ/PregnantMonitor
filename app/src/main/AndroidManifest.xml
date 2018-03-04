@@ -79,7 +79,6 @@
         </service>
 
         <activity android:name=".activity.SettingActivity" />
-        <activity android:name=".activity.TaskActivity" />
         <activity android:name=".activity.AnalyzeActivity" />
         <activity android:name=".activity.RegisterActivity"/>
         <activity android:name=".activity.MonitorHistoryActivity"/>

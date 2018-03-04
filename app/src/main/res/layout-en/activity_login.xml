@@ -94,7 +94,7 @@
         <!--记住密码-->
         <CheckBox
             android:id="@+id/login_remember"
-            android:layout_width="150dp"
+            android:layout_width="170dp"
             android:layout_height="20dp"
             android:layout_alignStart="@+id/password"
             android:layout_below="@+id/password"
@@ -108,11 +108,11 @@
         <!--自动登录-->
         <CheckBox
             android:id="@+id/login_auto"
-            android:layout_width="150dp"
+            android:layout_width="170dp"
             android:layout_height="20dp"
             android:layout_above="@+id/login"
             android:layout_toEndOf="@+id/login"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="30dp"
             android:backgroundTint="@color/colorPrimary"
             android:checked="false"
             android:text="@string/AutoLogIn"
@@ -130,7 +130,7 @@
             android:gravity="center"
             android:text="@string/Register"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/login"
@@ -144,7 +144,7 @@
             android:gravity="center"
             android:text="@string/Login"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/visitor"
