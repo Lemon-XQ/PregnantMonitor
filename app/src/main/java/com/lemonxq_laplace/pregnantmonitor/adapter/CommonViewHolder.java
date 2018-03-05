@@ -5,7 +5,6 @@ import android.util.SparseArray;
 import android.view.View;
 
 /**
- * Created by Laplace on 2017-11-4.
  * 万能的ViewHolder
  *
  * @author Laplace

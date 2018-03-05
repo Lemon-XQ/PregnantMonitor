@@ -62,7 +62,6 @@ public class RegisterActivity extends BaseActivity{
                 finish();
             }
         });// 设置返回键监听
-
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -75,7 +74,6 @@ public class RegisterActivity extends BaseActivity{
                 finish();
             }
         });
-
     }
 
     /**
@@ -101,15 +99,10 @@ public class RegisterActivity extends BaseActivity{
         request.addRequestParam("account",account);
         request.addRequestParam("pwd",pwd);
 
-//        progressDialog.setMessage("注册中...");
-//        progressDialog.setCancelable(false);
-//        progressDialog.show();
-
         // POST请求
         HttpUtil.sendPost(Consts.URL_Register, request.getJsonStr(), new okhttp3.Callback() {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-//                progressDialog.dismiss();
                 CommonResponse res = new CommonResponse(response.body().string());
                 String resCode = res.getResCode();
                 String resMsg = res.getResMsg();
@@ -125,11 +118,8 @@ public class RegisterActivity extends BaseActivity{
             public void onFailure(Call call, IOException e) {
                 e.printStackTrace();
                 showResponse("Network ERROR");
-//                progressDialog.dismiss();
             }
         });
-
-//        progressDialog.dismiss();
     }
 
     private void showResponse(final String msg) {

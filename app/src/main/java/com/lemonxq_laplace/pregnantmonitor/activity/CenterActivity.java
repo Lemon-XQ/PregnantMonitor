@@ -40,7 +40,6 @@ import com.lemonxq_laplace.pregnantmonitor.Util.UserManager;
 import com.lemonxq_laplace.pregnantmonitor.Util.Util;
 import com.lemonxq_laplace.pregnantmonitor.view.WheelView;
 
-import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -268,7 +267,6 @@ public class CenterActivity extends BaseActivity {
             @Override
             public void onPhotoResult(final Uri uri) {
                 if (uri != null && !TextUtils.isEmpty(uri.getPath())) {
-                    File file = new File(uri.getPath());
                     final Bitmap bitmap = PhotoUtil.decodeUriAsBitmap(CenterActivity.this,uri);
                     if(UserManager.getCurrentUser().isVisitor()){// 游客不进行服务器端头像存储
                         avatarImage.setImageBitmap(bitmap);

@@ -121,9 +121,9 @@ public class Util {
         calendar.set(cal.getYear(),cal.getMonth()-1,cal.getDay());
         return calendar.getTime();
     }
-    public static Date formDate(int year,int month,int day,int hour,int min){
+    public static Date formDate(int year,int month,int day,int hour,int min,int sec){
         Calendar calendar = Calendar.getInstance();
-        calendar.set(year,month,day,hour,min);
+        calendar.set(year,month,day,hour,min,sec);
         return calendar.getTime();
     }
 

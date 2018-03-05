@@ -1,12 +1,9 @@
 package com.lemonxq_laplace.pregnantmonitor.step.accelerometer;
 
-/**
- * Created by dylan on 16/9/27.
- */
 
-/*
-* 根据StepDetector传入的步点"数"步子
-* */
+/**
+* 根据StepDetector传入的步点计算步数
+*/
 public class StepCount implements StepCountListener {
 
     private int count = 0;
@@ -24,10 +21,9 @@ public class StepCount implements StepCountListener {
         return stepDetector;
     }
 
-    /*
-        * 连续走十步才会开始计步
-        * 连续走了9步以下,停留超过3秒,则计数清空
-        * */
+    /** 连续走十步才会开始计步
+    * 连续走了9步以下,停留超过3秒,则计数清空
+    */
     @Override
     public void countStep() {
         this.timeOfLastPeak = this.timeOfThisPeak;
@@ -46,7 +42,6 @@ public class StepCount implements StepCountListener {
         } else {//超时
             this.count = 1;//为1,不是0
         }
-
     }
 
     public void initListener(StepValuePassListener listener) {
@@ -57,7 +52,6 @@ public class StepCount implements StepCountListener {
         if (this.mStepValuePassListener != null)
             this.mStepValuePassListener.stepChanged(this.mCount);
     }
-
 
     public void setSteps(int initValue) {
         this.mCount = initValue;

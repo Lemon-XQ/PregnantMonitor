@@ -85,5 +85,8 @@
     <string name="takePhoto">拍照</string>
     <string name="chooseFromGallery">从相册选择</string>
     <string name="exit_hint">再按一次退出程序</string>
+    <string name="yes">是</string>
+    <string name="no">否</string>
+    <string name="pregnant_hint">您是否已经怀孕？</string>
 
 </resources>

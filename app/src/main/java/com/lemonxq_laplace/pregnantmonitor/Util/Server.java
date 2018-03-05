@@ -20,13 +20,12 @@ import okhttp3.Response;
  */
 
 public class Server {
-    private Server mServer;
     private Activity mActivity;
     private String resCode;
     private String resMsg;
     private HashMap<String,String> property;
     private ArrayList<HashMap<String,String>> dataList;
-    private final long sleepTime = 500L;
+    private final long sleepTime = 700L;
 
     public Server(Activity activity){
         mActivity = activity;

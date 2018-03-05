@@ -1,16 +1,11 @@
 package com.lemonxq_laplace.pregnantmonitor.step.accelerometer;
 
-/**
- * Created by dylan on 16/9/27.
- */
-
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 /*
 * 算法的主要部分,检测是否是步点
 * */
-
 public class StepDetector implements SensorEventListener {
 
     //存放三轴数据
@@ -61,7 +56,6 @@ public class StepDetector implements SensorEventListener {
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
-        //
     }
 
     public void initListener(StepCountListener listener) {

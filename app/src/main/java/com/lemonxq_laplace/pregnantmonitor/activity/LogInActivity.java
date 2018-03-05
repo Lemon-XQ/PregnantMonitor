@@ -70,19 +70,6 @@ public class LogInActivity extends BaseActivity {
             if(isAutoLogin)
                 Login();
         }
-        // 数据库获取用户(上一个登录的账号，非游客)，存在则填充账号密码
-//        User user = DataSupport.where("isVisitor = ? and recentLogin = ?","0","1")
-//                               .findFirst(User.class);
-//        if(user != null){
-//            UserManager.setCurrentUser(user);
-//            if(isRemember){
-//                accountText.setText(user.getAccount());
-//                passwordText.setText(user.getPassword());
-//                isRememberPwd.setChecked(true);
-//            }
-//            if(isAutoLogin)
-//                Login();
-//        }
     }
 
     void initComponents(){
@@ -152,7 +139,7 @@ public class LogInActivity extends BaseActivity {
             return;
         }
 
-        progressBar.setVisibility(View.VISIBLE);
+        progressBar.setVisibility(View.VISIBLE);// 显示进度条
         OptionHandle(account,password);// 处理自动登录及记住密码
 
         // 填充参数

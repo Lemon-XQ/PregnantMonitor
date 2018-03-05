@@ -24,34 +24,34 @@
         android:calendarTextColor="@color/white"
         android:datePickerMode="spinner"
         android:minDate="1970-01-01"
+        android:visibility="visible"
         />
 
-
-    <!--<com.haibin.calendarview.CalendarView-->
-        <!--android:id="@+id/birth_calendarView"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:background="@color/colorPrimary"-->
-        <!--android:layout_marginTop="20dp"-->
-        <!--app:week_line_background="@color/white"-->
-
-        <!--app:calendar_height="50dp"-->
-        <!--app:current_month_text_color="#ffffff"-->
-        <!--app:current_month_lunar_text_color="#898787"-->
-        <!--app:current_day_text_color="#d94373"-->
-        <!--app:lunar_text_size="0sp"-->
-        <!--app:min_year="1960"-->
-        <!--app:scheme_text="."-->
-        <!--app:scheme_month_text_color="@color/white"-->
-        <!--app:scheme_lunar_text_color="#898787"-->
-        <!--app:scheme_text_color="#00e7a9"-->
-        <!--app:scheme_theme_color="@color/white"-->
-        <!--app:selected_text_color="#000000"-->
-        <!--app:selected_theme_color="@color/white"-->
-        <!--app:week_background="@color/colorPrimary"-->
-        <!--app:month_view_show_mode="mode_all"-->
-        <!--app:other_month_text_color="#82ffffff"-->
-        <!--app:week_text_color="@color/white" />-->
+    <RadioGroup
+        android:id="@+id/pregnant_choice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone">
+        <RadioButton
+            android:id="@+id/pregnant_yes"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/yes"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"
+            android:checked="true"/>
+        <RadioButton
+            android:id="@+id/pregnant_no"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginBottom="30dp"
+            android:text="@string/no"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"
+            android:checked="false"/>
+    </RadioGroup>
 
     <Button
         android:id="@+id/btn_next"

@@ -26,7 +26,6 @@ import okhttp3.Response;
  * @author: Lemon-XQ
  * @date: 2018/2/13
  */
-
 public class ModifyPwdActivity extends BaseActivity {
 
     private ImageView back;

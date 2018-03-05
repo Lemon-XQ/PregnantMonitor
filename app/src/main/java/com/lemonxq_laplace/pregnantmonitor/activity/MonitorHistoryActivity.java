@@ -75,10 +75,10 @@ public class MonitorHistoryActivity extends BaseActivity {
         if(!recordList.isEmpty()){
             List<Calendar> recordDateList = new ArrayList<>();
             for(Record record : recordList){
-                Log.d("MonitorHistory","date:"+record.getDate());
-                Log.d("MonitorHistory","year:"+Util.dateToCalendar(record.getDate()).getYear());
-                Log.d("MonitorHistory","month:"+Util.dateToCalendar(record.getDate()).getMonth());
-                Log.d("MonitorHistory","day:"+Util.dateToCalendar(record.getDate()).getDay());
+                Log.d("MonitorHistory","date:"+record.getDate().getTime());
+//                Log.d("MonitorHistory","year:"+Util.dateToCalendar(record.getDate()).getYear());
+//                Log.d("MonitorHistory","month:"+Util.dateToCalendar(record.getDate()).getMonth());
+//                Log.d("MonitorHistory","day:"+Util.dateToCalendar(record.getDate()).getDay());
                 recordDateList.add(Util.dateToCalendar(record.getDate()));
             }
             calendarView.setSchemeDate(recordDateList);
@@ -101,8 +101,7 @@ public class MonitorHistoryActivity extends BaseActivity {
         calendarView.setOnDateSelectedListener(new CalendarView.OnDateSelectedListener() {
             @Override
             public void onDateSelected(Calendar calendar, boolean isClick) {
-//                Util.makeToast(MonitorHistoryActivity.this,calendar.toString());
-
+//                Util.makeToast(MonitorHistoryActivity.this,String.valueOf(Util.formDate(calendar)));
                 // 找当前日期当前用户的记录
                 Record cur_record = Database.findRecord(String.valueOf(Util.formDate(calendar).getTime()),
                                                         UserManager.getCurrentUser());
@@ -145,15 +144,5 @@ public class MonitorHistoryActivity extends BaseActivity {
                 finish();
             }
         });
-    }
-
-    private Calendar getSchemeCalendar(int year, int month, int day, int color, String text) {
-        Calendar calendar = new Calendar();
-        calendar.setYear(year);
-        calendar.setMonth(month);
-        calendar.setDay(day);
-        calendar.setSchemeColor(color);//如果单独标记颜色、则会使用这个颜色
-        calendar.setScheme(text);
-        return calendar;
     }
 }

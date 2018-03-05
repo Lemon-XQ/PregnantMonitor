@@ -3,7 +3,6 @@ package com.lemonxq_laplace.pregnantmonitor.step.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-
 /**
  * SharedPreferences的一个工具类，调用setParam就能保存String, Integer, Boolean, Float,
  * Long类型的参数 同样调用getParam就能获取到保存在手机里面的数据
@@ -16,18 +15,6 @@ public class SharedPreferencesUtils {
 	 * 保存在手机里面的文件名
 	 */
 	private String FILE_NAME = "share_date";
-
-	// public static SharedPreferencesUtils getInstens(String fileName) {
-	// FILE_NAME = fileName;
-	// if (sharedPreferencesUtils == null) {
-	// synchronized (SharedPreferencesUtils.class) {
-	// if (sharedPreferencesUtils == null) {
-	// sharedPreferencesUtils = new SharedPreferencesUtils();
-	// }
-	// }
-	// }
-	// return sharedPreferencesUtils;
-	// }
 
 	public SharedPreferencesUtils(String FILE_NAME) {
 		this.FILE_NAME = FILE_NAME;

@@ -32,7 +32,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-
 public class StepService extends Service implements SensorEventListener {
     private String TAG = "StepService";
     /**
@@ -236,13 +235,12 @@ public class StepService extends Service implements SensorEventListener {
         }
     }
 
-
     /**
      * 监听时间变化提醒用户锻炼
      */
     private void isCall() {
         String time = this.getSharedPreferences("share_date", Context.MODE_MULTI_PROCESS).getString("achieveTime", "21:00");
-        String plan = this.getSharedPreferences("share_date", Context.MODE_MULTI_PROCESS).getString("planWalk_QTY", "7000");
+        String plan = this.getSharedPreferences("share_date", Context.MODE_MULTI_PROCESS).getString("planSteps", "3000");
         String remind = this.getSharedPreferences("share_date", Context.MODE_MULTI_PROCESS).getString("remind", "1");
         Logger.d("time=" + time + "\n" +
                 "new SimpleDateFormat(\"HH: mm\").format(new Date()))=" + new SimpleDateFormat("HH:mm").format(new Date()));
@@ -317,7 +315,7 @@ public class StepService extends Service implements SensorEventListener {
         Intent hangIntent = new Intent(this, FStepActivity.class);
         PendingIntent hangPendingIntent = PendingIntent.getActivity(this, 0, hangIntent, PendingIntent.FLAG_CANCEL_CURRENT);
 
-        String plan = this.getSharedPreferences("share_date", Context.MODE_MULTI_PROCESS).getString("planWalk_QTY", "7000");
+        String plan = this.getSharedPreferences("share_date", Context.MODE_MULTI_PROCESS).getString("planSteps", "3000");
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
         mBuilder.setContentTitle("今日步数" + CURRENT_STEP + " 步")
                 .setSmallIcon(R.drawable.ic_launcher)

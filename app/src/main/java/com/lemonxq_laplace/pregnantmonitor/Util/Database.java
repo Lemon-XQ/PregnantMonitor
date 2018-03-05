@@ -17,7 +17,6 @@ import java.util.List;
  */
 
 public class Database {
-    private User user;
 
     /**
      * 通过用户名查找用户
@@ -34,10 +33,21 @@ public class Database {
      * @param name
      * @return
      */
-    public static Date findDateByUsername(String name){
+    public static Date findPregnantDateByUsername(String name){
         return DataSupport.select("pregnantDate")
                           .where("account=?",name)
                           .findFirst(User.class).getPregnantDate();
+    }
+
+    /**
+     * 通过用户名查找用户生日
+     * @param name
+     * @return
+     */
+    public static Date findBirthDateByUsername(String name){
+        return DataSupport.select("birthDate")
+                .where("account=?",name)
+                .findFirst(User.class).getPregnantDate();
     }
 
     /**
@@ -61,23 +71,23 @@ public class Database {
         Date date = new Date(Long.parseLong(dateStr));
         calendar.setTime(date);
 
-        // 找当天0点及23:59分时的date
+        // 找当天0点及23:59分时的date，beginDate-1000是因为不能精确到毫秒，有一定误差
         String beginDate = String.valueOf(Util.formDate(calendar.get(Calendar.YEAR),
                                          calendar.get(Calendar.MONTH),
-                                         calendar.get(Calendar.DATE),0,0).getTime());
+                                         calendar.get(Calendar.DATE),0,0,0).getTime()-1000);
         String endDate = String.valueOf(Util.formDate(calendar.get(Calendar.YEAR),
                                         calendar.get(Calendar.MONTH),
                                         calendar.get(Calendar.DATE),
-                                       23,59).getTime());
+                                       23,59,59).getTime());
         String beginDateStr = Util.formDate(calendar.get(Calendar.YEAR),
                 calendar.get(Calendar.MONTH),
-                calendar.get(Calendar.DATE)).toString();
+                calendar.get(Calendar.DATE),0,0,0).toString();
         String endDateStr = Util.formDate(calendar.get(Calendar.YEAR),
                 calendar.get(Calendar.MONTH),
                 calendar.get(Calendar.DATE),
-                23,59).toString();
-        Log.d("DATABASE",dateStr+"-"+beginDateStr+"-"+endDateStr);
-        return DataSupport.where("date>? and date<? and user_id=?",
+                23,59,59).toString();
+        Log.d("DATABASE",date.getTime()+"-"+beginDate+"-"+endDate);
+        return DataSupport.where("date>=? and date<=? and user_id=?",
                                     beginDate,endDate,String.valueOf(user.getId()))
                           .findFirst(Record.class);
     }

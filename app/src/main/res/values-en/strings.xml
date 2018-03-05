@@ -87,5 +87,8 @@ It is suggested that to have a further examination in hospital to confirm.</stri
     <string name="takePhoto">Take Photo</string>
     <string name="chooseFromGallery">Choose from albums</string>
     <string name="exit_hint">Press again to exit the program</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="pregnant_hint">Are you pregnant?</string>
 
 </resources>

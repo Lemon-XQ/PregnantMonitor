@@ -21,18 +21,12 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-
-/**
- * Created by yuandl on 2016-10-18.
- */
-
 public class SetPlanActivity extends BaseActivity implements View.OnClickListener {
 
     private SharedPreferencesUtils sp;
 
     private LinearLayout layout_titlebar;
     private ImageView iv_left;
-    private ImageView iv_right;
     private EditText tv_step_number;
     private Switch cb_remind;
     private TextView tv_remind_time;
@@ -41,35 +35,34 @@ public class SetPlanActivity extends BaseActivity implements View.OnClickListene
     private String remind;
     private String achieveTime;
 
-    private void assignViews() {
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_exercise_plan);
+        initView();
+        initData();
+        addListener();
+    }
+    
+    private void initView() {
         layout_titlebar = (LinearLayout) findViewById(R.id.layout_titlebar);
         iv_left = (ImageView) findViewById(R.id.iv_left);
-//        iv_right = (ImageView) findViewById(R.id.iv_right);
         tv_step_number = (EditText) findViewById(R.id.tv_step_number);
         cb_remind = (Switch) findViewById(R.id.cb_remind);
         tv_remind_time = (TextView) findViewById(R.id.tv_remind_time);
         btn_save = (Button) findViewById(R.id.btn_save);
     }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_exercise_plan);
-        assignViews();
-        initData();
-        addListener();
-    }
-
+    
     public void initData() {//获取锻炼计划
         sp = new SharedPreferencesUtils(this);
-        String planWalk_QTY = (String) sp.getParam("planWalk_QTY", "7000");
+        String planSteps = (String) sp.getParam("planSteps", "3000");
         String remind = (String) sp.getParam("remind", "1");
         String achieveTime = (String) sp.getParam("achieveTime", "20:00");
-        if (!planWalk_QTY.isEmpty()) {
-            if ("0".equals(planWalk_QTY)) {
-                tv_step_number.setText("7000");
+        if (!planSteps.isEmpty()) {
+            if ("0".equals(planSteps)) {
+                tv_step_number.setText("3000");
             } else {
-                tv_step_number.setText(planWalk_QTY);
+                tv_step_number.setText(planSteps);
             }
         }
         if (!remind.isEmpty()) {
@@ -83,13 +76,10 @@ public class SetPlanActivity extends BaseActivity implements View.OnClickListene
         if (!achieveTime.isEmpty()) {
             tv_remind_time.setText(achieveTime);
         }
-
     }
-
 
     public void addListener() {
         iv_left.setOnClickListener(this);
-//        iv_right.setOnClickListener(this);
         btn_save.setOnClickListener(this);
         tv_remind_time.setOnClickListener(this);
     }
@@ -112,7 +102,6 @@ public class SetPlanActivity extends BaseActivity implements View.OnClickListene
 
     private void save() {
         walk_qty = tv_step_number.getText().toString().trim();
-//        remind = "";
         if (cb_remind.isChecked()) {
             remind = "1";
         } else {
@@ -120,9 +109,9 @@ public class SetPlanActivity extends BaseActivity implements View.OnClickListene
         }
         achieveTime = tv_remind_time.getText().toString().trim();
         if (walk_qty.isEmpty() || "0".equals(walk_qty)) {
-            sp.setParam("planWalk_QTY", "7000");
+            sp.setParam("planSteps", "3000");
         } else {
-            sp.setParam("planWalk_QTY", walk_qty);
+            sp.setParam("planSteps", walk_qty);
         }
         sp.setParam("remind", remind);
 
@@ -132,25 +121,14 @@ public class SetPlanActivity extends BaseActivity implements View.OnClickListene
         } else {
             sp.setParam("achieveTime", achieveTime);
         }
-                finish();
+        finish();
     }
 
     private void showTimeDialog1() {
         final Calendar calendar = Calendar.getInstance(Locale.CHINA);
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
         int minute = calendar.get(Calendar.MINUTE);
-//        String time = tv_remind_time.getText().toString().trim();
-        final DateFormat df = new SimpleDateFormat("HH:mm");
-//        Date date = null;
-//        try {
-//            date = df.parse(time);
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//        }
-//
-//        if (null != date) {
-//            calendar.setTime(date);
-//        }
+        final DateFormat df = new SimpleDateFormat("HH:mm",Locale.CHINA);
         new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {

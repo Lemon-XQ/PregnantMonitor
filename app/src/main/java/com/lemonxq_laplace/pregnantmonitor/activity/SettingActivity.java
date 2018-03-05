@@ -28,8 +28,6 @@ public class SettingActivity extends BaseActivity {
                 finish();
             }
         });
-
     }
-
 
 }

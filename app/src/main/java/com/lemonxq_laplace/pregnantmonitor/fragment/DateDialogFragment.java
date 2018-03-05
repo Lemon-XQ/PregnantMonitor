@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +35,7 @@ public class DateDialogFragment extends DialogFragment{
     public Date pregnantDate;
     private Button nextBtn;
     private DatePicker datePicker;
+    private RadioGroup pregnantChoice;
     private TextView title;
     private View mView;
     private static int COUNTER = 0;
@@ -57,6 +59,7 @@ public class DateDialogFragment extends DialogFragment{
         title = mView.findViewById(R.id.title);
         nextBtn = mView.findViewById(R.id.btn_next);
         datePicker = mView.findViewById(R.id.datePicker);
+        pregnantChoice = mView.findViewById(R.id.pregnant_choice);
         Date date = new Date();
         datePicker.setMaxDate(date.getTime());
         title.setText(getResources().getString(R.string.birthDate_hint));
@@ -72,15 +75,30 @@ public class DateDialogFragment extends DialogFragment{
                                   datePicker.getMonth(),
                                   datePicker.getDayOfMonth());
                     birthDate = birthCalendar.getTime();
-//                    spu.setParam("birthDate",birthDate); // 保存生日
 
-                    title.setText(getResources().getString(R.string.pregnantDate_hint));
-                    nextBtn.setText(getResources().getString(R.string.finish));
-                    // 设置怀孕日期初始值为今天
-                    Date date = new Date();
-                    datePicker.init(Util.getYear(date),Util.getMonth(date),Util.getDay(date),null);
+                    // 下一步记录用户是否已怀孕
+                    title.setText(getResources().getString(R.string.pregnant_hint));
+                    nextBtn.setText(getResources().getString(R.string.next));
+                    datePicker.setVisibility(View.GONE);
+                    pregnantChoice.setVisibility(View.VISIBLE);
                 }
-                else{// 完成
+                else if(COUNTER == 1){
+                    int checkId = pregnantChoice.getCheckedRadioButtonId();
+                    if(checkId == R.id.pregnant_yes){// 已怀孕的进入下一步，选择怀孕日
+                        COUNTER ++;
+                        datePicker.setVisibility(View.VISIBLE);
+                        pregnantChoice.setVisibility(View.GONE);
+                        title.setText(getResources().getString(R.string.pregnantDate_hint));
+                        nextBtn.setText(getResources().getString(R.string.finish));
+                        // 设置怀孕日期初始值为今天
+                        Date date = new Date();
+                        datePicker.init(Util.getYear(date),Util.getMonth(date),Util.getDay(date),null);
+                    }else if(checkId == R.id.pregnant_no){// 没有怀孕的直接关闭对话框
+                        COUNTER = 0;
+                        saveDate(birthDate,null);
+                        dismiss();
+                    }
+                }else{// 完成
                     COUNTER = 0;
                     // 记录怀孕日期
                     Calendar pregnantCalendar = Calendar.getInstance();
@@ -89,7 +107,6 @@ public class DateDialogFragment extends DialogFragment{
                                         datePicker.getDayOfMonth());
                     pregnantDate = pregnantCalendar.getTime();
                     saveDate(birthDate,pregnantDate);
-//                    spu.setParam("pregnantDate",pregnantDate); // 保存怀孕日
                     dismiss();
                 }
             }
@@ -105,18 +122,17 @@ public class DateDialogFragment extends DialogFragment{
     }
 
     private void saveDate(Date birthDate,Date pregnantDate){
-        // 本地保存
-//        spu.setParam("birthDate",birthDate);
-//        spu.setParam("pregnantDate",pregnantDate); // 保存怀孕日
         // 保存至本地数据库中
         User user = UserManager.getCurrentUser();
         user.setBirthDate(birthDate);
-        user.setPregnantDate(pregnantDate);
+        if(pregnantDate != null)
+            user.setPregnantDate(pregnantDate);
         user.save();
         // 保存至服务器
         if(!user.isVisitor()){
             server.setBirthDate(birthDate);
-            server.setPregnantDate(pregnantDate);
+            if(pregnantDate != null)
+                server.setPregnantDate(pregnantDate);
         }
     }
 

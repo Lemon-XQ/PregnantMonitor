@@ -116,10 +116,6 @@ public class PhotoUtil {
         }
     }
 
-    /**
-     * @param intent
-     * @return
-     */
     protected boolean isIntentAvailable(Activity activity, Intent intent) {
         PackageManager packageManager = activity.getPackageManager();
         List<ResolveInfo> list = packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
@@ -289,10 +285,6 @@ public class PhotoUtil {
 
     /**
      * [回调监听类]
-     *
-     * @author huxinwu
-     * @version 1.0
-     * @date 2015-1-7
      **/
     public interface OnPhotoResultListener {
         void onPhotoResult(Uri uri);

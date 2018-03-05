@@ -112,7 +112,6 @@ public class AnalyzeFragment extends Fragment {
             heightBtn.setTextColor(green);
             heightBtn.setText(String.valueOf(height*100));
         }
-
     }
 
     private void initData(){
@@ -250,7 +249,6 @@ public class AnalyzeFragment extends Fragment {
     private void updateTime(){
         long time = System.currentTimeMillis();
         Date date = new Date(time);
-//        SimpleDateFormat format = new SimpleDateFormat("yyyy年MM月dd日 HH时mm分 E", Locale.CHINA);
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm E", Locale.CHINA);
         timeText.setText(format.format(date));
     }

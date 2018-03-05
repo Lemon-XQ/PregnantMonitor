@@ -25,23 +25,14 @@ import java.util.List;
  */
 
 public class HistoryActivity extends BaseActivity {
-//    private LinearLayout layout_titlebar;
     private ImageView iv_left;
-//    private ImageView iv_right;
     private ListView lv;
-
-    private void assignViews() {
-//        layout_titlebar = (LinearLayout) findViewById(R.id.layout_titlebar);
-        iv_left = (ImageView) findViewById(R.id.iv_left);
-//        iv_right = (ImageView) findViewById(R.id.iv_right);
-        lv = (ListView) findViewById(R.id.lv);
-    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
-        assignViews();
+        initView();
         iv_left.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,10 +42,15 @@ public class HistoryActivity extends BaseActivity {
         initData();
     }
 
+    private void initView() {
+        iv_left = (ImageView) findViewById(R.id.iv_left);
+        lv = (ListView) findViewById(R.id.lv);
+    }
+
     private void initData() {
         setEmptyView(lv);
-        if(DbUtils.getLiteOrm()==null){
-            DbUtils.createDb(this, "jingzhi");
+        if(DbUtils.getLiteOrm() == null){
+            DbUtils.createDb(this, "FootstepData");
         }
         List<StepData> stepDatas =DbUtils.getQueryAll(StepData.class);
 

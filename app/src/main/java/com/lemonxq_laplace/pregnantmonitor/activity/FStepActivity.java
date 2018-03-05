@@ -17,7 +17,7 @@ import com.lemonxq_laplace.pregnantmonitor.step.utils.SharedPreferencesUtils;
 import com.lemonxq_laplace.pregnantmonitor.view.StepArcView;
 
 /**
- * 记步主页
+ * 计步主页
  */
 public class FStepActivity extends BaseActivity implements View.OnClickListener {
     private TextView tv_data;
@@ -27,7 +27,16 @@ public class FStepActivity extends BaseActivity implements View.OnClickListener 
     private SharedPreferencesUtils sp;
     private ImageView back;
 
-    private void assignViews() {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_footcounter);
+        initView();
+        initData();
+        setListeners();
+    }
+    
+    private void initView() {
         tv_data = (TextView) findViewById(R.id.tv_data);
         cc = (StepArcView) findViewById(R.id.cc);
         tv_set = (TextView) findViewById(R.id.tv_set);
@@ -35,17 +44,7 @@ public class FStepActivity extends BaseActivity implements View.OnClickListener 
         back = findViewById(R.id.back);
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_footcounter);
-        assignViews();
-        initData();
-        addListener();
-    }
-
-
-    private void addListener() {
+    private void setListeners() {
         tv_set.setOnClickListener(this);
         tv_data.setOnClickListener(this);
         back.setOnClickListener(new View.OnClickListener() {
@@ -59,20 +58,19 @@ public class FStepActivity extends BaseActivity implements View.OnClickListener 
     private void initData() {
         sp = new SharedPreferencesUtils(this);
         //获取用户设置的计划锻炼步数，没有设置过的话默认3000
-        String planWalk_QTY = (String) sp.getParam("planWalk_QTY", "3000");
+        String planSteps = (String) sp.getParam("planSteps", "3000");
         //设置当前步数为0
-        cc.setCurrentCount(Integer.parseInt(planWalk_QTY), 0);
+        cc.setCurrentCount(Integer.parseInt(planSteps), 0);
         tv_isSupport.setText(getResources().getString(R.string.stepHint));
-        setupService();
+        startService();
     }
-
 
     private boolean isBind = false;
 
     /**
      * 开启计步服务
      */
-    private void setupService() {
+    private void startService() {
         Intent intent = new Intent(this, StepService.class);
         isBind = bindService(intent, conn, Context.BIND_AUTO_CREATE);
         startService(intent);
@@ -85,7 +83,7 @@ public class FStepActivity extends BaseActivity implements View.OnClickListener 
      */
     ServiceConnection conn = new ServiceConnection() {
         /**
-         * 在建立起于Service的连接时会调用该方法，目前Android是通过IBind机制实现与服务的连接。
+         * 在建立起与Service的连接时调用，目前Android是通过IBind机制实现与服务的连接。
          * @param name 实际所连接到的Service组件名称
          * @param service 服务的通信信道的IBind，可以通过Service访问对应服务
          */
@@ -93,22 +91,21 @@ public class FStepActivity extends BaseActivity implements View.OnClickListener 
         public void onServiceConnected(ComponentName name, IBinder service) {
             StepService stepService = ((StepService.StepBinder) service).getService();
             //设置初始化数据
-            String planWalk_QTY = (String) sp.getParam("planWalk_QTY", "3000");
-            cc.setCurrentCount(Integer.parseInt(planWalk_QTY), stepService.getStepCount());
+            String planSteps = (String) sp.getParam("planSteps", "3000");
+            cc.setCurrentCount(Integer.parseInt(planSteps), stepService.getStepCount());
 
             //设置步数监听回调
             stepService.registerCallback(new UpdateUiCallBack() {
                 @Override
                 public void updateUi(int stepCount) {
-                    String planWalk_QTY = (String) sp.getParam("planWalk_QTY", "3000");
-                    cc.setCurrentCount(Integer.parseInt(planWalk_QTY), stepCount);
+                    String planSteps = (String) sp.getParam("planSteps", "3000");
+                    cc.setCurrentCount(Integer.parseInt(planSteps), stepCount);
                 }
             });
         }
 
         /**
-         * 当与Service之间的连接丢失的时候会调用该方法，
-         * 这种情况经常发生在Service所在的进程崩溃或者被Kill的时候调用，
+         * 当与Service之间的连接丢失时调用，常发生在Service所在的进程崩溃或者被Kill的时候，
          * 此方法不会移除与Service的连接，当服务重新启动的时候仍然会调用 onServiceConnected()。
          * @param name 丢失连接的组件名称
          */
@@ -117,7 +114,6 @@ public class FStepActivity extends BaseActivity implements View.OnClickListener 
 
         }
     };
-
 
     @Override
     public void onClick(View v) {

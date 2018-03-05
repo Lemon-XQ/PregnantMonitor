@@ -50,7 +50,6 @@ import com.lemonxq_laplace.pregnantmonitor.fragment.DateDialogFragment;
 import com.lemonxq_laplace.pregnantmonitor.fragment.MonitorFragment;
 import com.lemonxq_laplace.pregnantmonitor.fragment.ToolFragment;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -67,11 +66,9 @@ import okhttp3.Response;
  * @time 2017/11/5
  * @updateAuthor
  */
+public class MainActivity extends BaseActivity implements DialogInterface.OnDismissListener{
 
-public class MainActivity extends BaseActivity  implements DialogInterface.OnDismissListener{
-
-    List<Fragment> mFragments = new ArrayList<Fragment>();
-
+    private List<Fragment> mFragments = new ArrayList<Fragment>();
     private ViewPager mMViewPager;
     private LinearLayout mMLinearLayout;
     private DrawerLayout mDrawerLayout;
@@ -84,9 +81,8 @@ public class MainActivity extends BaseActivity  implements DialogInterface.OnDis
     final DateDialogFragment dateDialog = new DateDialogFragment();
     private PhotoUtil photoUtil = new PhotoUtil();
     private Server server = new Server(this);
-
-    String[] bottomTitleArr = new String[2];
-    int[] bottomPic = {R.drawable.icon_message,R.drawable.icon_selfinfo};
+    private String[] bottomTitleArr = new String[2];
+    private int[] bottomPic = {R.drawable.icon_message,R.drawable.icon_selfinfo};
     private ACache aCache;
 
     @SuppressLint("HandlerLeak")
@@ -180,26 +176,25 @@ public class MainActivity extends BaseActivity  implements DialogInterface.OnDis
             }
         });
 
-
         // 左拉菜单栏设置
         mNavView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 //处理任意菜单项点击
                 switch (item.getItemId()) {
-                    case R.id.nav_center:
+                    case R.id.nav_center:// 个人中心
                         autoStartActivity(CenterActivity.class);
                         break;
 
-                    case R.id.nav_task:
+                    case R.id.nav_task:// 每日目标
                         autoStartActivity(SetPlanActivity.class);
                         break;
 
-                    case R.id.nav_setting:
+                    case R.id.nav_setting:// 设置
                         autoStartActivity(SettingActivity.class);
                         break;
 
-                    case R.id.nav_info:
+                    case R.id.nav_info:// 关于
                         autoStartActivity(AboutActivity.class);
                         break;
 
@@ -211,7 +206,7 @@ public class MainActivity extends BaseActivity  implements DialogInterface.OnDis
                         UserManager.clear();
                         break;
 
-                    case R.id.nav_exit:
+                    case R.id.nav_exit:// 退出
                         ActivityController.finishAll();
                         break;
 
@@ -236,7 +231,6 @@ public class MainActivity extends BaseActivity  implements DialogInterface.OnDis
             @Override
             public void onPhotoResult(final Uri uri) {
                 if (uri != null && !TextUtils.isEmpty(uri.getPath())) {
-                    File file = new File(uri.getPath());
                     final Bitmap bitmap = PhotoUtil.decodeUriAsBitmap(MainActivity.this,uri);
                     // 上传头像
                     if(UserManager.getCurrentUser().isVisitor()){// 游客不进行服务器端头像存储
@@ -413,28 +407,25 @@ public class MainActivity extends BaseActivity  implements DialogInterface.OnDis
     private void showDateDialog(){
         User user = UserManager.getCurrentUser();
         if(user.isVisitor()){
-            if(Database.findDateByUsername(UserManager.getCurrentUser().getAccount()) == null){
+            if(Database.findBirthDateByUsername(UserManager.getCurrentUser().getAccount()) == null){
                 // 本地无日期信息，则弹日期填写框
                 dateDialog.setCancelable(false);
                 dateDialog.show(getFragmentManager(),"date");
             }
         }else{
-            if(Database.findDateByUsername(UserManager.getCurrentUser().getAccount()) == null){
-                Date birthDate = new Date();
-                Date pregnantDate = new Date();
-                if((birthDate = server.getBirthDate()) != null &&
-                        (pregnantDate = server.getPregnantDate()) != null){
+            if(Database.findBirthDateByUsername(UserManager.getCurrentUser().getAccount()) == null){
+                Date birthDate, pregnantDate;
+                if((birthDate = server.getBirthDate()) != null ){
                     // 同步服务端信息至本地数据库
                     user.setBirthDate(birthDate);
-                    user.setPregnantDate(pregnantDate);
+                    if((pregnantDate = server.getPregnantDate())!=null)
+                        user.setPregnantDate(pregnantDate);
                     user.save();
                 }else {
                     // 本地和服务端均无日期信息，则弹日期填写框
                     dateDialog.setCancelable(false);
                     dateDialog.show(getFragmentManager(),"date");
                 }
-//                Util.makeToast(this,"birthDate:"+birthDate);
-//                Util.makeToast(this,"pregnantDate:"+pregnantDate);
             }
         }
     }
@@ -475,20 +466,17 @@ public class MainActivity extends BaseActivity  implements DialogInterface.OnDis
 
     @Override
     public void onDismiss(DialogInterface dialog) {
-//        // 保存生日及怀孕日期至数据库中
-//        User user = UserManager.getCurrentUser();
-//        user.setBirthDate(dateDialog.birthDate);
-//        user.setPregnantDate(dateDialog.pregnantDate);
-//        user.save();
-
         finishInitDate(dateDialog.pregnantDate);
     }
+
     void finishInitDate(Date pregnantDate){
-        // 更新UI界面
-        long days = Util.getPregnantDays(pregnantDate);
-        long months = Util.getPregnantMonths(pregnantDate);
-        long weeks = Util.getPregnantWeeks(pregnantDate);
-        monitorFragment.updateShow(days,months,weeks);
+        if(pregnantDate != null){
+            // 更新UI界面
+            long days = Util.getPregnantDays(pregnantDate);
+            long months = Util.getPregnantMonths(pregnantDate);
+            long weeks = Util.getPregnantWeeks(pregnantDate);
+            monitorFragment.updateShow(days,months,weeks);
+        }
     }
 
     class MyFragmentAdapter extends FragmentPagerAdapter {

@@ -5,10 +5,6 @@ import com.litesuits.orm.db.annotation.PrimaryKey;
 import com.litesuits.orm.db.annotation.Table;
 import com.litesuits.orm.db.enums.AssignType;
 
-/**
- * Created by dylan on 2016/1/30.
- */
-
 @Table("step")
 public class StepData {
 

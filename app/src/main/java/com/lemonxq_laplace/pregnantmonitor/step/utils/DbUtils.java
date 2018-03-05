@@ -9,9 +9,6 @@ import com.litesuits.orm.db.model.ConflictAlgorithm;
 
 import java.util.List;
 
-/**
- * Created by dylan on 2016/1/31.
- */
 public class DbUtils {
 
     public static String DB_NAME;
@@ -24,7 +21,6 @@ public class DbUtils {
             liteOrm.setDebugged(true);
         }
     }
-
 
     public static LiteOrm getLiteOrm() {
         return liteOrm;
@@ -85,16 +81,6 @@ public class DbUtils {
     }
 
     /**
-     * 删除所有 某字段等于 Vlaue的值
-     * @param cla
-     * @param field
-     * @param value
-     */
-//        public static <T> void deleteWhere(Class<T> cla,String field,String [] value){
-//            liteOrm.delete(cla, WhereBuilder.create().where(field + "=?", value));
-//        }
-
-    /**
      * 删除所有
      *
      * @param cla
@@ -122,7 +108,6 @@ public class DbUtils {
     public static <T> void update(T t) {
         liteOrm.update(t, ConflictAlgorithm.Replace);
     }
-
 
     public static <T> void updateALL(List<T> list) {
         liteOrm.update(list);
