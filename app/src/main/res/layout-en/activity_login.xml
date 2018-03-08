@@ -20,7 +20,6 @@
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_centerInParent="true"
         android:padding="10dp">
 
         <!--Logo-->
@@ -40,8 +39,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/logo"
-            android:layout_marginTop="10dp"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
             android:gravity="center"
             android:text="@string/app_name"
             android:textColor="@color/white"
@@ -57,8 +56,7 @@
             android:gravity="center"
             android:text="@string/slogan"
             android:textColor="@color/white"
-            android:textSize="21sp"
-            />
+            android:textSize="21sp" />
 
         <!--账号-->
         <EditText
@@ -66,11 +64,11 @@
             android:layout_width="400dp"
             android:layout_height="60dp"
             android:layout_alignParentStart="true"
-            android:layout_centerHorizontal="true"
             android:layout_below="@+id/slogan"
-            android:layout_marginTop="70dp"
-            android:layout_marginStart="10dp"
+            android:layout_centerHorizontal="true"
             android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="70dp"
             android:drawableStart="@android:drawable/ic_menu_myplaces"
             android:drawableTint="@color/colorPrimary"
             android:hint="@string/AccountHint"
@@ -83,8 +81,8 @@
             android:layout_height="60dp"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/account"
-            android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
             android:drawableStart="@android:drawable/ic_lock_idle_lock"
             android:drawableTint="@color/colorPrimary"
             android:ems="10"
@@ -101,8 +99,8 @@
             android:layout_marginTop="10dp"
             android:backgroundTint="@color/colorPrimary"
             android:checked="false"
-            android:textColor="@color/black"
             android:text="@string/RememberPwd"
+            android:textColor="@color/black"
             android:textSize="15sp" />
 
         <!--自动登录-->
@@ -111,8 +109,8 @@
             android:layout_width="170dp"
             android:layout_height="20dp"
             android:layout_above="@+id/login"
-            android:layout_toEndOf="@+id/login"
             android:layout_marginStart="30dp"
+            android:layout_toEndOf="@+id/login"
             android:backgroundTint="@color/colorPrimary"
             android:checked="false"
             android:text="@string/AutoLogIn"
@@ -150,21 +148,21 @@
             android:id="@+id/visitor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/login"
-            android:layout_marginTop="20dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
             android:gravity="center"
-            android:textColor="@color/green1"
             android:text="@string/VisitorHint"
-            android:textSize="15sp"/>
+            android:textColor="@color/green1"
+            android:textSize="15sp" />
 
         <!--<TextView-->
-            <!--android:id="@+id/login_text_change_pwd"-->
-            <!--android:layout_width="60dp"-->
-            <!--android:layout_height="20dp"-->
-            <!--android:layout_alignEnd="@+id/password"-->
-            <!--android:layout_below="@+id/password"-->
-            <!--android:text="@string/ModifyPwd"-->
-            <!--android:textSize="15sp" />-->
+        <!--android:id="@+id/login_text_change_pwd"-->
+        <!--android:layout_width="60dp"-->
+        <!--android:layout_height="20dp"-->
+        <!--android:layout_alignEnd="@+id/password"-->
+        <!--android:layout_below="@+id/password"-->
+        <!--android:text="@string/ModifyPwd"-->
+        <!--android:textSize="15sp" />-->
 
     </RelativeLayout>
 
