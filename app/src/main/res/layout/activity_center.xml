@@ -354,14 +354,16 @@
 
                     <Button
                         android:id="@+id/center_exit_btn"
+                        style="@android:style/Widget.Button.Toggle"
                         android:layout_width="0dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
                         android:background="@color/transparent"
+                        android:elevation="0dp"
                         android:gravity="center_vertical"
                         android:text="@string/Logout"
-                        android:textColor="@color/green"
-                        android:textSize="18sp"/>
+                        android:textColor="@color/red"
+                        android:textSize="18sp" />
                 </LinearLayout>
 
                 <!--分割线-->

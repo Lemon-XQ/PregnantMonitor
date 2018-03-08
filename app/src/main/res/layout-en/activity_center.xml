@@ -293,7 +293,7 @@
                     android:background="@color/transparent"
                     android:gravity="center_vertical"
                     android:text="@string/Logout"
-                    android:textColor="@color/green"
+                    android:textColor="@color/red"
                     android:textSize="18sp"/>
             </LinearLayout>
 
