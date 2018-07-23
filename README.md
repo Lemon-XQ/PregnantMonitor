@@ -9,7 +9,7 @@
 
 ### 本地部署  
 
-Androdi Studio工程文件，打包下载后用[Android Studio](https://developer.android.com/studio/index.html)打开解压后的文件夹，等待AS加载升级套件完毕即可。
+Android Studio工程文件，打包下载后用[Android Studio](https://developer.android.com/studio/index.html)打开解压后的文件夹，等待AS加载升级套件完毕即可。
 
 ### 运行  
 
