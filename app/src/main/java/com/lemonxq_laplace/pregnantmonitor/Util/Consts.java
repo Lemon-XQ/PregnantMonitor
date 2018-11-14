@@ -6,8 +6,7 @@ package com.lemonxq_laplace.pregnantmonitor.Util;
  */
 
 public class Consts {
-    private static String URL = "http://39.108.183.228:10240/PregnantMonitor/";
-    //    public static String URL = "http://172.20.7.94:8080/PregnantMonitor/";
+    private static String URL = "http://服务器IP:端口/PregnantMonitor/";
     public static String URL_Register = URL + "RegisterServlet";
     public static String URL_Login = URL + "LoginServlet";
     public static String URL_Analyse = URL + "AnalyseServlet";
